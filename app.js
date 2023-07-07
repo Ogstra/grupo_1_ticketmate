@@ -22,7 +22,7 @@ app.get('/register', (req, res) => {
 })
 
 app.get('/detail', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/detail.html'))
+    res.sendFile(path.join(__dirname, '/views/detail123.html'))
 })
 
 
