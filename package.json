@@ -1,0 +1,16 @@
+{
+  "name": "grupo_1_entradas",
+  "version": "1.0.0",
+  "description": "El objetivo principal es crear una plataforma para facilitar la compra, venta y reventa de entradas a eventos varios, siempre garantizando la autenticidad de las mismas.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "normalize": "^0.3.1"
+  }
+}
