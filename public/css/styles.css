@@ -113,7 +113,6 @@ nav {
 .scroller-content{
     display: flex;
     overflow: hidden;
-    flex-direction: column;
     padding: 0.5rem var(--spacer);
 }
 
@@ -124,20 +123,15 @@ nav {
     text-overflow: ellipsis;
 }
 
-.content-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.content-header-left{
+.content-left{
     display: flex;
     align-items: flex-end;
 }
 
-.content-header-right{
+.content-right{
     display: flex;
     margin: 0 auto;
+    align-items: flex-end;
 }
 
 
@@ -145,14 +139,21 @@ nav {
     display: inline;
     margin: 0;
     font-size: 32px;
+    font-weight: bold;
 }
 
-.date-month
+.date-month{
+    font-size: 12px;
+}
 
-.event-name{
+.event-name {
     font-weight: bold;
     display: inline;
     margin: 0;
-    margin-left: 10px;
     text-align: center;
+} 
+
+.divider{
+    border: 1px black solid;
+    border-radius: 5px;
 }
