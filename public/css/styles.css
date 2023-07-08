@@ -49,3 +49,92 @@ nav {
     background-color: aqua;
     height: 750px;
 }
+
+/* ----------------------------------------- */
+
+.product-container{
+    --spacer: 1rem;
+    padding: var(--spacer);
+}
+
+.scroller-wrapper{
+    display: flex;
+    gap: var(--spacer);
+    overflow-x: auto;
+/*     height: 40vh; */
+    padding-bottom:20px;
+}
+
+.scroller-element{
+    flex: 0 0 75%; 
+/*     padding: var(--spacer); */
+/*     border: 1px solid hsl(0, 0%, 90%); */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background: hsl(0, 0%, 90%);
+    box-shadow: 2px 2px 5px 0px hsla(0, 0%, 0%, 0.20);
+}
+
+.scroller-element img{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.snap-scroll{
+    scroll-snap-type: inline mandatory;
+}
+
+.snap-scroll > * {
+    scroll-snap-align: start;
+    scroll-padding-inline: var(--spacer);
+}
+
+.scroller-content{
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    padding: 0.5rem var(--spacer);
+}
+
+
+.product-description p{
+    margin: 0.5rem 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.content-header-left{
+    display: flex;
+    align-items: flex-end;
+}
+
+.content-header-right{
+    display: flex;
+    margin: 0 auto;
+}
+
+
+.date-day {
+    display: inline;
+    margin: 0;
+    font-size: 32px;
+}
+
+.date-month
+
+.event-name{
+    font-weight: bold;
+    display: inline;
+    margin: 0;
+    margin-left: 10px;
+    text-align: center;
+}
