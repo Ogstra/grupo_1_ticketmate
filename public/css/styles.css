@@ -1,5 +1,10 @@
 * {
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+boton-login:visited {
+    color: rgb(9, 255, 0);
 }
 
 body {
@@ -14,7 +19,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0px 15px;
-    height: 75px;
+    height: 70px;
     position: fixed;
     right: 0;
     left: 0;
@@ -46,8 +51,21 @@ nav {
 }
 
 .fondo-inicio {
-    background-color: aqua;
-    height: 750px;
+    background-color: rgb(146, 189, 189);
+    height: 450px;
+}
+
+.nav-fondo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(75%);
+}
+
+.boton-login,
+.boton-home  {
+    text-decoration: none;
+    color: black;
 }
 
 /* ----------------------------------------- */
