@@ -3,10 +3,6 @@
     font-family: "Roboto", sans-serif;
 }
 
-boton-login:visited {
-    color: rgb(9, 255, 0);
-}
-
 body {
     background-color: rgb(197, 197, 197);
 }
@@ -39,7 +35,7 @@ nav {
 
 #logo-user {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     border-radius: 50%;
     padding: 5px;
@@ -92,7 +88,7 @@ nav {
     flex-direction: column;
     background: hsl(0, 0%, 90%);
     box-shadow: 2px 2px 5px 0px hsla(0, 0%, 0%, 0.20);
-    max-width: 100px;
+    max-width: 250px;
 }
 
 .scroller-element img{
