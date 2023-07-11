@@ -20,14 +20,32 @@
     top: 150px;
 }
 
-.login-form .control-formulario {
+.login-form
+.control-formulario {
     display: flex;
     flex-direction: column;
-    margin: 15px 0px;
-    width: 80vw;
-    max-width: 300px;
+    margin-bottom: 15px;
+    width: 84vw;
+    max-width: 350px;
 }
 
 .login-form label {
     margin: 5px 0px;
+}
+
+.control-formulario>input,
+.boton-formulario {
+    border-radius: 10px;
+    height: 50px;
+    text-indent: 5px;
+}
+
+.boton-formulario {
+    width: 84vw;
+    max-width: 350px;
+    background: black;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 15px;
 }
