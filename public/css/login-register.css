@@ -26,7 +26,7 @@
     flex-direction: column;
     margin-bottom: 15px;
     width: 84vw;
-    max-width: 350px;
+    max-width: 360px;
 }
 
 .login-form label {
@@ -37,7 +37,15 @@
 .boton-formulario {
     border-radius: 10px;
     height: 50px;
-    text-indent: 5px;
+    text-indent: 12px;
+    border: 1px solid rgba(200, 200, 200);
+    box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
+}
+
+.control-formulario>input:focus {
+    outline: none;
+    box-shadow: 0.5px 0.5px 3px 1.5px rgba(0,0,0,0.25);
+    transition: 100ms;
 }
 
 .boton-formulario {
