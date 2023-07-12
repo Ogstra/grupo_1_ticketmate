@@ -98,6 +98,7 @@ nav {
     background-color: white;
     padding: 0.5rem 0.5rem;
     margin-right: -10px;
+    color: black; /* Sin esto no se ve en mobile */
 }
 
 .search-bar button:nth-child(3){
@@ -105,7 +106,8 @@ nav {
     border: none;
     background-color: white;
     padding: 0.5rem 0.5rem;
-    margin-left: -10px;  
+    margin-left: -10px;
+    color: black; /* Sin esto no se ve en mobile */
 }
 
 /* ----------------------------------------- */
