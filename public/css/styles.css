@@ -22,7 +22,7 @@ nav {
     z-index: 1;
     background: #0000008f;
     backdrop-filter: blur(14px);
-    box-shadow: 0px 0px 10px 0px #0202088c;
+    box-shadow: 0px 0px 5px 0px #0000008c;
 }
 
 #logo {

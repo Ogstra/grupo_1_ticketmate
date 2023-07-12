@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+nav {
+    background: #ebebeb;
+}
+
 #texto-nav {
     padding-left: 5px;
     font-family: Roboto;
     font-size: 25px;
     font-weight: bold;
-    color: white;
+    color: #000000;
 }
 
 .fondo-inicio {
