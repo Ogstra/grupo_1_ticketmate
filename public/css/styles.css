@@ -77,6 +77,11 @@ nav {
     top: 70%;
 }
 
+.search-bar>input,
+.search-bar>button {
+    height: 50px;
+}
+
 .search-bar input{
     border: none;
     padding: 0.5rem 0 0.5rem 0.5rem;
