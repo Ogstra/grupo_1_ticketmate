@@ -80,6 +80,7 @@ nav {
 .search-bar>input,
 .search-bar>button {
     height: 50px;
+    max-width: 750px;
 }
 
 .search-bar input{
