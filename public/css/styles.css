@@ -47,21 +47,60 @@ nav {
 }
 
 .fondo-inicio {
+    position: relative;
     background-color: rgb(146, 189, 189);
     height: 450px;
+    background-image: linear-gradient(0deg, black, transparent 75%), url(/img/nav-fondo.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 .nav-fondo {
     height: 100%;
     width: 100%;
-    object-fit: cover;
-    filter: brightness(75%);
+    /*object-fit: cover; */
+    /*filter: brightness(75%); */
+    /*background-image: linear-gradient(0deg, black, transparent), url('/img/nav-fondo.jpg'); */
 }
 
 .boton-login,
 .boton-home  {
     text-decoration: none;
     color: black;
+}
+
+.search-bar{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    left: 50%;
+    top: 70%;
+}
+
+.search-bar input{
+    border: none;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    width: 70vw; /* CAMBIAR ESTO PARA EL ANCHO */
+}
+
+.search-bar input:focus{
+    outline: none;
+}
+
+.search-bar button:nth-child(1){
+    border-radius: 10px 0 0 10px;
+    border: none;
+    background-color: white;
+    padding: 0.5rem 0.5rem;
+    margin-right: -5px;
+}
+
+.search-bar button:nth-child(3){
+    border-radius: 0 10px 10px 0;
+    border: none;
+    background-color: white;
+    padding: 0.5rem 0.5rem;
+    margin-left: -5px;
 }
 
 /* ----------------------------------------- */
