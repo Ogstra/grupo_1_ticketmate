@@ -72,6 +72,7 @@ nav {
 .boton-cart  {
     text-decoration: none;
     color: black;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .search-bar{
