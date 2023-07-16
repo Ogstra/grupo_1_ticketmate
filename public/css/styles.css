@@ -132,6 +132,21 @@ body nav {
     padding: 5px 20px 10px;
 }
 
+.scroller-wrapper::-webkit-scrollbar{
+   height: 10px;
+}
+
+.scroller-wrapper::-webkit-scrollbar-track{
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+}
+
+.scroller-wrapper::-webkit-scrollbar-thumb{
+    background-color: #0F1A20;
+    border-radius: 15px;
+}
+
+
 .scroller-element {
     flex: 0 0 75%;
     border-radius: 10px;
@@ -156,6 +171,11 @@ body nav {
     border-radius: 10px 10px 0 0;
     -webkit-transform: translateZ(0); /* Mejora el escalado */
     transform: translateZ(0); /* Mejora el escalado */
+}
+
+.scroller-element a{
+    text-decoration: none;
+    color: inherit;
 }
 
 .snap-scroll {
