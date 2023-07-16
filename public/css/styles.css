@@ -130,7 +130,7 @@ body nav {
     gap: var(--spacer);
     overflow-x: auto;
     padding: 0 20px 10px;
-    overflow: visible;
+    overflow-y: visible;
 }
 
 .scroller-element {
