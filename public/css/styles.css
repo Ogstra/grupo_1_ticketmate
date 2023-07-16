@@ -129,8 +129,8 @@ body nav {
     display: flex;
     gap: var(--spacer);
     overflow-x: auto;
-    /*     height: 40vh; */
     padding: 0 20px 10px;
+    overflow: visible;
 }
 
 .scroller-element {
@@ -155,6 +155,8 @@ body nav {
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
+    -webkit-transform: translateZ(0); /* Mejora el escalado */
+    transform: translateZ(0); /* Mejora el escalado */
 }
 
 .snap-scroll {
