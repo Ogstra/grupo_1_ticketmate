@@ -1,0 +1,77 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 90%;
+    margin: auto;
+}
+
+.collapsible {
+    /* max-width: 400px; */
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: auto;
+    overflow: hidden;
+    background: #0F1A20;
+}
+
+.collapsible-wrapper{
+    padding: 40px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.collapsible-content>*,
+.collapsible-label {
+    padding: 15px 20px;
+}
+
+.collapsible-label {
+    display: block;
+    transition: background 300ms ease;
+    cursor: pointer;
+    position: relative;
+    color: #F8F4E3;
+    font-weight: 600;
+}
+
+.collapsible-label:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.collapsible-header {
+    position: relative;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.icono {
+    position: absolute;
+    right: 20px;
+    transition: all 300ms;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 300ms;
+}
+
+.collapsible-content {
+    background: #F8F4E3;
+    line-height: 1.4;
+    max-height: 0px;
+    transition: all 300ms;
+}
+
+.collapsible input:checked~.collapsible-content {
+    max-height: 500px;
+}
+
+.collapsible input:checked~.collapsible-header>.icono {
+    transform: translateY(-50%) rotate(0.5turn);
+}
