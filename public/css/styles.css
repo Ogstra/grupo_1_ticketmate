@@ -80,6 +80,11 @@ nav a>div {
     cursor: pointer;
 }
 
+#logo-user:hover {
+    background-color: #4399e0;
+    cursor: pointer;
+}
+
 .fondo-inicio {
     position: relative;
     height: 450px;
