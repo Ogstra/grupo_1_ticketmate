@@ -44,6 +44,11 @@ nav {
     text-indent: 12px;
     border: 1px solid rgba(200, 200, 200);
     box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
+    transition: all 0.3s ease 0s;
+}
+
+.boton-formulario:hover {
+    color: #4399e0;
 }
 
 .control-formulario>input:focus {

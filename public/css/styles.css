@@ -61,8 +61,7 @@ nav {
     width: 150px; /*  Menos de 140px se ve con bordes pixelados en 1080p */
 }
 
-#logo-user,
-#logo-cart {
+nav a>div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,6 +77,11 @@ nav {
 
 #logo-cart:hover {
     background-color: #4399E0;
+    cursor: pointer;
+}
+
+#logo-user:hover {
+    background-color: #4399e0;
     cursor: pointer;
 }
 
