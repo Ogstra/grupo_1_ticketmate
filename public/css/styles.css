@@ -265,13 +265,39 @@ nav a>div {
     border: 1px black solid;
     border-radius: 5px;
 }
+ 
+-------------------
+
+.nav-bar li {
+    position: relative;
+    float: left;
+}
+
+.nav-bar li a {
+    font-size: 20px;
+    padding: 20px;
+    color: #333;
+    display: block;
+}
+
+.nav-bar li a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.fa-solid .fa-bars {
+    color: black !important;
+}
+
 
 @media (min-width: 768px) {
     /* Desktop: */
-    #logo-user {
+    #logo-user,
+    .boton-hamburguer {
         display: none;
     }
 
+    
     .container-cart-user {
         width: auto;
         margin: 15px;
@@ -279,7 +305,13 @@ nav a>div {
 }
 
 @media (max-width: 768px) {
-    .nav-bar {
+    .nav-bar,
+    .boton-login,
+    .boton-cart {
         display: none;
+    }
+
+    .container-cart-user {
+        width: auto;
     }
 }
