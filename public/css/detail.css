@@ -9,6 +9,27 @@ main {
     margin: auto;
 }
 
+.search-bar {
+    margin-top: -95px; 
+  }
+
+
+.profile-picture {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%;
+    overflow: hidden;
+    position: fixed;
+    top: 270px; 
+    left: 50px; 
+  }
+  
+  .profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
 .collapsible {
     /* max-width: 400px; */ /*el ancho se puede controlar desde aca pero mejor hacerlo desde collapsible-wrapper*/
     border: 1px solid black;
@@ -16,6 +37,7 @@ main {
     margin: auto;
     overflow: hidden;
     background: #0F1A20;
+    
 }
 
 .collapsible-wrapper{
@@ -29,7 +51,8 @@ main {
 
 .collapsible-content>*,
 .collapsible-label {
-    padding: 15px 20px;
+    padding: 20px 20px;
+    
 }
 
 .collapsible-label {
@@ -39,7 +62,9 @@ main {
     position: relative;
     color: #F8F4E3;
     font-weight: 600;
+    
 }
+
 
 .collapsible-label:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -67,6 +92,7 @@ input[type="checkbox"] {
     line-height: 1.4;
     max-height: 0px;
     transition: all 300ms;
+    
 }
 
 .collapsible input:checked~.collapsible-content {
@@ -76,3 +102,23 @@ input[type="checkbox"] {
 .collapsible input:checked~.collapsible-header>.icono {
     transform: translateY(-50%) rotate(0.5turn);
 }
+
+.collapsible-content div {
+    display: flex; 
+    justify-content: flex-end; 
+}
+
+.collapsible-content button {
+    border-radius: 6px; 
+    font-size: 16px;
+    width: 120px;
+    height: 30px;
+
+}
+
+.fondo-inicio {
+    background-position: center top !important;
+    background-size: cover !important;
+    height: 350px !important; 
+  }
+
