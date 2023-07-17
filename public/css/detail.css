@@ -22,6 +22,7 @@ main {
     position: fixed;
     top: 270px; 
     left: 50px; 
+    z-index: 10;
   }
   
   .profile-picture img {
