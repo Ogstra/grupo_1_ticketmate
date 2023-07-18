@@ -9,9 +9,21 @@ main {
     margin: auto;
 }
 
-.search-bar {
-    margin-top: -95px; 
-  }
+.search-nav {
+ position: unset ; 
+ transform: translate(0%,0%) ;
+ top: 0 ;
+ left: 0 ;
+}
+
+.search-nav>input{
+    width: auto ;
+    height: 35px ;
+}
+
+.search-nav>button{
+    height: 35px;
+}
 
 
 .profile-picture {
