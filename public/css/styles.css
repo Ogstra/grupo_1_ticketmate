@@ -1,6 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+
+:root{
+    --cosmic-latte: #F8F4E3;
+    --shadow-1: 0 0 9px 1px hsla(0, 0%, 0%, 0.15);
+}
+
+
 * {
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+}
+
+body{
+    background-color: var(--cosmic-latte);
+    min-height: 100vh;
 }
 
 nav {
@@ -137,7 +151,7 @@ nav a>div {
 .search-bar button:nth-child(1) {
     border-radius: 10px 0 0 10px;
     border: none;
-    background-color: white;
+    background-color: floralwhite;
     padding: 0.5rem 0.5rem;
     margin-right: -10px;
     color: black;
@@ -147,7 +161,7 @@ nav a>div {
 .search-bar button:nth-child(3) {
     border-radius: 0 10px 10px 0;
     border: none;
-    background-color: white;
+    background-color: floralwhite;
     padding: 0.5rem 0.5rem;
     margin-left: -10px;
     color: black;
@@ -161,6 +175,12 @@ nav a>div {
     padding: var(--spacer);
 }
 
+.product-container-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .scroller-wrapper {
     display: flex;
     gap: var(--spacer);
@@ -169,10 +189,10 @@ nav a>div {
 }
 
 .scroller-wrapper::-webkit-scrollbar{
-   height: 10px;
+    display: none;
 }
 
-.scroller-wrapper::-webkit-scrollbar-track{
+/* .scroller-wrapper::-webkit-scrollbar-track{
     background-color: rgba(0, 0, 0, 0.15);
     border-radius: 15px;
 }
@@ -180,7 +200,7 @@ nav a>div {
 .scroller-wrapper::-webkit-scrollbar-thumb{
     background-color: #0F1A20;
     border-radius: 15px;
-}
+} */
 
 
 .scroller-element {
@@ -188,11 +208,11 @@ nav a>div {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    background: hsl(0, 0%, 90%);
-    box-shadow: 2px 2px 5px 0px hsla(0, 0%, 0%, 0.20);
+    box-shadow: var(--shadow-1);
     max-width: 250px;
     cursor: pointer;
     transition: all 400ms ease;
+    background: floralwhite;
 }
 
 .scroller-element:hover {
@@ -269,7 +289,136 @@ nav a>div {
 .divider {
     border: 1px black solid;
     border-radius: 5px;
+    margin-top: 0;
 }
+
+.slider-wrapper {
+    display: none;
+	position: relative;
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.slider {
+	display: flex;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	border-radius: 15px;
+}
+
+.slider::-webkit-scrollbar {
+	display: none;
+}
+
+.slider-group {
+	display: flex;
+    gap: 1%;
+    flex: 1 0 100%;
+	scroll-snap-align: start;
+    padding: 1rem;
+}
+
+.slider-element{
+    min-width: 30%;
+    flex: 1 0;
+    box-shadow: 0 0 9px 1px hsla(0, 0%, 0%, 0.15);
+    border-radius: 1rem;
+    background-color: floralwhite;
+    transition: all 300ms ease;
+}
+
+.slider-element a{
+    color:inherit;
+    text-decoration: none;
+}
+
+.slider-element:hover{
+    transform: scale(1.02);
+}
+
+.slider-content {
+    display: flex;
+    padding: 0.5rem 1rem 1rem;
+    align-items: flex-end;
+}
+
+.event-date{
+    flex: none;
+}
+
+
+.event-date>span:first-child{
+    font-size: 22px;
+    font-family: 'Roboto Mono';
+    font-weight: 900;
+}
+
+.event-date>span:last-child{
+    font-size: 12px;
+    color: #9A0959;
+    font-weight: 900;
+}
+
+.event-name{
+    display: block;
+    font-size: 18px;
+    padding-left: 0.5rem;
+    line-height: 24px;
+    text-align: end;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.slider-element img{
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.slider-nav {
+	display: flex;
+    max-width: min-content;
+    border-radius: 8px;
+    box-shadow: 0 0 9px 1px hsla(0, 0%, 0%, 0.15);
+
+}
+
+.slider-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	background-color: var(--cosmic-latte);
+	opacity: 0.75;
+	transition: opacity ease 250ms;
+    text-decoration: none;
+    color: inherit;
+    transition: all 300ms ease;
+    border-left: 1px solid slategrey;
+    background: floralwhite;
+}
+
+.slider-nav a:focus{
+    background-color: red;
+}
+
+.slider-nav>a:first-child{
+    border-radius: 8px 0 0 8px;
+    border-left: 0;
+}
+
+.slider-nav>a:last-child{
+    border-radius: 0 8px 8px 0;
+}
+
+.slider-nav a:hover {
+	background: rgba(0, 0, 0, 0.15);
+}
+
 
 @media (min-width: 768px) {
     /* Desktop: */
@@ -280,6 +429,14 @@ nav a>div {
     .container-cart-user {
         width: auto;
         margin: 15px;
+    }
+
+    .scroller-wrapper{
+        display: none;
+    }
+
+    .slider-wrapper{
+        display: block;
     }
 }
 
