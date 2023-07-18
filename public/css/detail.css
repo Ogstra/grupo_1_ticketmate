@@ -141,11 +141,6 @@ input[type="checkbox"] {
     
 }
 
-.divider {
-    border: 1px black solid;
-    border-radius: 5px;
-    transform: rotate(90deg)
-}
 
 
 
