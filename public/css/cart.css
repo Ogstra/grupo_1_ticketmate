@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@300&display=swap');
 :root{
-    --Amarillo: #EAC926;
-    --Azul: #03264C;
-    --Celeste: #1259c3;
+    
     --GrisOscuro: #666;
+    --GrisMedio: #bdbaba;
     --GrisClaro: #ebebeb;
-    --Verde: #39b54a;  
+    
 }
 
 * {
@@ -71,8 +70,8 @@ body {
     margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
-    background-color: rgb(145, 143, 143);
-    padding: 10px;
+    background-color: var(--GrisMedio);
+    padding: 20px;
     border-radius: 10px 10px 0 0;
     font-size: 14px;
 }
@@ -90,8 +89,27 @@ body {
 .boleto{
     display:block;    
     padding: 10px;
-    border-bottom: solid 1px rgb(145, 143, 143);
+    border-bottom: solid 1px var(--GrisMedio);
     font-size: 14px;
 }
 
+.total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: var(--GrisMedio);
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    font-size: 14px;
+    border: 1.8px solid var(--GrisOscuro);
+}
 
+.boton-pagar{
+    font-weight: bold;
+    background-color: var(--GrisOscuro);
+    padding: 8px;
+    border: solid 1px black;
+    border-radius: 5px;
+}

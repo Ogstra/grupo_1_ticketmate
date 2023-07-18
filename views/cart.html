@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>cart</title>
     <link rel="stylesheet" href="css/normalize.css">    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           rel="stylesheet">       
@@ -22,17 +22,16 @@
                 <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
             </button>            
         </div>
-
+    </header>
+    
+    <main>        
         <nav class="main-navbar">
-            <h3 class="left-navbar">Resumen de compra</h3>                
-            
-            <ul class="right-navbar">
-                <li><a href="#">Cancelar compra</a></li>
-            </ul>              
+            <h3 class="left-navbar">Resumen de compra</h3>             
+                <div class="right-navbar">
+                    <a href="#">Cancelar compra</a>
+                </div>             
         </nav>
-        
-        <main>        
-            <section class="contenedor">
+        <section class="contenedor">
                 <article class="boleto">
                     <div class="producto__informacion">
                         <p class="nombre-evento">NOMBRE DEL EVENTO</p>
@@ -63,8 +62,17 @@
                         <p class="precio">$1000</p>
                     </div>
                 </article>
+            </section>
 
-
+            <section class="total">
+                <div>
+                    <p>3</p>
+                    <p>Total</p>
+                    <p>$3900</p>
+                </div>             
+                <div class="pagar">
+                    <input class="boton-pagar" type="submit" value="Pagar">
+                </div>             
             </section>
         </main>            
 </body>
