@@ -410,6 +410,15 @@ nav a>div,
 }
 
 /* NavBar Desplegable comienzo */
+
+#openNavButton {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.logo-hamburguer {
+    opacity: 100%
+}
+
 .overlay {
     height: 300px;
     width: 0;
@@ -419,10 +428,12 @@ nav a>div,
     right: 0;
     background-color: rgba(0,0,0,0.9);
     overflow-x: hidden;
+    overflow-y: hidden;
     transition: 0.25s;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom-left-radius: 10px;
 }
   
   .overlay-content {
@@ -438,6 +449,7 @@ nav a>div,
   
   .overlay a {
     padding: 8px;
+    -webkit-tap-highlight-color: transparent;
     text-decoration: none;
     color: #ffffff;
     display: block;
