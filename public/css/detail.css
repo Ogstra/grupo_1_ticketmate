@@ -36,15 +36,27 @@ main {
     color: #000000;
     font-weight: 600;
     font-size: 20px;
-    margin-top: 10px;
+    margin-top: 80px;
+    margin-right: 300px;
     
 }
 
 .profile-subtitle {
     text-align: center;
     color: #6e6e6e;
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 5px;
+    margin-right: 300px;
+}
+
+.fechas{
+    margin-left: 28px;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+hr {
+    margin: 3px 28px; 
 }
   
 .collapsible {
@@ -59,7 +71,7 @@ main {
 
 .collapsible-wrapper{
     width: 100%; /*cambiar esta propiedad para los diferentes viewports*/
-    margin-top: 150px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
