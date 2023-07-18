@@ -3,6 +3,7 @@
 
 :root{
     --cosmic-latte: #F8F4E3;
+    --maroon: #9A0959;
     --shadow-1: 0 0 9px 1px hsla(0, 0%, 0%, 0.15);
 }
 
@@ -247,6 +248,7 @@ nav a>div,
 
 .scroller-content {
     display: flex;
+    justify-content: space-between;
     overflow: hidden;
     padding: 0.5rem var(--spacer);
 }
@@ -265,20 +267,24 @@ nav a>div,
 
 .content-right {
     display: flex;
-    margin: 0 auto;
     align-items: flex-end;
+    overflow: hidden;
 }
 
 
 .date-day {
     display: inline;
     margin: 0;
-    font-size: 32px;
+    font-family: 'Roboto Mono';
+    font-size: 22px;
     font-weight: bold;
 }
 
 .date-month {
     font-size: 12px;
+    font-weight: 900;
+    color: var(--maroon);
+
 }
 
 .event-name {
@@ -286,6 +292,7 @@ nav a>div,
     display: inline;
     margin: 0;
     text-align: center;
+    text-overflow: ellipsis;
 }
 
 .divider {
@@ -358,7 +365,7 @@ nav a>div,
 
 .event-date>span:last-child{
     font-size: 12px;
-    color: #9A0959;
+    color: var(--maroon);
     font-weight: 900;
 }
 
@@ -382,7 +389,7 @@ nav a>div,
 }
 
 .slider-nav-container{
-    display: flex;
+    display: none;
 }
 
 .slider-nav-container span{
@@ -494,6 +501,10 @@ nav a>div,
 
     .slider-wrapper{
         display: block;
+    }
+
+    .slider-nav-container{
+        display: flex;
     }
 }
 
