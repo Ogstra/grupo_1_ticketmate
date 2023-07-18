@@ -74,7 +74,9 @@ nav {
     width: 150px; /*  Menos de 140px se ve con bordes pixelados en 1080p */
 }
 
-nav a>div {
+nav a>div,
+.logo-hamburguer,
+.logo-x {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,6 +88,7 @@ nav a>div {
     background-color: white;
     box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.25);
     transition: all 0.3s ease 0s;
+    color: black;
 }
 
 #logo-cart:hover {
@@ -406,12 +409,58 @@ nav a>div {
 	background: rgba(0, 0, 0, 0.15);
 }
 
-/* --------------- */
+/* NavBar Desplegable comienzo */
+.overlay {
+    height: 300px;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.9);
+    overflow-x: hidden;
+    transition: 0.25s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  .overlay-content {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 8px;
+    margin-top: 125px;
+    width: 100%;
+    height: 100%;
+    text-indent: 25px;
+  }
+  
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+    display: block;
+  }
+  
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  .overlay .closebtn {
+    position: absolute;
+    top: 12px;
+    right: 7px;
+  }
 
+/* NavBar Desplegable final */
 
 @media (min-width: 768px) {
     /* Desktop: */
-    #logo-user {
+    #logo-user,
+    #openNavButton {
         display: none;
     }
 
