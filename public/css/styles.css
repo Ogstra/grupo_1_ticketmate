@@ -127,6 +127,8 @@ nav a>div,
 }
 
 .search-bar {
+    display: flex;
+    align-items: center;
     position: absolute;
     transform: translate(-50%, -50%);
     white-space: nowrap;
@@ -143,7 +145,7 @@ nav a>div,
 
 .search-bar input {
     border: none;
-    padding: 9px 0 10px 10px;
+    padding: 10px 0 10px 10px;
     width: 70vw;
     /* CAMBIAR ESTO PARA EL ANCHO */
 }
