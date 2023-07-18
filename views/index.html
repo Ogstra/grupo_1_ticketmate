@@ -11,10 +11,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "250px";
+/*             document.getElementById("myNav").style.height = "300px" */
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+/*             document.getElementById("myNav").style.height = "0px" */
+        }
+    </script>
 </head>
 
 <body>
-
     <head>
         <nav>
             <img id="logo" src="/img/logo-ticketmate.svg">
@@ -35,21 +45,8 @@
                     </a>
                 </div>
             </div>
-                  <div class="navigation">
-                    <div id="menuToggle">
-                      <input type="checkbox" />
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    <ul id="menu">
-                      <li><a href="#">Home</a></li>
-                      <li><a href="#">About</a></li>
-                      <li><a href="#">Info</a></li>
-                      <li><a href="#">Contact</a></li>
-                    </ul>
-                   </div>
-                </div>
-        </nav>       
+            <span id="openNavButton" style="cursor:pointer" onclick="openNav()"><div class="logo-hamburguer"><i class="bars-desplegable fa-solid fa-bars"></i></div></span>
+        </nav>
     </head>
     <div class="fondo-inicio">
         <form action="/search" method="get" class="search-bar">
@@ -59,14 +56,29 @@
         </form>
     </div>
     <main>
+        <!-- NavBar Desplegable comienzo-->
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><div class="logo-x"><i class="fa-solid fa-xmark"></i></div></a>
+            <div class="overlay-content">
+                <a href="login">Log in</a>
+                <a href="cart">Carrito</a>
+                <a href="#">Horarios</a>
+                <a href="#">Tickets</a>
+                <a href="contact">Contacto</a>
+            </div>
+        </div>
+        <!-- NavBar Desplegable final-->
         <section class="product-container">
 
             <div class="product-container-header">
                 <h2>Próximos Eventos</h2>
-                <div class="slider-nav">
-                    <a href="#slide-1">1</a>
-                    <a href="#slide-2">2</a>
-                    <a href="#slide-3">3</a>
+                <div class="slider-nav-container">
+                    <span>Páginas </span>
+                    <div class="slider-nav">
+                        <a href="#slide-1">1</a>
+                        <a href="#slide-2">2</a>
+                        <a href="#slide-3">3</a>
+                    </div>
                 </div>
             </div>
 
@@ -83,7 +95,7 @@
                                 <span class="date-month">junio</span>
                             </div>
                             <div class="content-right">
-                                <p class="event-name">NOMBRE CONCIERTO</p>
+                                <p class="event-name">Arctic Monkeys</p>
                             </div>
                         </div>
                     </a>
@@ -98,7 +110,7 @@
                                 <span class="date-month">junio</span>
                             </div>
                             <div class="content-right">
-                                <p class="event-name">NOMBRE CONCIERTO</p>
+                                <p class="event-name">Boreal Monkeys</p>
                             </div>
                         </div>
                     </a>
@@ -113,7 +125,7 @@
                                 <span class="date-month">junio</span>
                             </div>
                             <div class="content-right">
-                                <p class="event-name">NOMBRE CONCIERTO</p>
+                                <p class="event-name">Desert Monkeys</p>
                             </div>
                         </div>
                     </a>
@@ -128,7 +140,7 @@
                                 <span class="date-month">junio</span>
                             </div>
                             <div class="content-right">
-                                <p class="event-name">NOMBRE CONCIERTO</p>
+                                <p class="event-name">Underground Monkeys</p>
                             </div>
                         </div>
                     </a>
@@ -147,7 +159,7 @@
                                         <span>16</span>
                                         <span>julio</span>
                                     </div>
-                                        <span class="event-name">Arctic Monkeys</span>
+                                    <span class="event-name">Arctic Monkeys</span>
                                 </div>
                             </a>
                         </div>
@@ -254,7 +266,6 @@
                     </div>
                 </div>
             </div>
-
         </section>
     </main>
     <footer>
