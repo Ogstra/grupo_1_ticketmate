@@ -19,33 +19,44 @@
         <nav>
             <img id="logo" src="/img/logo-ticketmate.svg">
             <div id="nav-links-icons">
-            <ul class="nav-bar">
-                <li><a class="nav-link" href="contact">Contacto</a></li>
-                <li><a class="nav-link" href="tickets">Tickets</a></li>
-                <li><a class="nav-link" href="">Horarios</a></li>
-                <!-- <li>Carrito</li> -->
-                <li><a class="nav-link" href="/login">Log in</a></li>
-            </ul>
-            <div class="container-cart-user">
-                <a class="boton-cart" href="/cart">
-                    <div id="logo-cart"><i class="fa-solid fa-basket-shopping"></i></div>
-                </a>
-                <a class="boton-login" href="/login">
-                    <div id="logo-user"><i class="fa-solid fa-user"></i></div>
-                </a>
-                <a class="boton-hamburguer">
-                    <div id="logo-hamburguer"><i class="fa-solid fa-bars"></i></div>
-                </a>
+                <ul class="nav-bar">
+                    <li><a class="nav-link" href="contact">Contacto</a></li>
+                    <li><a class="nav-link" href="tickets">Tickets</a></li>
+                    <li><a class="nav-link" href="">Horarios</a></li>
+                    <!-- <li>Carrito</li> -->
+                    <li><a class="nav-link" href="/login">Log in</a></li>
+                </ul>
+                <div class="container-cart-user">
+                    <a class="boton-cart" href="/cart">
+                        <div id="logo-cart"><i class="fa-solid fa-basket-shopping"></i></div>
+                    </a>
+                    <a class="boton-login" href="/login">
+                        <div id="logo-user"><i class="fa-solid fa-user"></i></div>
+                    </a>
+                </div>
             </div>
-        </div>
-        </nav>
+                  <div class="navigation">
+                    <div id="menuToggle">
+                      <input type="checkbox" />
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    <ul id="menu">
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">About</a></li>
+                      <li><a href="#">Info</a></li>
+                      <li><a href="#">Contact</a></li>
+                    </ul>
+                   </div>
+                </div>
+        </nav>       
     </head>
     <div class="fondo-inicio">
-            <form action="/search" method="get" class="search-bar">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <input class="buscador1" type="text" placeholder="Que estas buscando?...">
-                <button type="reset"><i class="fa-sharp fa-regular fa-circle-xmark"></i></button>
-            </form>
+        <form action="/search" method="get" class="search-bar">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input class="buscador1" type="text" placeholder="Que estas buscando?...">
+            <button type="reset"><i class="fa-sharp fa-regular fa-circle-xmark"></i></button>
+        </form>
     </div>
     <main>
         <section class="product-container">
