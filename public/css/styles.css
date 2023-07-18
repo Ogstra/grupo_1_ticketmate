@@ -127,6 +127,8 @@ nav a>div,
 }
 
 .search-bar {
+    display: flex;
+    align-items: center;
     position: absolute;
     transform: translate(-50%, -50%);
     white-space: nowrap;
@@ -138,11 +140,12 @@ nav a>div,
 .search-bar>button {
     height: 50px;
     max-width: 750px;
+    background-color: floralwhite;
 }
 
 .search-bar input {
     border: none;
-    padding: 9px 0 10px 10px;
+    padding: 10px 0 10px 10px;
     width: 70vw;
     /* CAMBIAR ESTO PARA EL ANCHO */
 }
@@ -154,8 +157,7 @@ nav a>div,
 .search-bar button:nth-child(1) {
     border-radius: 10px 0 0 10px;
     border: none;
-    background-color: floralwhite;
-    padding: 0.5rem 0.5rem;
+    padding: 0 0.8rem;
     margin-right: -10px;
     color: black;
     /* Sin esto no se ve en mobile */
@@ -164,8 +166,7 @@ nav a>div,
 .search-bar button:nth-child(3) {
     border-radius: 0 10px 10px 0;
     border: none;
-    background-color: floralwhite;
-    padding: 0.5rem 0.5rem;
+    padding: 0 0.8rem;
     margin-left: -10px;
     color: black;
     /* Sin esto no se ve en mobile */
@@ -435,6 +436,15 @@ nav a>div,
 }
 
 /* NavBar Desplegable comienzo */
+
+#openNavButton {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.logo-hamburguer {
+    opacity: 100%
+}
+
 .overlay {
     height: 300px;
     width: 0;
@@ -444,10 +454,12 @@ nav a>div,
     right: 0;
     background-color: rgba(0,0,0,0.9);
     overflow-x: hidden;
+    overflow-y: hidden;
     transition: 0.25s;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom-left-radius: 10px;
 }
   
   .overlay-content {
@@ -463,6 +475,7 @@ nav a>div,
   
   .overlay a {
     padding: 8px;
+    -webkit-tap-highlight-color: transparent;
     text-decoration: none;
     color: #ffffff;
     display: block;
@@ -485,7 +498,8 @@ nav a>div,
 @media (min-width: 768px) {
     /* Desktop: */
     #logo-user,
-    #openNavButton {
+    #openNavButton,
+    #myNav {
         display: none;
     }
 
