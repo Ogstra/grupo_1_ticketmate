@@ -138,6 +138,7 @@ nav a>div,
 .search-bar>button {
     height: 50px;
     max-width: 750px;
+    background-color: floralwhite;
 }
 
 .search-bar input {
@@ -154,7 +155,6 @@ nav a>div,
 .search-bar button:nth-child(1) {
     border-radius: 10px 0 0 10px;
     border: none;
-    background-color: floralwhite;
     padding: 0.5rem 0.5rem;
     margin-right: -10px;
     color: black;
@@ -164,7 +164,6 @@ nav a>div,
 .search-bar button:nth-child(3) {
     border-radius: 0 10px 10px 0;
     border: none;
-    background-color: floralwhite;
     padding: 0.5rem 0.5rem;
     margin-left: -10px;
     color: black;
