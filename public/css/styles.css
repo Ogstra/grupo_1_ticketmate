@@ -497,7 +497,8 @@ nav a>div,
 @media (min-width: 768px) {
     /* Desktop: */
     #logo-user,
-    #openNavButton {
+    #openNavButton,
+    #myNav {
         display: none;
     }
 
