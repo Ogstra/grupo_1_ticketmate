@@ -74,8 +74,9 @@ main {
 }
 
 .precio {
-    margin-right: 18px;
-    white-space: nowrap;
+    /* margin-right: 18px;
+    white-space: nowrap; */
+    display: none;
 }
 
 .collapsible-label:hover {
