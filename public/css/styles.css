@@ -208,7 +208,7 @@ nav a>div,
 
 .scroller-element {
     flex: 0 0 75%;
-    border-radius: 10px;
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow-1);
@@ -325,7 +325,7 @@ nav a>div,
     gap: 1%;
     flex: 1 0 100%;
 	scroll-snap-align: start;
-    padding: 1rem;
+    padding: 0.3rem;
 }
 
 .slider-element{
