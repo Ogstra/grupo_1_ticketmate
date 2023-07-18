@@ -69,8 +69,8 @@ main {
 }
 
 .event-name {
-    flex-grow: 1; 
-    text-align: center;
+    flex-grow: 1 !important; 
+    text-align: center !important;
 }
 
 .precio {
