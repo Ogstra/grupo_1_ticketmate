@@ -15,8 +15,15 @@
 
     <head>
         <nav>
-            <a href="/">
-                <img id="logo" src="/img/logo-ticketmate.svg">
+            <img id="logo" src="/img/logo-ticketmate.svg">
+            <div id="nav-links-icons">
+                <ul class="nav-bar">
+                    <li><a class="nav-link" href="contact">Contacto</a></li>
+                    <li><a class="nav-link" href="tickets">Tickets</a></li>
+                    <li><a class="nav-link" href="">Horarios</a></li>
+                    <!-- <li>Carrito</li> -->
+                    <li><a class="nav-link" href="/login">Log in</a></li>
+                </ul>
                 <div class="container-cart-user">
                     <a class="boton-cart" href="/cart">
                         <div id="logo-cart"><i class="fa-solid fa-basket-shopping"></i></div>
@@ -24,7 +31,10 @@
                     <a class="boton-login" href="/login">
                         <div id="logo-user"><i class="fa-solid fa-user"></i></div>
                     </a>
-                </div>            
+                </div>
+            </div>
+            <span id="openNavButton" style="cursor:pointer" onclick="openNav()"><div class="logo-hamburguer"><i class="bars-desplegable fa-solid fa-bars"></i></div></span>
+            
         </nav>
     </head>
     
@@ -47,8 +57,9 @@
     <hr>
 
     <main>
-
-        <!-- Agregar el resto del contenido -->
+        <div class="imagen-costado">
+        <img src="/img/banda-placeholder2.jpg" alt="">
+    </div>
 
         <div class="collapsible-wrapper">
             <div class="collapsible">
