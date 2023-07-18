@@ -59,6 +59,7 @@ nav {
     color: inherit;
     text-decoration: none;
     font-size: 12px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .container-cart-user {
