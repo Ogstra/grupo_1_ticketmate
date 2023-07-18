@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle</title>
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/detail.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,6 +15,11 @@
 <body>
     <nav>
         <img id="logo" src="/img/logo-ticketmate.svg">
+        <form action="/search" method="get" class="search-bar search-nav">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input class="buscador1" type="text" placeholder="Que estas buscando?...">
+            <button type="reset"><i class="fa-sharp fa-regular fa-circle-xmark"></i></button>
+        </form>
         <div id="nav-links-icons">
             <ul class="nav-bar">
                 <li><a class="nav-link" href="contact">Contacto</a></li>
@@ -35,36 +40,29 @@
         <span id="openNavButton" style="cursor:pointer" onclick="openNav()"><div class="logo-hamburguer"><i class="bars-desplegable fa-solid fa-bars"></i></div></span>
     </nav>
     </head>
+    
     <div class="profile-picture">
         <img src="/img/banda-placeholder.jpg" alt="">
         </div>
      
       
     <div class="fondo-inicio">
-            <form action="/search" method="get" class="search-bar">
+ <!--            <form action="/search" method="get" class="search-bar">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <input class="buscador1" type="text" placeholder="Que estas buscando?...">
                 <button type="reset"><i class="fa-sharp fa-regular fa-circle-xmark"></i></button>
-            </form>
+            </form> -->
     </div>
     <p class="profile-name">Nombre Evento</p>
     <p class="profile-subtitle">Entradas</p>
 
-    <main>
-        <!-- NavBar Desplegable comienzo-->
-        <div id="myNav" class="overlay">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><div class="logo-x"><i class="fa-solid fa-xmark"></i></div></a>
-            <div class="overlay-content">
-                <a href="login">Log in</a>
-                <a href="cart">Carrito</a>
-                <a href="#">Horarios</a>
-                <a href="#">Tickets</a>
-                <a href="contact">Contacto</a>
-            </div>
-        </div>
-        <!-- NavBar Desplegable final-->
+    <p class="fechas">Fechas</p>
+    <hr>
 
-        <!-- Agregar el resto del contenido -->
+    <main>
+        <div class="imagen-costado">
+        <img src="/img/banda-placeholder2.jpg" alt="">
+    </div>
 
         <div class="collapsible-wrapper">
             <div class="collapsible">

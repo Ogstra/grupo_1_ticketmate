@@ -9,21 +9,32 @@ main {
     margin: auto;
 }
 
-.search-bar {
-    margin-top: -95px; 
-  }
+.search-nav {
+ position: unset ; 
+ transform: translate(0%,0%) ;
+ top: 0 ;
+ left: 0 ;
+}
+
+.search-nav>input{
+    width: auto ;
+    height: 35px ;
+}
+
+.search-nav>button{
+    height: 35px;
+}
 
 
-.profile-picture {
-    width: 150px; 
-    height: 150px; 
-    border-radius: 50%;
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 0;
     overflow: hidden;
     position: absolute;
-    top: 270px; 
-    left: 50px; 
-    z-index: 10;
-  }
+    top: 120px;
+    left: 30px;
+}
   
   .profile-picture img {
     width: 100%;
@@ -36,21 +47,43 @@ main {
     color: #000000;
     font-weight: 600;
     font-size: 20px;
-    margin-top: 10px;
+    margin-top: 210px;
+    /* margin-right: 300px; */
+    overflow: hidden;
+    position: absolute;
+    margin-left: 30px;
     
 }
 
 .profile-subtitle {
     text-align: center;
     color: #6e6e6e;
+    font-size: 18px;
+    margin-top: 235px;
+    /* margin-right: 300px; */
+    overflow: hidden;
+    position: absolute;
+    margin-left: 30px;
+}
+
+.fechas{
+    margin-left: 28px;
+    margin-top: 300px;
     font-size: 16px;
-    margin-top: 5px;
+}
+
+hr {
+    margin: 3px 30px; 
+}
+
+.imagen-costado{
+    display: none;
 }
   
 .collapsible {
     /* max-width: 400px; */ /*el ancho se puede controlar desde aca pero mejor hacerlo desde collapsible-wrapper*/
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 20px;
     margin: auto;
     overflow: hidden;
     background: #0F1A20;
@@ -59,7 +92,7 @@ main {
 
 .collapsible-wrapper{
     width: 100%; /*cambiar esta propiedad para los diferentes viewports*/
-    margin-top: 150px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -154,7 +187,7 @@ input[type="checkbox"] {
 .fondo-inicio {
     background-position: center top !important;
     background-size: cover !important;
-    height: 350px !important; 
+    height: 70px !important;
   }
 
   .collapsible-content p {
@@ -162,7 +195,81 @@ input[type="checkbox"] {
     
 }
 
+@media (min-width:769px){
+    .precio {
+        margin-right: 18px;
+        white-space: nowrap;
+        display: flex;
+       
+    }
 
+    .profile-name{
+        text-align: center;
+        color: #000000;
+        font-weight: 600;
+        font-size: 40px;
+        margin-top: 55px;
+    /* margin-right: 300px; */
+        overflow: hidden;
+        position: absolute;
+        margin-left: 220px;
+    }
+
+    .profile-subtitle {
+        text-align: center;
+        color: #6e6e6e;
+        font-size: 30px;
+        margin-top: 105px;
+        /* margin-right: 300px; */
+        overflow: hidden;
+        position: absolute;
+        margin-left: 220px;
+    }
+
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 120px;
+        left: 50px;
+        
+    }
+
+    .fechas{
+        margin-left: 50px;
+        margin-top: 300px;
+        font-size: 16px;
+    }
+
+    hr {
+        margin: 3px 50px; 
+    }
+    
+    .imagen-costado {
+        display: flex;
+        width: 50%;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+    }
+
+    .collapsible-content p {
+        margin-right: 100px;
+        margin-left: 100px;        
+    }
+
+    .collapsible-content button {
+        border-radius: 6px;
+        font-size: 16px;
+        width: 120px;
+        height: 30px;       
+    }
+
+
+
+}
 
 
 
