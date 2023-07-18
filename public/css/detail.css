@@ -30,6 +30,22 @@ main {
     height: 100%;
     object-fit: cover;
   }
+
+  .profile-name {
+    text-align: center;
+    color: #000000;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 10px;
+    
+}
+
+.profile-subtitle {
+    text-align: center;
+    color: #6e6e6e;
+    font-size: 16px;
+    margin-top: 5px;
+}
   
 .collapsible {
     /* max-width: 400px; */ /*el ancho se puede controlar desde aca pero mejor hacerlo desde collapsible-wrapper*/
@@ -43,7 +59,7 @@ main {
 
 .collapsible-wrapper{
     width: 100%; /*cambiar esta propiedad para los diferentes viewports*/
-    margin-top: 250px;
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -74,8 +90,9 @@ main {
 }
 
 .precio {
-    margin-right: 18px;
-    white-space: nowrap;
+    /* margin-right: 18px;
+    white-space: nowrap; */
+    display: none;
 }
 
 .collapsible-label:hover {
@@ -126,6 +143,11 @@ input[type="checkbox"] {
     font-size: 16px;
     width: 120px;
     height: 30px;
+}
+
+.boton{
+    position: relative;
+    bottom: -150px;
 }
 
 .fondo-inicio {
