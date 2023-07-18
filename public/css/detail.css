@@ -19,7 +19,7 @@ main {
     height: 150px; 
     border-radius: 50%;
     overflow: hidden;
-    position: fixed;
+    position: absolute;
     top: 270px; 
     left: 50px; 
     z-index: 10;
