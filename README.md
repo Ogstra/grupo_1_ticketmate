@@ -17,3 +17,6 @@ Nuestro público abarca a personas apasionadas por la música, el arte y el entr
 <br/>[All Access](https://www.allaccess.com.ar/)
 <br/>[DF Entertainment](https://www.dfentertainment.com/)
 <br/>[Ticket Master](https://www.ticketmaster.es/)
+
+## TRELLO
+https://trello.com/b/fBRb4HRU/grupo-1-ticketmate
