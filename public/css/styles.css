@@ -131,6 +131,7 @@ nav a>div,
 .search-bar {
     display: flex;
     align-items: center;
+    justify-content: center;
     position: absolute;
     transform: translate(-50%, -50%);
     white-space: nowrap;
