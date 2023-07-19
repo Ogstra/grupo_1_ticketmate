@@ -1,98 +1,86 @@
-* {
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 main {
-    width: 90%;
+    width: 100%;
     margin: auto;
 }
 
-.search-nav {
-    position: unset;
-    transform: translate(0%, 0%);
-    width: 35%;
-}
-
-.search-nav>input {
-    height: 35px;
-    min-width: 0;
-}
-
-.search-nav>button {
-    height: 35px;
-}
+/* .search-bar {
+    margin-top: -95px;
+    display: none; 
+  } */
 
 
-.profile-picture {
+  .profile-picture {
     width: 150px;
     height: 150px;
     border-radius: 0;
     overflow: hidden;
     position: absolute;
     top: 120px;
-    left: 30px;
+    left: 50px;
 }
-
-.profile-picture img {
+  
+  .profile-picture img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+  }
 
-.profile-name {
+  .profile-name {
     text-align: center;
     color: #000000;
     font-weight: 600;
     font-size: 20px;
-    margin-top: 210px;
+    margin-top: -90px;
     /* margin-right: 300px; */
     overflow: hidden;
     position: absolute;
-    margin-left: 30px;
-
+    margin-left: 48px;
+    
 }
 
 .profile-subtitle {
     text-align: center;
     color: #6e6e6e;
     font-size: 18px;
-    margin-top: 235px;
+    margin-top: -65px;
     /* margin-right: 300px; */
     overflow: hidden;
     position: absolute;
-    margin-left: 30px;
+    margin-left: 48px;
 }
 
-.fechas {
+.fechas{
     margin-left: 28px;
     margin-top: 300px;
     font-size: 16px;
 }
 
 hr {
-    margin: 3px 30px;
+    margin: 3px 30px; 
 }
 
-.imagen-costado {
+.imagen-costado{
     display: none;
 }
-
+  
 .collapsible {
-    /* max-width: 400px; */
-    /*el ancho se puede controlar desde aca pero mejor hacerlo desde collapsible-wrapper*/
+    /* max-width: 400px; */ /*el ancho se puede controlar desde aca pero mejor hacerlo desde collapsible-wrapper*/
     border: 1px solid black;
     border-radius: 20px;
     margin: auto;
     overflow: hidden;
     background: #0F1A20;
-
+    
 }
 
-.collapsible-wrapper {
-    width: 100%;
-    /*cambiar esta propiedad para los diferentes viewports*/
+.collapsible-wrapper{
+    width: 100%; /*cambiar esta propiedad para los diferentes viewports*/
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -103,7 +91,7 @@ hr {
 .collapsible-content>*,
 .collapsible-label {
     padding: 20px 20px;
-
+    
 }
 
 .collapsible-label {
@@ -113,13 +101,13 @@ hr {
     position: relative;
     color: #F8F4E3;
     font-weight: 600;
-    justify-content: center;
-    align-items: center;
-
+    justify-content: center; 
+    align-items: center; 
+    
 }
 
 .event-name {
-    flex-grow: 1 !important;
+    flex-grow: 1 !important; 
     text-align: center !important;
 }
 
@@ -175,13 +163,13 @@ input[type="checkbox"] {
 }
 
 .collapsible-content button {
-    border-radius: 6px;
+    border-radius: 6px; 
     font-size: 16px;
     width: 120px;
     height: 30px;
 }
 
-.boton {
+.boton{
     display: flex;
 }
 
@@ -189,42 +177,52 @@ input[type="checkbox"] {
     background-position: center top !important;
     background-size: cover !important;
     height: 70px !important;
-}
 
-.collapsible-content p {
+  }
+
+  .collapsible-content p {
     margin-right: 50px;
-
+    
 }
 
-@media (min-width:769px) {
+.derecha{
+    display: none;
+}
+
+/* .search-bar{
+    z-index: 10!important;
+    width: 50%!important;
+} */
+
+@media (min-width:769px){
     .precio {
         margin-right: 18px;
         white-space: nowrap;
         display: flex;
-
+       
     }
 
-    .profile-name {
+    .profile-name{
         text-align: center;
         color: #000000;
         font-weight: 600;
         font-size: 40px;
-        margin-top: 55px;
-        /* margin-right: 300px; */
+        margin-top: 50px;
+    /* margin-right: 300px; */
         overflow: hidden;
         position: absolute;
-        margin-left: 220px;
+        margin-left: 180px;
     }
 
     .profile-subtitle {
         text-align: center;
         color: #6e6e6e;
         font-size: 30px;
-        margin-top: 105px;
+        margin-top: 100px;
         /* margin-right: 300px; */
         overflow: hidden;
         position: absolute;
-        margin-left: 220px;
+        margin-left: 180px;
     }
 
     .profile-picture {
@@ -232,42 +230,89 @@ input[type="checkbox"] {
         height: 150px;
         border-radius: 0;
         overflow: hidden;
-        position: absolute;
+        position: absolute !important;
         top: 120px;
         left: 50px;
-
+        
     }
 
-    .fechas {
-        margin-left: 50px;
+    .fechas{
+        margin-left: 20px;
         margin-top: 300px;
         font-size: 16px;
     }
 
     hr {
-        margin: 3px 50px;
+        margin: 3px 20px; 
     }
-
-    .imagen-costado {
+    
+    /* .imagen-costado {
+        float: right;
         display: flex;
         width: 50%;
-        flex-direction: column-reverse;
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-    }
+    } */
 
     .collapsible-content p {
         margin-right: 100px;
-        margin-left: 100px;
+        margin-left: 100px;        
     }
 
     .collapsible-content button {
         border-radius: 6px;
         font-size: 16px;
         width: 120px;
-        height: 30px;
+        height: 30px;       
     }
 
+    /* .izquierda{
+        width: 70%;
+        height: 100vh;
+        /* margin-left: 20px; */
+   /*  }
 
+    .derecha{       
+        background-size: cover;
+        background-position: center;
+        width: 10%;
+        height: 100vh;
+        display: flex;
+    }
 
+    #pantalla-dividida{
+        display: flex;
+    } */
+
+    #pantalla-dividida {
+        display: flex;
+      }
+      
+      .izquierda {
+        flex: 1; /* Esto hará que el div ocupe todo el espacio disponible en el contenedor */
+        margin-left: 50px;
+        margin-right: 80px;
+      }
+      
+      .derecha {
+        flex: 1; /* Esto hará que el div ocupe todo el espacio disponible en el contenedor */
+        display: flex;
+        justify-content: flex-end; /* Alinea el contenido al final del div */
+        align-items: flex-end;
+        
+        
+      }
+      
+      .derecha img {
+        max-width: 100%; /* Asegura que la imagen no exceda el ancho del div */
+        height: 100vh; /* Ajusta la altura de la imagen automáticamente */
+        margin-right: 0;
+        
+      }
+
+    
+ 
 }
+
+
+
+
+
