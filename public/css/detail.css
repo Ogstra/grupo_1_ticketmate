@@ -12,13 +12,12 @@ main {
 .search-nav {
     position: unset;
     transform: translate(0%, 0%);
-    top: 0;
-    left: 0;
+    width: 35%;
 }
 
 .search-nav>input {
-    width: auto;
     height: 35px;
+    min-width: 0;
 }
 
 .search-nav>button {
