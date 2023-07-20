@@ -72,7 +72,7 @@ hr {
 .collapsible {
     /* max-width: 400px; */ /*el ancho se puede controlar desde aca pero mejor hacerlo desde collapsible-wrapper*/
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: auto;
     overflow: hidden;
     background: #0F1A20;
@@ -305,7 +305,7 @@ input[type="checkbox"] {
         max-width: 100%; /* Asegura que la imagen no exceda el ancho del div */
         height: 100vh; /* Ajusta la altura de la imagen automáticamente */
         margin-right: 0;
-        
+        object-fit: cover;       
       }
 
     
