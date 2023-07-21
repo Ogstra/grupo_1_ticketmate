@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@300&display=swap');
 
+/* Search NavBar */
+.search-nav {
+    position: unset;
+    transform: translate(0%, 0%);
+    width: 35%;
+}
+
+.search-nav>input {
+    height: 35px;
+    min-width: 0;
+}
+
+.search-nav>button {
+    height: 35px;
+}
+/* Search NavBar */
+
 .container-cart {
     padding-top: 100px;
 }

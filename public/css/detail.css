@@ -9,11 +9,20 @@ main {
     margin: auto;
 }
 
-/* .search-bar {
-    margin-top: -95px;
-    display: none; 
-  } */
+.search-nav {
+    position: unset;
+    transform: translate(0%, 0%);
+    width: 35%;
+}
 
+.search-nav>input {
+    height: 35px;
+    min-width: 0;
+}
+
+.search-nav>button {
+    height: 35px;
+}
 
   .profile-picture {
     width: 150px;
