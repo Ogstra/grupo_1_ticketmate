@@ -1,11 +1,23 @@
 const express = require("express");
 const path = require("path");
-
 const app = express();
+const mainRouter = require('./routes/mainRoutes.js');
 
 app.use(express.static('public'));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname,'/views'));
 
-app.get('/', (req, res) => {
+app.use('/', mainRouter);
+
+app.use('/cart', mainRouter);
+
+app.use('/login', mainRouter);
+
+app.use('/register', mainRouter);
+
+app.use('/detail', mainRouter);
+
+/* app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/index.html'))
 })
 
@@ -23,7 +35,7 @@ app.get('/register', (req, res) => {
 
 app.get('/detail', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/detail.html'))
-})
+}) */
 
 app.listen(3000, () => {
     console.log("http://localhost:3000")

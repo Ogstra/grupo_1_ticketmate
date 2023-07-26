@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicketMate - Create account</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login-register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <head>
+        <nav>
+            <div id="texto-nav">Login</div>
+            <a class="boton-home" href="/">
+                <div id="logo-x"><i class="fa-solid fa-xmark"></i></div>
+            </a>
+        </nav>
+    </head>
+    <div class="fondo-inicio">
+        
+    </div>
+    <main>
+        <div class="login-form">
+            <form action="/" method="get" class="create-form">
+                <div class="control-formulario">
+                    <label><b>Nombre de usuario:</b></label>
+                    <input type="text" name="username" class="control" minlength="5" required autofocus>
+                </div class="control-formulario">
+                <div class="control-formulario">
+                    <label><b>Nombre y apellido:</b></label>
+                    <input type="text" name="nombre" class="control" minlength="5" required>
+                </div class="control-formulario">
+                <div class="control-formulario">
+                    <label for="password"><b>Contraseña:</b></label>
+                    <input type="password" id="password" name="password" class="control" required>
+                </div>
+                <div class="control-formulario">
+                    <label for="passwordConfirm"><b>Repetir contraseña:</b></label>
+                    <input type="password" id="passwordConfirm" name="passwordConfirm" class="control" required>
+                </div>
+                <button type="submit" class="boton-formulario">Ingresar</button>
+                <p class="sign-up-button">Already have an account? <a href="/login">Log in</a></p>
+            </form>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
