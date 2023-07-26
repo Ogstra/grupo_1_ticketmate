@@ -5,7 +5,11 @@ const mainRouter = require('./routes/mainRoutes.js');
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname,'/views'));
+app.set('views', [
+    path.join(__dirname,'./views'),
+    path.join(__dirname,'./views/users'),
+    path.join(__dirname,'./views/products'),    
+]);
 
 app.use('/', mainRouter);
 
