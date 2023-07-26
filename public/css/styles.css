@@ -80,14 +80,19 @@ nav {
     width: 150px; /*  Menos de 140px se ve con bordes pixelados en 1080p */
 }
 
+nav a>div>i,
+.logo-hamburguer>i,
+.logo-x>i {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 nav a>div,
 .logo-hamburguer,
 .logo-x {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 50%;
-    padding: 5px;
     aspect-ratio: 1/1;
     width: 30px;
     height: 30px;
