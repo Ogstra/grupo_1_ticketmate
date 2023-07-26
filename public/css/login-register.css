@@ -28,6 +28,11 @@ nav {
     top: 150px;
 }
 
+.control-formulario-password,
+.control-formulario {
+    position: relative;
+}
+
 .login-form
 .control-formulario {
     display: flex;
@@ -54,6 +59,7 @@ nav {
     vertical-align: bottom;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .login-form label {
@@ -61,20 +67,23 @@ nav {
 }
 
 .control-formulario>input,
-.boton-formulario {
+.boton-formulario,
+.control-formulario>div>input {
     border-radius: 10px;
     height: 50px;
     text-indent: 12px;
     border: 1px solid rgba(200, 200, 200);
     box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
-    transition: all 0.3s ease 0s;
+    transition: color 0.3s ease 0s;
+    width: 100%;
 }
 
 .boton-formulario:hover {
     color: #4399e0;
 }
 
-.control-formulario>input:focus {
+.control-formulario>input:focus,
+.control-formulario>.control-formulario-password>input:focus {
     outline: none;
     box-shadow: 0.5px 0.5px 3px 1.5px rgba(0,0,0,0.25);
     transition: 100ms;
@@ -93,4 +102,12 @@ nav {
 .sign-up-button {
     font-size: 14px;
     color: rgb(68, 68, 68);
+}
+
+.showPassword-eye {
+    position: absolute;
+    top: 17px;
+    right: 15px;
+    color: var(--GrisOscuro);
+    cursor: pointer;
 }
