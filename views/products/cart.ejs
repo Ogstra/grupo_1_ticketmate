@@ -3,47 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cart</title>
-    <link rel="stylesheet" href="css/normalize.css">    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          rel="stylesheet">      
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/cart.css">
-    <script src="../js/mobile-nav.js" type="text/javascript"></script>
-    <body>
-        <nav>
-            <a href="/">
-                <img id="logo" src="/img/logo-ticketmate.svg">
-            </a>
-            <form action="/search" method="get" class="search-bar search-nav">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <input class="buscador1" type="text" placeholder="Que estas buscando?...">
-                <button type="reset"><i class="fa-sharp fa-regular fa-circle-xmark"></i></button>
-            </form>
-                <div id="nav-links-icons">
-                    <ul class="nav-bar">
-                        <li><a class="nav-link" href="contact">Contacto</a></li>
-                        <li><a class="nav-link" href="tickets">Tickets</a></li>
-                        <li><a class="nav-link" href="">Horarios</a></li>
-                        <!-- <li>Carrito</li> -->
-                        <li><a class="nav-link" href="/login">Log in</a></li>
-                    </ul>
-                    <div class="container-cart-user">
-                        <a class="boton-cart" href="/cart">
-                            <div id="logo-cart"><i class="fa-solid fa-basket-shopping"></i></div>
-                        </a>
-                        <a class="boton-login" href="/login">
-                            <div id="logo-user"><i class="fa-solid fa-user"></i></div>
-                        </a>
-                    </div>
-                </div>
-                <span id="openNavButton" style="cursor:pointer" onclick="openNav()"><div class="logo-hamburguer"><i class="bars-desplegable fa-solid fa-bars"></i></div></span>
-                
-            </nav>
-    <main>    
+    <title>Cart</title>
+    <%- include('./partials/head') %>
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <img id="logo" src="/img/logo-ticketmate.svg">
+        </a>
+        <form action="/search" method="get" class="search-bar search-nav">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input class="buscador1" type="text" placeholder="Que estas buscando?...">
+            <button type="reset"><i class="fa-sharp fa-regular fa-circle-xmark"></i></button>
+        </form>
+        <div id="nav-links-icons">
+            <ul class="nav-bar">
+                <li><a class="nav-link" href="contact">Contacto</a></li>
+                <li><a class="nav-link" href="tickets">Tickets</a></li>
+                <li><a class="nav-link" href="">Horarios</a></li>
+                <!-- <li>Carrito</li> -->
+                <li><a class="nav-link" href="/login">Log in</a></li>
+            </ul>
+            <div class="container-cart-user">
+                <a class="boton-cart" href="/cart">
+                    <div id="logo-cart"><i class="fa-solid fa-basket-shopping"></i></div>
+                </a>
+                <a class="boton-login" href="/login">
+                    <div id="logo-user"><i class="fa-solid fa-user"></i></div>
+                </a>
+            </div>
+        </div>
+        <span id="openNavButton" style="cursor:pointer" onclick="openNav()">
+            <div class="logo-hamburguer"><i class="bars-desplegable fa-solid fa-bars"></i></div>
+        </span>
+
+    </nav>
+    <main>
         <!-- NavBar Desplegable comienzo-->
         <div id="myNav" class="overlay">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><div class="logo-x"><i class="fa-solid fa-xmark"></i></div></a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+                <div class="logo-x"><i class="fa-solid fa-xmark"></i></div>
+            </a>
             <div class="overlay-content">
                 <a href="login">Log in</a>
                 <a href="cart">Carrito</a>
@@ -52,58 +52,59 @@
                 <a href="contact">Contacto</a>
             </div>
         </div>
-        <!-- NavBar Desplegable final-->    
+        <!-- NavBar Desplegable final-->
         <div class="cart-container">
-    <div class="container-cart">
-        <div class="main-navbar">
-            <h3 class="left-navbar">Resumen de compra</h3>             
-                <div class="right-navbar">
-                    <a href="#">Cancelar compra</a>
-                </div>             
-        </div>
-        <section class="contenedor">
-                <article class="boleto">
-                    <div class="producto__informacion">
-                        <p class="nombre-evento">NOMBRE DEL EVENTO</p>
-                        <p class="fecha">28 Jun | 21:00hs | Campo Delantero</p>
-                        <p class="precio">$1000</p>
+            <div class="container-cart">
+                <div class="main-navbar">
+                    <h3 class="left-navbar">Resumen de compra</h3>
+                    <div class="right-navbar">
+                        <a href="#">Cancelar compra</a>
                     </div>
-                </article>
+                </div>
+                <section class="contenedor">
+                    <article class="boleto">
+                        <div class="producto__informacion">
+                            <p class="nombre-evento">NOMBRE DEL EVENTO</p>
+                            <p class="fecha">28 Jun | 21:00hs | Campo Delantero</p>
+                            <p class="precio">$1000</p>
+                        </div>
+                    </article>
 
-                <article class="boleto">
-                    <div class="producto__informacion">
-                        <p class="nombre-evento">NOMBRE DEL EVENTO</p>
-                        <p class="fecha">28 Jun | 21:00hs | Campo Delantero</p>
-                        <p class="precio">$1000</p>
-                    </div>
-                </article>
+                    <article class="boleto">
+                        <div class="producto__informacion">
+                            <p class="nombre-evento">NOMBRE DEL EVENTO</p>
+                            <p class="fecha">28 Jun | 21:00hs | Campo Delantero</p>
+                            <p class="precio">$1000</p>
+                        </div>
+                    </article>
 
-                <article class="boleto">
-                    <div class="producto__informacion">
-                        <p class="nombre-evento">NOMBRE DEL EVENTO</p>
-                        <p class="fecha">28 Jun | 21:00hs | Campo Delantero</p>
-                        <p class="precio">$1000</p>
-                    </div>
-                </article>
+                    <article class="boleto">
+                        <div class="producto__informacion">
+                            <p class="nombre-evento">NOMBRE DEL EVENTO</p>
+                            <p class="fecha">28 Jun | 21:00hs | Campo Delantero</p>
+                            <p class="precio">$1000</p>
+                        </div>
+                    </article>
 
-                <article class="boleto">
+                    <article class="boleto">
                         <p class="servicios">Servicios</p>
                         <p>Cargo por servicio</p>
                         <p class="precio">$1000</p>
-                </article>
-            </section>
+                    </article>
+                </section>
 
-            <section class="total">
-                <div>
-                    <p>3</p>
-                    <p>Total</p>
-                    <p>$3900</p>
-                </div>             
-                <div class="pagar">
-                    <input class="boton-pagar" type="submit" value="Pagar">
-                </div>             
-            </section>
-    </div>
-        </main>            
+                <section class="total">
+                    <div>
+                        <p>3</p>
+                        <p>Total</p>
+                        <p>$3900</p>
+                    </div>
+                    <div class="pagar">
+                        <input class="boton-pagar" type="submit" value="Pagar">
+                    </div>
+                </section>
+            </div>
+    </main>
 </body>
+
 </html>
