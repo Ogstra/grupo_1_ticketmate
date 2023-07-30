@@ -34,8 +34,10 @@
                     </a>
                 </div>
             </div>
-            <span id="openNavButton" style="cursor:pointer" onclick="openNav()"><div class="logo-hamburguer"><i class="bars-desplegable fa-solid fa-bars"></i></div></span>
-            
+            <div class="burgerMenu-SearchBar">
+                <span id="openSearchButton" style="cursor:pointer; margin-right: 10px;" onclick="openSearch()"><div class="logo-search"><i class="bars-desplegable fa-solid fa-search"></i></div></span>
+                <span id="openNavButton" style="cursor:pointer" onclick="openNav()"><div class="logo-hamburguer"><i class="bars-desplegable fa-solid fa-bars"></i></div></span>
+            </div>
         </nav>
     </head>
     
@@ -54,10 +56,13 @@
                 <a href="cart">Carrito</a>
                 <a href="#">Horarios</a>
                 <a href="#">Tickets</a>
-                <a href="contact">Contacto</a>
+                <a href="#contact">Contacto</a>
             </div>
         </div>
         <!-- NavBar Desplegable final-->
+        <!-- SearchNav-->
+        <%- include('./partials/searchButtonNav') %>
+        <!-- SearchNav-->
     <section id="pantalla-dividida">
     <div class="izquierda"> 
         <div class="profile-picture">
