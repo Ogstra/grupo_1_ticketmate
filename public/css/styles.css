@@ -23,7 +23,7 @@ body{
 }
 
 nav {
-    position: relative;
+    position: absolute!important;
     width: 100%;
     z-index: 100;
     display: flex;
@@ -73,16 +73,16 @@ nav {
 }
 
 #logo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 150px; /*  Menos de 140px se ve con bordes pixelados en 1080p */
 }
 
 nav a>div>i,
 .logo-hamburguer>i,
+.logo-search>i,
 .logo-x>i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     top: 50%;
     left: 50%;
@@ -91,11 +91,12 @@ nav a>div>i,
 
 nav a>div,
 .logo-hamburguer,
+.logo-search,
 .logo-x {
     border-radius: 50%;
     aspect-ratio: 1/1;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     background-color: white;
     box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.25);
     transition: all 0.3s ease 0s;
@@ -453,7 +454,8 @@ nav a>div,
     -webkit-tap-highlight-color: transparent;
 }
 
-.logo-hamburguer {
+.logo-hamburguer,
+.logo-search {
     opacity: 100%
 }
 
@@ -464,7 +466,7 @@ nav a>div,
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,0.95);
     overflow-x: hidden;
     overflow-y: hidden;
     transition: 0.25s;
@@ -477,8 +479,7 @@ nav a>div,
   .overlay-content {
     display: flex;
     flex-direction: column;
-    font-size: 20px;
-    padding: 8px;
+    font-size: 22px;
     margin-top: 125px;
     width: 100%;
     height: 100%;
@@ -501,21 +502,128 @@ nav a>div,
   
   .overlay .closebtn {
     position: absolute;
-    top: 12px;
+    top: 10px;
     right: 7px;
   }
 
 /* NavBar Desplegable final */
 
+/* NavSearch comienzo */
+
+.burgerMenu-SearchBar {
+    display: inline-flex;
+}
+
+#myNavSearch {
+    display: none;
+    z-index: 10;
+    transition: all 0ms;
+}
+
+.search-nav-drop a .logo-x {
+    padding: 0 1.3rem;
+}
+
+.search-nav {
+    display: none;
+}
+
+.search-nav-drop {
+    display: flex;
+    position: absolute;
+    white-space: nowrap;
+    width: 95vw;
+}
+
+.search-nav-drop>input,
+.search-nav-drop>button,
+.search-nav-drop a>div {
+    height: 50px;
+    background-color: floralwhite;
+    box-shadow: none
+}
+
+.search-nav-drop input {
+    border: none;
+    padding: 10px 0 10px 10px;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    /* CAMBIAR ESTO PARA EL ANCHO */
+}
+
+.search-nav-drop input:focus {
+    outline: none;
+}
+
+.search-nav-drop button:nth-child(1) {
+    border-radius: 10px 0 0 10px;
+    border: none;
+    padding: 0 0.8rem;
+    margin-right: -10px;
+    color: black;
+    /* Sin esto no se ve en mobile */
+}
+
+.search-nav-drop a>div {
+    border-radius: 0 10px 10px 0;
+    border: none;
+    padding: 0 0.8rem;
+    margin-left: -10px;
+    color: black;
+    /* Sin esto no se ve en mobile */
+}
+
+.overlay-content-search-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.overlaySearch {
+    height: 70px;
+    width: 100vw;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+}
+  
+.overlaySearch a {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+    display: block;
+}
+  
+.overlaySearch a:hover, .overlaySearch a:focus {
+    color: #f1f1f1;
+}
+
+/* NavSearch final */
+
 @media (min-width: 768px) {
     /* Desktop: */
     #logo-user,
     #openNavButton,
-    #myNav {
+    #myNav,
+    .overlaySearch {
+        display: none!important;
+    }
+
+    .search-bar {
+        display: flex;
+    }
+
+    .burgerMenu-SearchBar {
         display: none;
     }
 
-    
     .container-cart-user {
         display: none;
         width: auto;
