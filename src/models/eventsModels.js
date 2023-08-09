@@ -22,20 +22,18 @@ const modelo = {
 
         const newEvent = {
             id: lastProdId + 1,
-            name: bodyData.name,
-            price: Number(bodyData.price),
-            stock: Number(bodyData.stock),
-            date: date,
-            category: bodyData.category,
-            time: bodyData.time,
-            description: bodyData.description  
+            ...bodyData
         };
+
+        newEvent.date = date /* Formatea la fecha */
 
         events.push(newEvent);
 
         // Convertimos el Javascript en JSON
         const jsonData = JSON.stringify(events);
         fs.writeFileSync(eventsPath, jsonData, 'utf-8');
+        
+        return newEvent;
     }
 };
 
