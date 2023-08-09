@@ -24,13 +24,13 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-        res.render('event-create-form');
+        res.render('event-creation-form');
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
+		/* console.log("req body desde el controlador",req.body); */
 		eventsModel.createEvent(req.body);
-
 		res.redirect("/");
 	},
 

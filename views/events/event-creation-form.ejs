@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create an Event</title>
+</head>
+<body>
+
+    <form action="/events" method="POST">
+        <label for="name">nombre</label>
+        <input type="text" name="name">
+
+        <label for="name">precio</label>
+        <input type="number" name="price">
+
+        
+        <label for="name">Stock</label>
+        <input type="number" name="stock">
+
+        <label for="name">Fecha</label>
+        <input type="date" format="dd/mm/yyyy" name="date">
+        <select name="category">
+            <option value="concert">Concert</option>
+            <option value="sports-event">Sports Event</option>
+            <option value="misc">Misc</option>
+        </select>
+        <input type="time" name="time">
+        <textarea name="description"cols="30" rows="10"></textarea>
+        <button type="submit">Enviar</button>
+        <input type="reset">
+    </form>
+    
+</body>
+</html>

@@ -12,6 +12,9 @@ app.set('views', [
     path.join(__dirname,'./views/events'),    
 ]);
 
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+
 app.use('/events', eventsRouter);
 
 app.use('/', mainRouter);
