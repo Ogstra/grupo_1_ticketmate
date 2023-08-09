@@ -1,0 +1,47 @@
+[
+    {
+      "name": "Jazz Fusion Night",
+      "price": 720,
+      "stock": 1000,
+      "date": "10/10/23",
+      "category": "concert",
+      "time": "21:00",
+      "description": "Experience the harmony of jazz and fusion genres."
+    },
+    {
+      "name": "Tennis Grand Slam",
+      "price": 1450,
+      "stock": 1000,
+      "date": "03/07/23",
+      "category": "sports-event",
+      "time": "13:30",
+      "description": "Cheer for your favorite tennis players in a thrilling grand slam event."
+    },
+    {
+      "name": "Summer Dance Festival",
+      "price": 620,
+      "stock": 1000,
+      "date": "15/06/23",
+      "category": "concert",
+      "time": "17:45",
+      "description": "Celebrate summer with an eclectic mix of dance performances."
+    },
+    {
+      "name": "Racing Championship",
+      "price": 1200,
+      "stock": 1000,
+      "date": "28/09/23",
+      "category": "sports-event",
+      "time": "14:15",
+      "description": "Witness high-speed action as racers compete for the championship title."
+    },
+    {
+      "name": "Tech Expo Showcase",
+      "price": 800,
+      "stock": 1000,
+      "date": "12/11/23",
+      "category": "misc",
+      "time": "09:30",
+      "description": "Explore the latest technological innovations at the expo."
+    }
+  ]
