@@ -25,8 +25,8 @@ const modelo = {
             name: bodyData.name,
             price: Number(bodyData.price),
             stock: Number(bodyData.stock),
-            category: bodyData.category,
             date: date,
+            category: bodyData.category,
             time: bodyData.time,
             description: bodyData.description  
         };

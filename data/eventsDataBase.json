@@ -48,15 +48,5 @@
     "category": "misc",
     "time": "09:30",
     "description": "Explore the latest technological innovations at the expo."
-  },
-  {
-    "id": 6,
-    "name": "Soy amable con GPT",
-    "price": 1000,
-    "stock": 1000,
-    "category": "concert",
-    "date": "01-02-2032",
-    "time": "22:00",
-    "description": "Al ser amables con GPT evitamos morir en el apocalipsis de los terminators"
   }
 ]
