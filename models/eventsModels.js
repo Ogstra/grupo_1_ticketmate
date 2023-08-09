@@ -23,8 +23,8 @@ const modelo = {
         const newEvent = {
             id: lastProdId + 1,
             name: bodyData.name,
-            price: bodyData.price,
-            stock: bodyData.stock,
+            price: Number(bodyData.price),
+            stock: Number(bodyData.stock),
             category: bodyData.category,
             date: date,
             time: bodyData.time,
