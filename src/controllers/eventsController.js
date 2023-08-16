@@ -1,8 +1,5 @@
-const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
-const { createEvent } = require('../models/eventsModels');
-
 const eventsFilePath = path.join(__dirname, '../data/eventsDataBase.json');
 const events = JSON.parse(fs.readFileSync(eventsFilePath, 'utf-8'));
 const eventsModel = require('../models/eventsModels');
