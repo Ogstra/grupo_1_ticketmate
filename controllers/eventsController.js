@@ -36,7 +36,7 @@ const controller = {
 
 	// Update - Form to edit
 	edit: (req, res) => {
-		// Do the magic
+		
 	},
 	// Update - Method to update
 	update: (req, res) => {
