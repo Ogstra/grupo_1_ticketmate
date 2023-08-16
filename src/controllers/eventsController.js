@@ -1,5 +1,7 @@
+const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
+const { createEvent } = require('../models/eventsModels');
 
 const eventsFilePath = path.join(__dirname, '../data/eventsDataBase.json');
 const events = JSON.parse(fs.readFileSync(eventsFilePath, 'utf-8'));
@@ -31,7 +33,20 @@ const controller = {
 	store: (req, res) => {
 		/* console.log("req body desde el controlador",req.body); */
 		eventsModel.createEvent(req.body);
-		res.redirect("/");
+
+		const newEvent = {
+            name: req.body.name,
+            price: Number(req.body.price),
+            stock: Number(req.body.stock),
+            date: req.body.date,
+            category: req.body.category,
+            time: req.body.time,
+            description: req.body.description  
+        };
+
+		const createdEvent = eventsModel.createEvent(newEvent);
+
+		res.redirect("/events/" + createdEvent.id);
 	},
 
 	// Update - Form to edit

@@ -4,7 +4,7 @@ const app = express();
 const mainRouter = require('./routes/mainRoutes.js');
 const eventsRouter = require('./routes/events.js');
 
-app.use(express.static('public'));
+app.use(express.static('../public'));
 app.set('view engine', 'ejs');
 app.set('views', [
     path.join(__dirname,'./views'),
