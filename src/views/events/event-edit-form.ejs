@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit an event</title>
+</head>
+<body>
+
+    <form action="/events/<%= currentEvent.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <label for="name">nombre</label>
+        <input type="text" name="name" value="<%= currentEvent.name %>">
+
+        <label for="name">precio</label>
+        <input type="number" name="price" value="<%= currentEvent.price %>">
+
+        
+        <label for="name">Stock</label>
+        <input type="number" name="stock" value="<%= currentEvent.stock %>">
+
+        <label for="name">Fecha</label>
+        <input type="date" format="dd/mm/yyyy" name="date" value="<%= currentEvent.date %>">
+
+        <select name="category">
+            <% if(currentEvent.category === 'concert') {%>
+                <option value="concert" selected>Concert</option>
+            <% } else {%>
+                <option value="concert" >Concert</option>
+            <% } %>
+            <% if(currentEvent.category === 'sports-event') {%>
+                <option value="sports-event" selected>Sports Event</option>
+            <% } else {%>
+                <option value="sports-event" >Sports Event</option>
+            <% } %>
+            <% if(currentEvent.category === 'misc') {%>
+                <option value="misc" selected>Misc</option>
+            <% } else {%>
+                <option value="misc">Misc</option>
+            <% } %>
+        </select>
+        <img src="/img/events/<%= locals.currentEvent.image %>" alt="">
+        <input type="file" name="event-image" value="<%= locals.currentEvent.image %>">
+        <input type="time" name="time" value="<%= currentEvent.time %>">
+        <textarea name="description"cols="30" rows="10"><%= currentEvent.description %></textarea>
+        <button type="submit">Enviar</button>
+        <input type="reset">
+    </form>
+    <form action="/events/<%= currentEvent.id %>?_method=DELETE" method="POST">
+        <button type="submit">Borrar</button>
+    </form>
+    
+</body>
+</html>

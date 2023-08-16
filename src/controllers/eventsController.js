@@ -19,48 +19,87 @@ const controller = {
 	detail: (req, res) => {
 		const eventId = req.params.id;
 
-        const selectedevent = events.filter( idevent => idevent.id === eventId);
+		const selectedevent = events.filter(idevent => idevent.id === eventId);
 
-        res.render('detail', { event: selectedevent });
+		res.render('detail', { event: selectedevent });
 	},
 
 	// Create - Form to create
 	create: (req, res) => {
-        res.render('event-creation-form');
+		res.render('event-creation-form');
 	},
-	
+
 	// Create -  Method to store
 	store: (req, res) => {
-		/* console.log("req body desde el controlador",req.body); */
-		eventsModel.createEvent(req.body);
+		console.table(req.file);
+		let eventImage;
+
+		if (!req.file) {
+			eventImage = 'placeholder.jpg';
+		} else {
+			eventImage = req.file.filename;
+		}
 
 		const newEvent = {
-            name: req.body.name,
-            price: Number(req.body.price),
-            stock: Number(req.body.stock),
-            date: req.body.date,
-            category: req.body.category,
-            time: req.body.time,
-            description: req.body.description  
-        };
+			name: req.body.name,
+			price: req.body.price,
+			stock: req.body.stock,
+			date: req.body.date,
+			category: req.body.category,
+			image: eventImage,
+			time: req.body.time,
+			description: req.body.description
+		};
 
 		const createdEvent = eventsModel.createEvent(newEvent);
 
 		res.redirect("/events/" + createdEvent.id);
 	},
 
-	// Update - Form to edit
+	// Muestra el formulario de edicion
 	edit: (req, res) => {
-		
+		let currentEvent = eventsModel.findbyID(req.params.id);
+		currentEvent.date = eventsModel.handleDate(currentEvent.date);
+		res.render('event-edit-form', { currentEvent: currentEvent });
 	},
-	// Update - Method to update
+
+	// Metodo de edicion de eventos
 	update: (req, res) => {
-		// Do the magic
+		let events = eventsModel.findAll();
+		let eventImage;
+		let eventID = events.findIndex(event => event.id == req.params.id);
+
+
+		if (!req.file) {
+			eventImage = events[eventID].image;
+		} else {
+			eventImage = req.file.filename;
+		}
+
+		let updatedEvent = {
+			id: req.params.id,
+			name: req.body.name,
+			price: req.body.price,
+			stock: req.body.stock,
+			date: eventsModel.handleDate(req.body.date),
+			category: req.body.category,
+			image: eventImage,
+			time: req.body.time,
+			description: req.body.description
+		};
+
+		eventsModel.editEvent(updatedEvent);
+
+		res.redirect('/'); //deberia llevar al detail
 	},
 
 	// Delete - Delete one event from DB
-	destroy : (req, res) => {
-		// Do the magic
+	destroy: (req, res) => {
+		let events = eventsModel.findAll();
+		events = events.filter(event => event.id != req.params.id);
+		console.log(events)
+		eventsModel.deleteEvent(events);
+		res.redirect('/');
 	}
 };
 

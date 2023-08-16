@@ -10,11 +10,11 @@ const eventsController = require('../controllers/eventsController');
 // ************ Configuracion de Multer ************
 let multerDiskStorage = multer.diskStorage({
     destination: (req, file, callback) => {
-        let folder = path.join(__dirname, '../../public/images/products');
+        let folder = path.join(__dirname, '../../public/img/events'); //ajustar ruta de imagenes
         callback(null, folder);
     },
     filename: (req, file, callback) => {
-        let imageName = Date.now() + path.extname(file.originalname);
+        let imageName = file.originalname.substring(0, file.originalname.lastIndexOf('.')) + '-' + Date.now() + path.extname(file.originalname);
         callback(null, imageName);
     }
 });

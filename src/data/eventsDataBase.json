@@ -1,11 +1,12 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Jazz Fusion Night",
-    "price": 720,
-    "stock": 1000,
-    "date": "10-10-2023",
+    "price": "720",
+    "stock": "1000",
+    "date": "08-17-2023",
     "category": "concert",
+    "image": "placeholder.jpg",
     "time": "21:00",
     "description": "Experience the harmony of jazz and fusion genres."
   },
@@ -48,5 +49,16 @@
     "category": "misc",
     "time": "09:30",
     "description": "Explore the latest technological innovations at the expo."
+  },
+  {
+    "id": 6,
+    "name": "asdasdasd",
+    "price": "123",
+    "stock": "123",
+    "date": "03-08-2023",
+    "category": "misc",
+    "image": "blazchikito-1692227711243.png",
+    "time": "21:15",
+    "description": "asdasdasdasd"
   }
 ]

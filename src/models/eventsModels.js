@@ -1,16 +1,23 @@
 const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
-const eventsPath = path.join(__dirname,'../data/eventsDataBase.json');
+const eventsPath = path.join(__dirname, '../data/eventsDataBase.json');
 
 const modelo = {
+    //lee de un JSON todos los eventos y los devuelve en un array de JS
     findAll: () => {
         const result = JSON.parse(fs.readFileSync(eventsPath, 'utf-8'));
         return result;
     },
-    handleDate:(date)=>{
+    //busca un evento en particular en base a su ID
+    findbyID: (id) => {
+        let events = modelo.findAll();
+        return events.find(event => event.id == id);
+    },
+    //recibe una fecha en formato US y lo traduce a formato normal
+    handleDate: (date) => {
         let dateArray = date.split('-');
-        dateArray=dateArray.reverse();
+        dateArray = dateArray.reverse();
         let result = dateArray.join('-');
         return result;
     },
@@ -32,8 +39,20 @@ const modelo = {
         // Convertimos el Javascript en JSON
         const jsonData = JSON.stringify(events);
         fs.writeFileSync(eventsPath, jsonData, 'utf-8');
-        
+
         return newEvent;
+    },
+    editEvent: (updatedEvent) => {
+        let events = modelo.findAll();
+        const eventIndex = events.findIndex(event => event.id == updatedEvent.id);
+        events[eventIndex] = updatedEvent;
+        const jsonData = JSON.stringify(events);
+        fs.writeFileSync(eventsPath,jsonData,'utf-8');
+    },
+    deleteEvent: (updatedEvents)=>{
+        console.log(updatedEvents);
+        const jsonData = JSON.stringify(updatedEvents,'utf-8');
+        fs.writeFileSync(eventsPath,jsonData,'utf-8');
     }
 };
 

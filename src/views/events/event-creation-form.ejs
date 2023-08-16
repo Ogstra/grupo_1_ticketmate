@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Create an Event</title>
 </head>
+
 <body>
 
-    <form action="/events" method="POST">
+    <form action="/events/" method="POST" enctype="multipart/form-data">
         <label for="name">nombre</label>
         <input type="text" name="name">
 
         <label for="name">precio</label>
         <input type="number" name="price">
 
-        
+
         <label for="name">Stock</label>
         <input type="number" name="stock">
 
@@ -25,10 +27,12 @@
             <option value="misc">Misc</option>
         </select>
         <input type="time" name="time">
-        <textarea name="description"cols="30" rows="10"></textarea>
+        <input type="file" name="event-image">
+        <textarea name="description" cols="30" rows="10"></textarea>
         <button type="submit">Enviar</button>
         <input type="reset">
     </form>
-    
+
 </body>
+
 </html>
