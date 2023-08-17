@@ -12,7 +12,7 @@ const modelo = {
     //busca un evento en particular en base a su ID
     findbyID: (id) => {
         let events = modelo.findAll();
-        return events.find(event => event.id == id);
+        return (events.find(event => event.id == id));
     },
     //recibe una fecha en formato US y lo traduce a formato normal
     handleDate: (date) => {
@@ -26,7 +26,6 @@ const modelo = {
 
         const lastProdId = events[events.length - 1].id;
         const date = modelo.handleDate(bodyData.date);
-
         const newEvent = {
             id: lastProdId + 1,
             ...bodyData
@@ -50,7 +49,6 @@ const modelo = {
         fs.writeFileSync(eventsPath,jsonData,'utf-8');
     },
     deleteEvent: (updatedEvents)=>{
-        console.log(updatedEvents);
         const jsonData = JSON.stringify(updatedEvents,'utf-8');
         fs.writeFileSync(eventsPath,jsonData,'utf-8');
     }

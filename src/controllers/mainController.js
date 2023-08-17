@@ -3,10 +3,6 @@ const mainController = {
         res.render('index.ejs');
     },
 
-    getDetail: function (req, res) {
-        res.render('detail.ejs');
-    },
-
     getLogin: function (req, res) {
         res.render('login.ejs')
     },

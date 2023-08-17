@@ -3,33 +3,45 @@ const path = require('path');
 const eventsFilePath = path.join(__dirname, '../data/eventsDataBase.json');
 const events = JSON.parse(fs.readFileSync(eventsFilePath, 'utf-8'));
 const eventsModel = require('../models/eventsModels');
+const { validationResult } = require('express-validator');
+const { log } = require('console');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 	// Root - Show all events
 	index: (req, res) => {
-		res.render(path.resolve(__dirname, "../views/events.ejs"))
+		const events = eventsModel.findAll();
+		res.render(path.resolve(__dirname, "../views/events/events.ejs"), { events: events })
 	},
 
 	// Detail - Detail from one event
 	detail: (req, res) => {
 		const eventId = req.params.id;
-
-		const selectedevent = events.filter(idevent => idevent.id === eventId);
-
+		const selectedevent = eventsModel.findbyID(eventId);
 		res.render('detail', { event: selectedevent });
 	},
 
 	// Create - Form to create
 	create: (req, res) => {
-		res.render('event-creation-form');
+		const errors = req.query;
+		console.table(req.query);
+		res.render('event-creation-form', { errors: errors }); //hacer llegar de alguna manera los datos del error anterior
 	},
 
 	// Create -  Method to store
 	store: (req, res) => {
-		console.table(req.file);
+		let result = validationResult(req);
 		let eventImage;
+
+		if (result.errors.length > 0) {
+			const errorArray = result.errors.map(error => '&' + error.path + 'Error' + '=' + error.msg);
+			const errorString = errorArray.join('');
+			const oldDataArray = Object.entries(req.body).map(bodydata => '&' + 'old' + bodydata[0] + '=' + bodydata[1]);
+			const oldDataString = oldDataArray.join('');
+			res.redirect('/events/create' + '?' + errorString + oldDataString);
+			return;
+		}
 
 		if (!req.file) {
 			eventImage = 'placeholder.jpg';
@@ -49,7 +61,6 @@ const controller = {
 		};
 
 		const createdEvent = eventsModel.createEvent(newEvent);
-
 		res.redirect("/events/" + createdEvent.id);
 	},
 
@@ -66,7 +77,9 @@ const controller = {
 		let eventImage;
 		let eventID = events.findIndex(event => event.id == req.params.id);
 
-
+		//agregar validaciones y manejo de errores
+		
+		
 		if (!req.file) {
 			eventImage = events[eventID].image;
 		} else {
@@ -87,14 +100,13 @@ const controller = {
 
 		eventsModel.editEvent(updatedEvent);
 
-		res.redirect('/'); //deberia llevar al detail
+		res.redirect('/events/' + updatedEvent.id); //deberia llevar al detail
 	},
 
 	// Delete - Delete one event from DB
 	destroy: (req, res) => {
 		let events = eventsModel.findAll();
 		events = events.filter(event => event.id != req.params.id);
-		console.log(events)
 		eventsModel.deleteEvent(events);
 		res.redirect('/');
 	}

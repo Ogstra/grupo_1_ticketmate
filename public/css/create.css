@@ -4,16 +4,26 @@
     line-height: 1;
 }
 
-nav {
-    background: #ebebeb !important;
+.fondo-inicio {
+    background-position: center top !important;
+    background-size: cover !important;
+    height: 70px !important;
+
+  }
+
+  .search-nav {
+    position: unset;
+    transform: translate(0%, 0%);
+    width: 35%;
 }
 
-#texto-nav {
-    padding-left: 5px;
-    font-family: Roboto;
-    font-size: 25px;
-    font-weight: bold;
-    color: #000000;
+.search-nav>input {
+    height: 35px;
+    min-width: 0;
+}
+
+.search-nav>button {
+    height: 35px;
 }
 
 .create-product {
@@ -21,14 +31,28 @@ nav {
     flex-direction: column;
     align-items: center;
     position: relative;
-    top: 100px;
+    top: 50px;
 }
 
-.create-product label, select, input {
+.create-product label, 
+.create-product select, 
+.create-product input {
     margin: 5px 0px;
+    font-weight: bold;
+    text-align: left;
+    text-indent: 5px;
+    width: 100%;
+    max-width: 360px;
 }
 
-.create-product input, select, button {
+.create-product input,
+.create-product select {
+    margin-bottom: 15px;
+}
+
+.create-product input,
+.create-product select, 
+.create-product button {
     border-radius: 10px;
     height: 50px;
     text-indent: 12px;
@@ -37,6 +61,21 @@ nav {
     transition: color 0.3s ease 0s;
     width: 100%;
     max-width: 360px;
+}
+
+.boton-formulario {
+    width: 84vw;
+    background: black;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.input-file {
+    margin-top: 25px!important;
+    box-shadow: none!important;
+    border: none!important;
 }
 
 #attach {
