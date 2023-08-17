@@ -12,7 +12,7 @@ const controller = {
 	// Root - Show all events
 	index: (req, res) => {
 		const events = eventsModel.findAll();
-		res.render(path.resolve(__dirname, "../views/events/events.ejs"), {events: events})
+		res.render(path.resolve(__dirname, "../views/events/events.ejs"), { events: events })
 	},
 
 	// Detail - Detail from one event
@@ -24,19 +24,22 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		const errors = req.query
-		res.render('event-creation-form', {errors: errors}); //hacer llegar de alguna manera los datos del error anterior
+		const errors = req.query;
+		console.table(req.query);
+		res.render('event-creation-form', { errors: errors }); //hacer llegar de alguna manera los datos del error anterior
 	},
 
 	// Create -  Method to store
 	store: (req, res) => {
 		let result = validationResult(req);
 		let eventImage;
-		
-		if(result.errors.length > 0){
-			const errorArray = result.errors.map(error => '&' + error.path + '=' + error.msg);
+
+		if (result.errors.length > 0) {
+			const errorArray = result.errors.map(error => '&' + error.path + 'Error' + '=' + error.msg);
 			const errorString = errorArray.join('');
-			res.redirect('/events/create' +'?'+ errorString);
+			const oldDataArray = Object.entries(req.body).map(bodydata => '&' + 'old' + bodydata[0] + '=' + bodydata[1]);
+			const oldDataString = oldDataArray.join('');
+			res.redirect('/events/create' + '?' + errorString + oldDataString);
 			return;
 		}
 
@@ -94,7 +97,7 @@ const controller = {
 
 		eventsModel.editEvent(updatedEvent);
 
-		res.redirect('/events/' + updatedEvent.id ); //deberia llevar al detail
+		res.redirect('/events/' + updatedEvent.id); //deberia llevar al detail
 	},
 
 	// Delete - Delete one event from DB

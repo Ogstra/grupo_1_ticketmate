@@ -4,40 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Create an Event</title>
+
+    <% const categories = ['concert','sports-event','misc'] %>
+
+
+
 </head>
 
 <body>
 
     <form action="/events/" method="POST" enctype="multipart/form-data">
         <label for="name">nombre</label>
-        <input type="text" name="name">
+        <input type="text" name="name" value="<%= locals.errors.oldname %>">
 
         <label for="price">precio</label>
-        <input type="number" name="price">
+        <input type="number" name="price" value="<%= locals.errors.oldprice %>">
 
 
         <label for="stock">Stock</label>
-        <input type="number" name="stock">
+        <input type="number" name="stock" value="<%= locals.errors.oldstock %>">
 
         <label for="date">Fecha</label>
-        <input type="date" format="dd/mm/yyyy" name="date">
+        <input type="date" format="dd/mm/yyyy" name="date" value="<%= locals.errors.olddate %>">
         <select name="category">
-            <option value="concert">Concert</option>
+<!--             <option value="concert">Concert</option>
             <option value="sports-event">Sports Event</option>
-            <option value="misc">Misc</option>
+            <option value="misc">Misc</option> -->
+            <% for (category of categories) { %>
+                <option value="<%= category %>" <% if( locals.errors.oldcategory == category) { %>
+                        selected 
+                    <% } %>> 
+                    <%= category.replace('-',' ').split(' ').map(word=>word[0].toUpperCase()+word.substring(1)).join(' ') %> 
+                </option>
+            <% } %>
+
         </select>
-        <input type="time" name="time">
+        <input type="time" name="time" value="<%= locals.errors.oldtime %>">
         <input type="file" name="event-image">
-        <textarea name="description" cols="30" rows="10"></textarea>
+        <textarea name="description" cols="30" rows="10"><%= locals.errors.olddescription %></textarea>
         <button type="submit">Enviar</button>
         <input type="reset">
     </form>
     <ul>
-        <li><%= locals.errors.name %></li>
-        <li><%= locals.errors.price %></li>
-        <li><%= locals.errors.stock %></li>
-        <li><%= locals.errors.date %></li>
-        <li><%= locals.errors.time %></li>
+        <li><%= locals.errors.nameError %></li>
+        <li><%= locals.errors.priceError %></li>
+        <li><%= locals.errors.stockError %></li>
+        <li><%= locals.errors.dateError %></li>
+        <li><%= locals.errors.timeError %></li>
     </ul>
 </body>
 
