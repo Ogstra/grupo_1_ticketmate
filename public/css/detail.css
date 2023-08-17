@@ -11,6 +11,21 @@ main {
     margin: auto;
 }
 
+.search-nav {
+    position: unset;
+    transform: translate(0%, 0%);
+    width: 35%;
+}
+
+.search-nav>input {
+    height: 35px;
+    min-width: 0;
+}
+
+.search-nav>button {
+    height: 35px;
+}
+
 .edit-delete-event {
     display: flex;
     flex-direction: column;
@@ -34,21 +49,6 @@ main {
     font-weight: 600;
 }
 
-.search-nav {
-    position: unset;
-    transform: translate(0%, 0%);
-    width: 35%;
-}
-
-.search-nav>input {
-    height: 35px;
-    min-width: 0;
-}
-
-.search-nav>button {
-    height: 35px;
-}
-
   .profile-picture {
     width: 150px;
     height: 150px;
@@ -57,12 +57,14 @@ main {
     position: absolute;
     top: 120px;
     left: 50px;
+    padding-right: 30px;
 }
   
   .profile-picture img {
-    width: 100%;
     height: 100%;
+    width: 100%;
     object-fit: cover;
+    border-radius: 10px;
   }
 
   .profile-name {
@@ -326,9 +328,10 @@ input[type="checkbox"] {
       }
       
       .izquierda {
-        flex: 1; /* Esto hará que el div ocupe todo el espacio disponible en el contenedor */
-        margin-left: 50px;
-        margin-right: 80px;
+        flex: 1;
+        margin-left: 25px;
+        margin-right: 25px;
+        min-width: 650px;
       }
       
       .derecha {

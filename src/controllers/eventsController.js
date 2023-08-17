@@ -11,7 +11,8 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 	// Root - Show all events
 	index: (req, res) => {
-		res.render(path.resolve(__dirname, "../views/events.ejs"))
+		const events = eventsModel.findAll();
+		res.render(path.resolve(__dirname, "../views/events/events.ejs"), {events: events})
 	},
 
 	// Detail - Detail from one event
