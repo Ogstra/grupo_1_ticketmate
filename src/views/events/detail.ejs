@@ -40,11 +40,6 @@
             </div>
         </nav>
     </head>
-    
-    <div class="profile-picture">
-        <img src="/img/banda-placeholder.jpg" alt="">
-    </div>
- 
     <div class="fondo-inicio"> 
     </div>
     <main>
@@ -66,11 +61,11 @@
     <section id="pantalla-dividida">
     <div class="izquierda"> 
         <div class="profile-picture">
-            <img src="/img/banda-placeholder.jpg" alt="">
+            <img src="/img/events/<%=event.image%>" alt="">
             </div>       
         
-        <p class="profile-name">Nombre Evento</p>
-        <p class="profile-subtitle">Entradas</p>
+        <p class="profile-name"><%= event.name %></p>
+        <p class="profile-subtitle">Entradas restantes: <%= event.stock %></p>
     
         <p class="fechas">Fechas</p>
         <hr>
@@ -80,18 +75,16 @@
                 <input type="checkbox" name="events-collapsible" id="event-1">
                 <div class="collapsible-header">
                     <label for="event-1" class="collapsible-label"><!-- IMPORTANTE: el "for" del label y el "id" del input checkbox deben coincidir en cada elemento -->
-                        <span class="event-date">28 jul</span>
-                        <span class="event-name">Nombre Evento</span>
-                        <span class="precio">Desde $500</span>
+                        <span class="event-date"><%= event.date %></span>
+                        <span class="event-name"><%= event.name %></span>
+                        <span class="precio">Desde $<%= event.price %></span>
                     </label>
                     <i class="icono fa-solid fa-caret-down" style="color: #ffffff;"></i>
                 </div>
                 <div class="collapsible-content"> 
                     <div>                 
-                    <p>Seccion #1</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis explicabo, id nemo, dicta nihil in iure
-                        quaerat assumenda labore, reiciendis earum tenetur neque culpa enim magni? Maxime blanditiis facere
-                        modi.</p>                                          
+                    <p><%= event.time %></p>
+                    <p><%= event.description %></p>                                          
                     </div>
                     <div class="boton">
                         <button>Comprar</button>
@@ -101,19 +94,17 @@
             <div class="collapsible">
                 <input type="checkbox" name="events-collapsible" id="event-2">
                 <div class="collapsible-header">
-                    <label for="event-2" class="collapsible-label">
-                        <span class="event-date">28 jul</span>
-                        <span class="event-name">Nombre Evento</span>
-                        <span class="precio">Desde $500</span>
+                    <label for="event-2" class="collapsible-label"><!-- IMPORTANTE: el "for" del label y el "id" del input checkbox deben coincidir en cada elemento -->
+                        <span class="event-date"><%= event.date %></span>
+                        <span class="event-name"><%= event.name %></span>
+                        <span class="precio">Desde $<%= event.price %></span>
                     </label>
                     <i class="icono fa-solid fa-caret-down" style="color: #ffffff;"></i>
                 </div>
-                <div class="collapsible-content">
-                    <div>
-                    <p>Seccion #1</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis explicabo, id nemo, dicta nihil in iure
-                        quaerat assumenda labore, reiciendis earum tenetur neque culpa enim magni? Maxime blanditiis facere
-                        modi.</p>
+                <div class="collapsible-content"> 
+                    <div>                 
+                    <p><%= event.time %></p>
+                    <p><%= event.description %></p>                                          
                     </div>
                     <div class="boton">
                         <button>Comprar</button>
@@ -123,19 +114,17 @@
             <div class="collapsible">
                 <input type="checkbox" name="events-collapsible" id="event-3">
                 <div class="collapsible-header">
-                    <label for="event-3" class="collapsible-label">
-                        <span class="event-date">28 jul</span>
-                        <span class="event-name">Nombre Evento</span>
-                        <span class="precio">Desde $500</span>
+                    <label for="event-3" class="collapsible-label"><!-- IMPORTANTE: el "for" del label y el "id" del input checkbox deben coincidir en cada elemento -->
+                        <span class="event-date"><%= event.date %></span>
+                        <span class="event-name"><%= event.name %></span>
+                        <span class="precio">Desde $<%= event.price %></span>
                     </label>
                     <i class="icono fa-solid fa-caret-down" style="color: #ffffff;"></i>
                 </div>
-                <div class="collapsible-content">
-                    <div>
-                    <p>Seccion #1</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis explicabo, id nemo, dicta nihil in iure
-                        quaerat assumenda labore, reiciendis earum tenetur neque culpa enim magni? Maxime blanditiis facere
-                        modi.</p>
+                <div class="collapsible-content"> 
+                    <div>                 
+                    <p><%= event.time %></p>
+                    <p><%= event.description %></p>                                          
                     </div>
                     <div class="boton">
                         <button>Comprar</button>
