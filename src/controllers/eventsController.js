@@ -4,6 +4,7 @@ const eventsFilePath = path.join(__dirname, '../data/eventsDataBase.json');
 const events = JSON.parse(fs.readFileSync(eventsFilePath, 'utf-8'));
 const eventsModel = require('../models/eventsModels');
 const { validationResult } = require('express-validator');
+const { log } = require('console');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -16,9 +17,7 @@ const controller = {
 	// Detail - Detail from one event
 	detail: (req, res) => {
 		const eventId = req.params.id;
-
-		const selectedevent = events.filter(idevent => idevent.id === eventId);
-
+		const selectedevent = eventsModel.findbyID(eventId);
 		res.render('detail', { event: selectedevent });
 	},
 
@@ -61,7 +60,6 @@ const controller = {
 		};
 
 		const createdEvent = eventsModel.createEvent(newEvent);
-
 		res.redirect("/events/" + createdEvent.id);
 	},
 
@@ -99,7 +97,7 @@ const controller = {
 
 		eventsModel.editEvent(updatedEvent);
 
-		res.redirect('/'); //deberia llevar al detail
+		res.redirect('/events/' + updatedEvent.id ); //deberia llevar al detail
 	},
 
 	// Delete - Delete one event from DB

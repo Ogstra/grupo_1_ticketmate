@@ -9,6 +9,20 @@ main {
     margin: auto;
 }
 
+.edit-event>a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+    border-radius: 5px;
+    width: 110px;
+    height: 30px;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
+}
+
 .search-nav {
     position: unset;
     transform: translate(0%, 0%);
@@ -82,7 +96,7 @@ hr {
     /* max-width: 400px; */ /*el ancho se puede controlar desde aca pero mejor hacerlo desde collapsible-wrapper*/
     border: 1px solid black;
     border-radius: 10px;
-    margin: auto;
+    margin: 0;  /* Para que se vean todos iguales */
     overflow: hidden;
     background: #0F1A20;
     
@@ -154,6 +168,7 @@ input[type="checkbox"] {
     transition: all 300ms;
     display: flex;
     align-items: flex-end;
+    justify-content: space-between;
     overflow: hidden;
 }
 
@@ -235,10 +250,14 @@ input[type="checkbox"] {
     }
 
     .profile-picture {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 25px;
         width: 150px;
         height: 150px;
         border-radius: 0;
-        overflow: hidden;
+        overflow: visible;
         position: absolute !important;
         top: 120px;
         left: 50px;
@@ -263,7 +282,7 @@ input[type="checkbox"] {
 
     .collapsible-content p {
         margin-right: 100px;
-        margin-left: 100px;        
+        margin-left: 0px;        
     }
 
     .collapsible-content button {
