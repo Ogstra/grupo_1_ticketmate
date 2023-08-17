@@ -59,16 +59,21 @@
         <%- include('./partials/searchButtonNav') %>
         <!-- SearchNav-->
     <section id="pantalla-dividida">
-    <div class="izquierda"> 
+    <div class="izquierda">
         <div class="profile-picture">
             <img src="/img/events/<%=event.image%>" alt="">
-            <div class="edit-event"><a href="/events/<%= event.id %>/edit">Editar evento</a></div>
-        </div>    
+            <div class="edit-delete-event">
+                <a href="/events/<%= event.id %>/edit">Editar</a>
+                <form class="delete-event" action="/events/<%= event.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+                    <input type="submit" name="delete" value="Eliminar" onclick="return confirm('Confirm, please.');">
+                </form>
+            </div>   
+        </div>
+ 
         <p class="profile-name"><%= event.name %></p>
         <p class="profile-subtitle">Entradas restantes: <%= event.stock %></p>
         <p class="fechas">Fechas</p>
         <hr>
-
         <div class="collapsible-wrapper">
             <div class="collapsible">
                 <input type="checkbox" name="events-collapsible" id="event-1">
