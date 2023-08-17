@@ -27,9 +27,7 @@
         <label for="date">Fecha</label>
         <input type="date" format="dd/mm/yyyy" name="date" value="<%= locals.errors.olddate %>">
         <select name="category">
-<!--             <option value="concert">Concert</option>
-            <option value="sports-event">Sports Event</option>
-            <option value="misc">Misc</option> -->
+            
             <% for (category of categories) { %>
                 <option value="<%= category %>" <% if( locals.errors.oldcategory == category) { %>
                         selected 
@@ -45,13 +43,13 @@
         <button type="submit">Enviar</button>
         <input type="reset">
     </form>
-    <ul>
-        <li><%= locals.errors.nameError %></li>
-        <li><%= locals.errors.priceError %></li>
-        <li><%= locals.errors.stockError %></li>
-        <li><%= locals.errors.dateError %></li>
-        <li><%= locals.errors.timeError %></li>
-    </ul>
+    <div>
+        <p><%= locals.errors.nameError %></p>
+        <p><%= locals.errors.priceError %></p>
+        <p><%= locals.errors.stockError %></p>
+        <p><%= locals.errors.dateError %></p>
+        <p><%= locals.errors.timeError %></p>
+    </div>
 </body>
 
 </html>

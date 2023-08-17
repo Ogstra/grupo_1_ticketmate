@@ -77,6 +77,9 @@ const controller = {
 		let eventImage;
 		let eventID = events.findIndex(event => event.id == req.params.id);
 
+		//agregar validaciones y manejo de errores
+		
+		
 		if (!req.file) {
 			eventImage = events[eventID].image;
 		} else {
@@ -84,7 +87,7 @@ const controller = {
 		}
 
 		let updatedEvent = {
-			id: Number(req.params.id), /* Sin el Number() el id se guarda como string */
+			id: req.params.id,
 			name: req.body.name,
 			price: req.body.price,
 			stock: req.body.stock,

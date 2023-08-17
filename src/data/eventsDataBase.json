@@ -42,5 +42,16 @@
         "image": "antcom-1692234746642.png",
         "time": "14:15",
         "description": "Witness high-speed action as racers compete for the championship title."
+    },
+    {
+        "id": 5,
+        "name": "Budin Expo Show",
+        "price": "100",
+        "stock": "150",
+        "date": "25-08-2023",
+        "category": "misc",
+        "image": "20210412_012455-1692301829872.jpg",
+        "time": "18:00",
+        "description": "Experience the best budins in outer space."
     }
 ]

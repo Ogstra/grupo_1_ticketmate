@@ -52,7 +52,7 @@ router.get('/:id', eventsController.detail);
 
 /*** EDIT ONE PRODUCT ***/
 router.get('/:id/edit', eventsController.edit);
-router.put('/:id', validateForm, fileUpload.single('event-image'), eventsController.update);
+router.put('/:id', fileUpload.single('event-image'), validateForm, eventsController.update);
 
 /*** DELETE ONE PRODUCT***/
 router.delete('/:id', eventsController.destroy);
