@@ -3,6 +3,7 @@ const path = require('path');
 const eventsFilePath = path.join(__dirname, '../data/eventsDataBase.json');
 const events = JSON.parse(fs.readFileSync(eventsFilePath, 'utf-8'));
 const eventsModel = require('../models/eventsModels');
+const { validationResult } = require('express-validator');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -23,13 +24,23 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		res.render('event-creation-form');
+		const errors = req.query
+		res.render('event-creation-form', {errors: errors, old: req.body},);
 	},
 
 	// Create -  Method to store
 	store: (req, res) => {
-		console.table(req.file);
+		let result = validationResult(req);
 		let eventImage;
+		console.table(result.errors);
+		console.table(req.body);
+		
+		if(result.errors.length > 0){
+			const errorArray = result.errors.map(error => '&' + error.path + '=' + error.msg);
+			const errorString = errorArray.join('');
+			res.redirect('/events/create' +'?'+ errorString);
+			return;
+		}
 
 		if (!req.file) {
 			eventImage = 'placeholder.jpg';
@@ -94,7 +105,6 @@ const controller = {
 	destroy: (req, res) => {
 		let events = eventsModel.findAll();
 		events = events.filter(event => event.id != req.params.id);
-		console.log(events)
 		eventsModel.deleteEvent(events);
 		res.redirect('/');
 	}

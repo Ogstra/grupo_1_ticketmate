@@ -18,16 +18,7 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 
 app.use('/events', eventsRouter);
-
 app.use('/', mainRouter);
-
-app.use('/cart', mainRouter);
-
-app.use('/login', mainRouter);
-
-app.use('/register', mainRouter);
-
-app.use('/detail', mainRouter);
 
 app.listen(3000, () => {
     console.log("http://localhost:3000")

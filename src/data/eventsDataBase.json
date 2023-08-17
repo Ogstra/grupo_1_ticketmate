@@ -49,16 +49,5 @@
     "category": "misc",
     "time": "09:30",
     "description": "Explore the latest technological innovations at the expo."
-  },
-  {
-    "id": 6,
-    "name": "asdasdasd",
-    "price": "123",
-    "stock": "123",
-    "date": "03-08-2023",
-    "category": "misc",
-    "image": "blazchikito-1692227711243.png",
-    "time": "21:15",
-    "description": "asdasdasdasd"
   }
 ]
