@@ -26,7 +26,6 @@ const modelo = {
 
         const lastProdId = events[events.length - 1].id;
         const date = modelo.handleDate(bodyData.date);
-        console.log(lastProdId)
         const newEvent = {
             id: lastProdId + 1,
             ...bodyData
@@ -50,7 +49,6 @@ const modelo = {
         fs.writeFileSync(eventsPath,jsonData,'utf-8');
     },
     deleteEvent: (updatedEvents)=>{
-        console.log(updatedEvents);
         const jsonData = JSON.stringify(updatedEvents,'utf-8');
         fs.writeFileSync(eventsPath,jsonData,'utf-8');
     }

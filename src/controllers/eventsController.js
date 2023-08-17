@@ -32,8 +32,6 @@ const controller = {
 		let result = validationResult(req);
 		let eventImage;
 		
-		console.log(req.body);
-
 		if(result.errors.length > 0){
 			const errorArray = result.errors.map(error => '&' + error.path + '=' + error.msg);
 			const errorString = errorArray.join('');
