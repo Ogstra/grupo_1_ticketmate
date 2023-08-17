@@ -10,7 +10,7 @@
 
     <form action="/events/" method="POST" enctype="multipart/form-data">
         <label for="name">nombre</label>
-        <input type="text" name="name" value="<%= locals.old && old.name ? old.name : '' %>">
+        <input type="text" name="name" value="<%= locals.old %>">
 
         <label for="name">precio</label>
         <input type="number" name="price">
@@ -37,7 +37,6 @@
         <li><%= locals.errors.price %></li>
         <li><%= locals.errors.stock %></li>
         <li><%= locals.errors.date %></li>
-        <li><%= locals.errors.category %></li>
         <li><%= locals.errors.time %></li>
     </ul>
 </body>

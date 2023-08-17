@@ -46,7 +46,7 @@ router.get('/', eventsController.index);
 
 /*** CREATE ONE PRODUCT ***/
 router.get('/create', eventsController.create);
-router.post('/', validateForm, fileUpload.single('event-image'), eventsController.store);
+router.post('/', fileUpload.single('event-image'), validateForm, eventsController.store);
 
 
 /*** GET ONE PRODUCT ***/

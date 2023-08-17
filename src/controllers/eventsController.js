@@ -25,22 +25,23 @@ const controller = {
 	// Create - Form to create
 	create: (req, res) => {
 		const errors = req.query
-		res.render('event-creation-form', {errors: errors, old: req.body},);
+		res.render('event-creation-form', {errors: errors}); //hacer llegar de alguna manera los datos del error anterior
 	},
 
 	// Create -  Method to store
 	store: (req, res) => {
 		let result = validationResult(req);
 		let eventImage;
-		console.table(result.errors);
-		console.table(req.body);
 		
+		console.log(req.body);
+
 		if(result.errors.length > 0){
 			const errorArray = result.errors.map(error => '&' + error.path + '=' + error.msg);
 			const errorString = errorArray.join('');
 			res.redirect('/events/create' +'?'+ errorString);
 			return;
 		}
+
 
 		if (!req.file) {
 			eventImage = 'placeholder.jpg';
