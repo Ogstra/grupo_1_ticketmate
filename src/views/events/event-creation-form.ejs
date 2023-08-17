@@ -10,16 +10,16 @@
 
     <form action="/events/" method="POST" enctype="multipart/form-data">
         <label for="name">nombre</label>
-        <input type="text" name="name" value="<%= locals.old %>">
+        <input type="text" name="name">
 
-        <label for="name">precio</label>
+        <label for="price">precio</label>
         <input type="number" name="price">
 
 
-        <label for="name">Stock</label>
+        <label for="stock">Stock</label>
         <input type="number" name="stock">
 
-        <label for="name">Fecha</label>
+        <label for="date">Fecha</label>
         <input type="date" format="dd/mm/yyyy" name="date">
         <select name="category">
             <option value="concert">Concert</option>

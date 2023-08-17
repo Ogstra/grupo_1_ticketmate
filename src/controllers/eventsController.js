@@ -33,15 +33,12 @@ const controller = {
 		let result = validationResult(req);
 		let eventImage;
 		
-		console.log(req.body);
-
 		if(result.errors.length > 0){
 			const errorArray = result.errors.map(error => '&' + error.path + '=' + error.msg);
 			const errorString = errorArray.join('');
 			res.redirect('/events/create' +'?'+ errorString);
 			return;
 		}
-
 
 		if (!req.file) {
 			eventImage = 'placeholder.jpg';
@@ -77,7 +74,6 @@ const controller = {
 		let events = eventsModel.findAll();
 		let eventImage;
 		let eventID = events.findIndex(event => event.id == req.params.id);
-
 
 		if (!req.file) {
 			eventImage = events[eventID].image;

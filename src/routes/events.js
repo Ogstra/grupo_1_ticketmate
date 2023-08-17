@@ -38,7 +38,6 @@ const validateForm = [
         .notEmpty().withMessage('Debes elegir un horario')
 ]
 
-
 let fileUpload = multer({ storage: multerDiskStorage });
 
 /*** GET ALL events ***/
@@ -48,7 +47,6 @@ router.get('/', eventsController.index);
 router.get('/create', eventsController.create);
 router.post('/', fileUpload.single('event-image'), validateForm, eventsController.store);
 
-
 /*** GET ONE PRODUCT ***/
 router.get('/:id', eventsController.detail);
 
@@ -56,9 +54,7 @@ router.get('/:id', eventsController.detail);
 router.get('/:id/edit', eventsController.edit);
 router.put('/:id', validateForm, fileUpload.single('event-image'), eventsController.update);
 
-
 /*** DELETE ONE PRODUCT***/
 router.delete('/:id', eventsController.destroy);
-
 
 module.exports = router;
