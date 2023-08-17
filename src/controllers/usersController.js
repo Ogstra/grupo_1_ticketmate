@@ -3,6 +3,7 @@ const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const usersModel = require('../models/usersModels');
+const bcrypt = require('bcrypt');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -29,7 +30,7 @@ const controller = {
 			email: req.body.email,
 			name: req.body.name,
 			image: profilePicture,
-			password: req.body.password,
+			password: bcrypt.hashSync(req.body.password, 10),
 		};
 
 		const createdUser = usersModel.createUser(newUser);
