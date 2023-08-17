@@ -4,34 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Create an Event</title>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/create.css">
+    
+    
+
 </head>
 
 <body>
+    <head>
+        <nav>
+            <div id="texto-nav">Event-Register</div>
+            <a class="boton-home" href="/">
+                <div id="logo-x"><i class="fa-solid fa-xmark"></i></div>
+            </a>
+        </nav>
+    </head>
+        
+        <form class="create-product" action="/events/" method="POST" enctype="multipart/form-data">
+             
+                <label for="name">Nombre del Evento</label>
+                <input type="text" name="name">       
+             
+                <label for="name">Precio</label>
+                <input type="number" name="price">
+                        
+                <label for="name">Stock</label>
+                <input type="number" name="stock">
+                       
+                <label for="name">Fecha</label>
+                <input type="date" format="dd/mm/yyyy" name="date">
+                        
+                <label for="name">Tipo de Evento</label>
+                <select name="category">
+                    <option value="concert">Concert</option>
+                    <option value="sports-event">Sports Event</option>
+                    <option value="misc">Misc</option>
+                </select>
+           
 
-    <form action="/events/" method="POST" enctype="multipart/form-data">
-        <label for="name">nombre</label>
-        <input type="text" name="name">
+            <label for="name">Hora</label>
+            <input type="time" name="time">
 
-        <label for="name">precio</label>
-        <input type="number" name="price">
+            <label for="name">Imagen de Evento</label>
+            <input id="attach" type="file" name="event-image">
 
-
-        <label for="name">Stock</label>
-        <input type="number" name="stock">
-
-        <label for="name">Fecha</label>
-        <input type="date" format="dd/mm/yyyy" name="date">
-        <select name="category">
-            <option value="concert">Concert</option>
-            <option value="sports-event">Sports Event</option>
-            <option value="misc">Misc</option>
-        </select>
-        <input type="time" name="time">
-        <input type="file" name="event-image">
-        <textarea name="description" cols="30" rows="10"></textarea>
-        <button type="submit">Enviar</button>
-        <input type="reset">
-    </form>
+            <label for="name">Descripcion</label>
+            <textarea name="description" cols="30" rows="10"></textarea>
+           
+            <button type="submit">Enviar</button>
+            <input  type="reset">
+            
+        </form>
+    
+  
 
 </body>
 
