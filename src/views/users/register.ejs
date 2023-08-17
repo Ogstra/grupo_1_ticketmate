@@ -22,15 +22,22 @@
     </div>
     <main>
         <div class="login-form">
-            <form action="/" method="get" class="create-form">
+            <form action="/" method="POST" class="create-form" enctype="multipart/form-data">
                 <div class="control-formulario">
                     <label><b>Nombre de usuario:</b></label>
                     <input type="text" name="username" class="control" minlength="5" required autofocus>
                 </div class="control-formulario">
                 <div class="control-formulario">
-                    <label><b>Nombre y apellido:</b></label>
-                    <input type="text" name="nombre" class="control" minlength="5" required>
+                <label><b>Email:</b></label>
+                <input type="email" name="email" class="control" required>
                 </div class="control-formulario">
+                <div class="control-formulario">
+                    <label><b>Nombre y apellido:</b></label>
+                    <input type="text" name="name" class="control" minlength="5" required>
+                </div class="control-formulario">
+                <div class="control-formulario control-formulario-image">
+                    <input type="file" class="control" name="profile-picture">
+                </div>
                 <div class="control-formulario">
                     <label for="password"><b>Contraseña:</b></label>
                     <input type="password" id="password" name="password" class="control" required>
