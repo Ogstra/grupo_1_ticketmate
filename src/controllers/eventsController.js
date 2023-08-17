@@ -4,21 +4,21 @@ const eventsFilePath = path.join(__dirname, '../data/eventsDataBase.json');
 const events = JSON.parse(fs.readFileSync(eventsFilePath, 'utf-8'));
 const eventsModel = require('../models/eventsModels');
 const { validationResult } = require('express-validator');
+const { log } = require('console');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 	// Root - Show all events
 	index: (req, res) => {
-		res.render(path.resolve(__dirname, "../views/events.ejs"))
+		const events = eventsModel.findAll();
+		res.render(path.resolve(__dirname, "../views/events/events.ejs"), {events: events})
 	},
 
 	// Detail - Detail from one event
 	detail: (req, res) => {
 		const eventId = req.params.id;
-
-		const selectedevent = events.filter(idevent => idevent.id === eventId);
-
+		const selectedevent = eventsModel.findbyID(eventId);
 		res.render('detail', { event: selectedevent });
 	},
 
@@ -58,7 +58,6 @@ const controller = {
 		};
 
 		const createdEvent = eventsModel.createEvent(newEvent);
-
 		res.redirect("/events/" + createdEvent.id);
 	},
 
@@ -82,7 +81,7 @@ const controller = {
 		}
 
 		let updatedEvent = {
-			id: req.params.id,
+			id: Number(req.params.id), /* Sin el Number() el id se guarda como string */
 			name: req.body.name,
 			price: req.body.price,
 			stock: req.body.stock,
@@ -95,7 +94,7 @@ const controller = {
 
 		eventsModel.editEvent(updatedEvent);
 
-		res.redirect('/'); //deberia llevar al detail
+		res.redirect('/events/' + updatedEvent.id ); //deberia llevar al detail
 	},
 
 	// Delete - Delete one event from DB

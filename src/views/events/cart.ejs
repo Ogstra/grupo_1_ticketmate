@@ -8,52 +8,10 @@
     <link rel="stylesheet" href="/css/cart.css">
 </head>
 <body>
-    <nav>
-        <a href="/">
-            <img id="logo" src="/img/logo-ticketmate.svg">
-        </a>
-        <form action="/search" method="get" class="search-bar search-nav">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <input class="buscador1" type="text" placeholder="Que estas buscando?...">
-            <button type="reset"><i class="fa-sharp fa-regular fa-circle-xmark"></i></button>
-        </form>
-        <div id="nav-links-icons">
-            <ul class="nav-bar">
-                <li><a class="nav-link" href="contact">Contacto</a></li>
-                <li><a class="nav-link" href="tickets">Tickets</a></li>
-                <li><a class="nav-link" href="">Horarios</a></li>
-                <!-- <li>Carrito</li> -->
-                <li><a class="nav-link" href="/login">Log in</a></li>
-            </ul>
-            <div class="container-cart-user">
-                <a class="boton-cart" href="/cart">
-                    <div id="logo-cart"><i class="fa-solid fa-basket-shopping"></i></div>
-                </a>
-                <a class="boton-login" href="/login">
-                    <div id="logo-user"><i class="fa-solid fa-user"></i></div>
-                </a>
-            </div>
-        </div>
-        <div class="burgerMenu-SearchBar">
-            <span id="openSearchButton" style="cursor:pointer; margin-right: 10px;" onclick="openSearch()"><div class="logo-search"><i class="bars-desplegable fa-solid fa-search"></i></div></span>
-            <span id="openNavButton" style="cursor:pointer" onclick="openNav()"><div class="logo-hamburguer"><i class="bars-desplegable fa-solid fa-bars"></i></div></span>
-        </div>
-    </nav>
+    <header>
+        <%- include('./partials/navbar') %>
+    </header>
     <main>
-        <!-- NavBar Desplegable comienzo-->
-        <div id="myNav" class="overlay">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
-                <div class="logo-x"><i class="fa-solid fa-xmark"></i></div>
-            </a>
-            <div class="overlay-content">
-                <a href="login">Log in</a>
-                <a href="cart">Carrito</a>
-                <a href="#">Horarios</a>
-                <a href="#">Tickets</a>
-                <a href="contact">Contacto</a>
-            </div>
-        </div>
-        <!-- NavBar Desplegable final-->
         <!-- SearchNav-->
         <%- include('./partials/searchButtonNav') %>
         <!-- SearchNav-->
