@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    line-height: 1;
+}
+
+.fondo-inicio {
+    background-position: center top !important;
+    background-size: cover !important;
+    height: 70px !important;
+
+  }
+
+  .search-nav {
+    position: unset;
+    transform: translate(0%, 0%);
+    width: 35%;
+}
+
+.search-nav>input {
+    height: 35px;
+    min-width: 0;
+}
+
+.search-nav>button {
+    height: 35px;
+}
+
+.create-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 50px;
+}
+
+.create-product label, 
+.create-product select, 
+.create-product input {
+    margin: 5px 0px;
+    font-weight: bold;
+    text-align: left;
+    text-indent: 5px;
+    width: 100%;
+    max-width: 360px;
+}
+
+.create-product input,
+.create-product select {
+    margin-bottom: 15px;
+}
+
+.create-product input,
+.create-product select, 
+.create-product button {
+    border-radius: 10px;
+    height: 50px;
+    text-indent: 12px;
+    border: 1px solid rgba(200, 200, 200);
+    box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
+    transition: color 0.3s ease 0s;
+    width: 100%;
+    max-width: 360px;
+}
+
+.boton-formulario {
+    width: 84vw;
+    background: black;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.input-file {
+    margin-top: 25px!important;
+    box-shadow: none!important;
+    border: none!important;
+}
+
+#attach {
+    border: none;
+    box-shadow: none;
+}
+
+textarea{
+    margin: 10px 0px;
+}

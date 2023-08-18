@@ -80,7 +80,7 @@ const controller = {
 		//agregar validaciones y manejo de errores
 		
 		let updatedEvent = {
-			id: Number(req.params.id),
+			id: Number(req.params.id), /* Sin el Number() el id se guarda como string */
 			name: req.body.name,
 			price: req.body.price,
 			stock: req.body.stock,
