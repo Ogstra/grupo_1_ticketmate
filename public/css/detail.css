@@ -135,7 +135,7 @@ hr {
     transition: background 300ms ease;
     cursor: pointer;
     position: relative;
-    color: #F8F4E3;
+    color: var(--GrisClaro);
     font-weight: 600;
     justify-content: center; 
     align-items: center; 
@@ -175,7 +175,7 @@ input[type="checkbox"] {
 }
 
 .collapsible-content {
-    background: #F8F4E3;
+    background: var(--GrisClaro);
     line-height: 1.4;
     max-height: 0px;
     transition: all 300ms;
