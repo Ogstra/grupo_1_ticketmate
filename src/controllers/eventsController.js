@@ -74,33 +74,26 @@ const controller = {
 	// Metodo de edicion de eventos
 	update: (req, res) => {
 		let events = eventsModel.findAll();
-		let eventImage;
+		console.log(events[req.params.id])
 		let eventID = events.findIndex(event => event.id == req.params.id);
 
 		//agregar validaciones y manejo de errores
 		
-		
-		if (!req.file) {
-			eventImage = events[eventID].image;
-		} else {
-			eventImage = req.file.filename;
-		}
-
 		let updatedEvent = {
-			id: req.params.id,
+			id: Number(req.params.id),
 			name: req.body.name,
 			price: req.body.price,
 			stock: req.body.stock,
 			date: eventsModel.handleDate(req.body.date),
 			category: req.body.category,
-			image: eventImage,
+			image: req.file ? req.file.filename : events[eventID].image,
 			time: req.body.time,
 			description: req.body.description
 		};
 
 		eventsModel.editEvent(updatedEvent);
 
-		res.redirect('/events/' + updatedEvent.id); //deberia llevar al detail
+		res.redirect('/events/' + updatedEvent.id);
 	},
 
 	// Delete - Delete one event from DB
