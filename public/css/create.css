@@ -75,7 +75,7 @@
 }
 
 .img-profile {
-    max-width: 125px!important;
+    max-width: 300px!important;
 }
 
 .event-image-label {
@@ -84,8 +84,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 125px;
-    height: 30px;
+    width: 300px;
+    height: 35px;
     text-align: center;
     border-radius: 5px;
     border: 1px solid rgb(200, 200, 200);
