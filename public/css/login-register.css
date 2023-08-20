@@ -24,8 +24,12 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    top: 150px;
+    max-width: 500px;
+    background-color: var(--GrisClaro);
+    backdrop-filter: blur(14px);
+    box-shadow: 0px 0px 5px 0px #0000008c;
+    border-radius: 10px;
+    padding: 30px;
 }
 
 .control-formulario-password,
@@ -33,7 +37,16 @@ nav {
     position: relative;
 }
 
-.login-form
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 150px;
+    padding-bottom: 100px;
+}
+
+
 .control-formulario {
     display: flex;
     flex-direction: column;
@@ -101,6 +114,32 @@ nav {
 .sign-up-button {
     font-size: 14px;
     color: rgb(68, 68, 68);
+    margin: 0;
+    margin-top: 14px;
+}
+
+.img-select {
+    display: flex;
+    align-items: center;
+    flex-direction: column
+}
+
+.img-profile {
+    max-width: 125px!important;
+}
+
+.event-image-label {
+    color: white;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
 }
 
 .showPassword-eye {
@@ -109,4 +148,19 @@ nav {
     right: 15px;
     color: var(--GrisOscuro);
     cursor: pointer;
+}
+
+.control-formulario img {
+    height: auto;
+    object-fit: cover;
+    margin: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+    max-width: 400px;
+    min-height: 75px;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
 }
