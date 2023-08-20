@@ -107,6 +107,27 @@
     max-width: 360px;
 }
 
+.control-formulario>select,
+.control-formulario>textarea,
+.control-formulario>input[type="date"],
+.control-formulario>input[type="time"] {
+    background-color: white; /* Necesario para IOS */
+    -webkit-appearance: none;
+    opacity: 1; /* required on iOS */
+    -webkit-opacity:1; /* Override iOS opacity change affecting text & background color */
+    color: black;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 0.75;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    right: 10px;
+}
+
 .boton-delete {
     background-color: rgb(194, 0, 0)!important;
 }
@@ -129,7 +150,8 @@
 
 .control-formulario>textarea {
     height: 150px;
-    padding: 10px 0;
+    padding: 10px 15px;
+    text-indent: 0;
 }
 
 .boton-formulario:hover {

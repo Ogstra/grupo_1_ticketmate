@@ -32,6 +32,10 @@ nav {
     padding: 30px;
 }
 
+input[type="password"]{
+    font-family:Verdana,sans-serif;
+}
+
 .control-formulario-password,
 .control-formulario {
     position: relative;
