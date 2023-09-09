@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const session = require('express-session')
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const mainRouter = require('./routes/mainRoutes.js');
 const eventsRouter = require('./routes/events.js');
 const usersRouter = require('./routes/users.js');
@@ -12,7 +13,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: { secure: true }
-  }))
+  }));
+app.use(cookieParser());
 
 app.use(express.static('../public'));
 app.set('view engine', 'ejs');
