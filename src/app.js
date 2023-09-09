@@ -1,10 +1,18 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const session = require('express-session')
 const mainRouter = require('./routes/mainRoutes.js');
 const eventsRouter = require('./routes/events.js');
 const usersRouter = require('./routes/users.js');
 const methodOverride =  require('method-override');
+
+app.use(session({
+    secret: 'fr1563',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))
 
 app.use(express.static('../public'));
 app.set('view engine', 'ejs');
@@ -13,6 +21,8 @@ app.set('views', [
     path.join(__dirname,'./views/users'),
     path.join(__dirname,'./views/events'),    
 ]);
+
+
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
