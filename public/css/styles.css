@@ -2,7 +2,7 @@
 
 
 :root{
-    --cosmic-latte: #F8F4E3;
+    --bg-primary: #F5F5F5;
     --maroon: #9A0959;
     --shadow-1: 0 0 9px 1px hsla(0, 0%, 0%, 0.15);
     --GrisOscuro: #666;
@@ -18,7 +18,7 @@
 }
 
 body{
-    background-color: var(--cosmic-latte);
+    background-color: var(--bg-primary);
     min-height: 100vh;
 }
 
@@ -157,7 +157,7 @@ nav a>div,
 .search-bar>button {
     height: 50px;
     max-width: 750px;
-    background-color: floralwhite;
+    background-color: var(--GrisClaro);
 }
 
 .search-bar input {
@@ -233,7 +233,7 @@ nav a>div,
     max-width: 250px;
     cursor: pointer;
     transition: all 400ms ease;
-    background: floralwhite;
+    background: var(--GrisClaro);
 }
 
 .scroller-element:hover {
@@ -351,7 +351,7 @@ nav a>div,
     flex: 1 0;
     box-shadow: 0 0 9px 1px hsla(0, 0%, 0%, 0.15);
     border-radius: 1rem;
-    background-color: floralwhite;
+    background-color: var(--GrisClaro);
     transition: all 300ms ease;
 }
 
@@ -429,14 +429,14 @@ nav a>div,
     justify-content: center;
 	width: 2rem;
 	height: 2rem;
-	background-color: var(--cosmic-latte);
+	background-color: var(--bg-primary);
 	opacity: 0.75;
 	transition: opacity ease 250ms;
     text-decoration: none;
     color: inherit;
     transition: all 300ms ease;
     border-left: 1px solid slategrey;
-    background: floralwhite;
+    background: var(--GrisClaro);
 }
 
 .slider-nav>a:first-child{
@@ -543,7 +543,7 @@ nav a>div,
 .search-nav-drop>button,
 .search-nav-drop a>div {
     height: 50px;
-    background-color: floralwhite;
+    background-color: var(--GrisClaro);
     box-shadow: none
 }
 

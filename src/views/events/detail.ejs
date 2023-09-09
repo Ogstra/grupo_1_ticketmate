@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle</title>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/detail.css">
+</head>
+<body>
+    <header>
+        <%- include('./partials/navbar') %>
+        <div class="fondo-inicio"> 
+    </header>
+    <main>
+        <!-- SearchNav-->
+        <%- include('./partials/searchButtonNav') %>
+        <!-- SearchNav-->
+    <section id="pantalla-dividida">
+    <div class="izquierda">
+        <div class="profile-picture">
+            <img src="/img/events/<%=event.image%>" alt="">
+            <div class="edit-delete-event">
+                <a href="/events/<%= event.id %>/edit">Editar</a>
+                <form class="delete-event" action="/events/<%= event.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+                    <input type="submit" name="delete" value="Eliminar" onclick="return confirm('Confirm, please.');">
+                </form>
+            </div>   
+        </div>
+ 
+        <p class="profile-name"><%= event.name %></p>
+        <p class="profile-subtitle">Entradas restantes: <%= event.stock %></p>
+        <p class="fechas">Fechas</p>
+        <hr>
+        <div class="collapsible-wrapper">
+            <div class="collapsible">
+                <input type="checkbox" name="events-collapsible" id="event-1">
+                <div class="collapsible-header">
+                    <label for="event-1" class="collapsible-label"><!-- IMPORTANTE: el "for" del label y el "id" del input checkbox deben coincidir en cada elemento -->
+                        <span class="event-date"><%= event.date %></span>
+                        <span class="event-name"><%= event.name %></span>
+                        <span class="precio">Desde $<%= event.price %></span>
+                        <i class="icono fa-solid fa-caret-down" style="color: #ffffff;"></i>
+                    </label>
+                </div>
+                <div class="collapsible-content"> 
+                    <div>                 
+                    <p><%= event.time %></p>
+                    <p><%= event.description %></p>                                          
+                    </div>
+                    <div class="boton">
+                        <button>Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="collapsible">
+                <input type="checkbox" name="events-collapsible" id="event-2">
+                <div class="collapsible-header">
+                    <label for="event-2" class="collapsible-label"><!-- IMPORTANTE: el "for" del label y el "id" del input checkbox deben coincidir en cada elemento -->
+                        <span class="event-date"><%= event.date %></span>
+                        <span class="event-name"><%= event.name %></span>
+                        <span class="precio">Desde $<%= event.price %></span>
+                        <i class="icono fa-solid fa-caret-down" style="color: #ffffff;"></i>
+                    </label>
+                </div>
+                <div class="collapsible-content"> 
+                    <div>                 
+                    <p><%= event.time %></p>
+                    <p><%= event.description %></p>                                          
+                    </div>
+                    <div class="boton">
+                        <button>Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="collapsible">
+                <input type="checkbox" name="events-collapsible" id="event-3">
+                <div class="collapsible-header">
+                    <label for="event-3" class="collapsible-label"><!-- IMPORTANTE: el "for" del label y el "id" del input checkbox deben coincidir en cada elemento -->
+                        <span class="event-date"><%= event.date %></span>
+                        <span class="event-name"><%= event.name %></span>
+                        <span class="precio">Desde $<%= event.price %></span>
+                        <i class="icono fa-solid fa-caret-down" style="color: #ffffff;"></i>
+                    </label>
+                </div>
+                <div class="collapsible-content"> 
+                    <div>                 
+                    <p><%= event.time %></p>
+                    <p><%= event.description %></p>                                          
+                    </div>
+                    <div class="boton">
+                        <button>Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>        
+    <div class="derecha">
+    <img src="/img/banda-placeholder4.jpg" alt="">
+    </div>
+
+    </section>
+
+    </main>
+    
+</body>
+</html>

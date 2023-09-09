@@ -7,38 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TicketMate</title>
     <%- include('./partials/head') %>
+    <script>
+        const botón = document.querySelectorAll('.slider-button');
+        boton.onclick = e => e.preventDefault();
+    </script>
 </head>
 
 <body>
 
-    <head>
+    <header>
 
         <%- include('./partials/navbar') %>
+        <style> .search-nav {display: none;}</style>
 
-            <div class="fondo-inicio">
-                <form action="/search" method="get" class="search-bar">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input type="text" placeholder="Que estas buscando?...">
-                    <button type="reset"><i class="fa-sharp fa-regular fa-circle-xmark"></i></button>
-                </form>
-            </div>
-
-    </head>
-    <main>
-        <!-- NavBar Desplegable comienzo-->
-        <div id="myNav" class="overlay">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
-                <div class="logo-x"><i class="fa-solid fa-xmark"></i></div>
-            </a>
-            <div class="overlay-content">
-                <a href="login">Log in</a>
-                <a href="cart">Carrito</a>
-                <a href="#">Horarios</a>
-                <a href="#">Tickets</a>
-                <a href="contact">Contacto</a>
-            </div>
+        <div class="fondo-inicio">
+            <form action="/search" method="get" class="search-bar">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input type="text" placeholder="Que estas buscando?...">
+                <button type="reset"><i class="fa-sharp fa-regular fa-circle-xmark"></i></button>
+            </form>
         </div>
-        <!-- NavBar Desplegable final-->
+        
+    </header>
+    <main>
         <section class="product-container">
 
             <div class="product-container-header">
@@ -46,9 +37,9 @@
                 <div class="slider-nav-container">
                     <span>Páginas </span>
                     <div class="slider-nav">
-                        <a href="#slide-1">1</a>
-                        <a href="#slide-2">2</a>
-                        <a href="#slide-3">3</a>
+                        <a class="slider-button" href="#slide-1">1</a>
+                        <a class="slider-button" href="#slide-2">2</a>
+                        <a class="slider-button" href="#slide-3">3</a>
                     </div>
                 </div>
             </div>
@@ -58,7 +49,7 @@
             <div class="scroller-wrapper snap-scroll">
 
                 <div class="scroller-element">
-                    <a href="/detail">
+                    <a href="/events">
                         <img src="/img/banda-placeholder.jpg" alt="">
                         <div class="scroller-content">
                             <div class="content-left">
@@ -73,7 +64,7 @@
                 </div>
 
                 <div class="scroller-element">
-                    <a href="/detail">
+                    <a href="/events">
                         <img src="/img/banda-placeholder2.jpg" alt="">
                         <div class="scroller-content">
                             <div class="content-left">
@@ -88,7 +79,7 @@
                 </div>
 
                 <div class="scroller-element">
-                    <a href="/detail">
+                    <a href="/events">
                         <img src="/img/banda-placeholder3.jpg" alt="">
                         <div class="scroller-content">
                             <div class="content-left">
@@ -103,7 +94,7 @@
                 </div>
 
                 <div class="scroller-element">
-                    <a href="detail.html">
+                    <a href="/events">
                         <img src="/img/banda-placeholder4.jpg" alt="">
                         <div class="scroller-content">
                             <div class="content-left">
@@ -123,7 +114,7 @@
                 <div class="slider">
                     <div class="slider-group" id="slide-1">
                         <div class="slider-element">
-                            <a href="/detail">
+                            <a href="/events">
                                 <img src="/img/banda-placeholder.jpg" alt="">
                                 <div class="slider-content">
                                     <div class="event-date">
@@ -135,7 +126,7 @@
                             </a>
                         </div>
                         <div class="slider-element">
-                            <a href="/detail">
+                            <a href="/events">
                                 <img src="/img/banda-placeholder2.jpg" alt="">
                                 <div class="slider-content">
                                     <div class="event-date">
@@ -147,7 +138,7 @@
                             </a>
                         </div>
                         <div class="slider-element">
-                            <a href="/detail">
+                            <a href="/events">
                                 <img src="/img/banda-placeholder3.jpg" alt="">
                                 <div class="slider-content">
                                     <div class="event-date">
@@ -161,7 +152,7 @@
                     </div>
                     <div class="slider-group" id="slide-2">
                         <div class="slider-element">
-                            <a href="/detail">
+                            <a href="/events">
                                 <img src="/img/banda-placeholder.jpg" alt="">
                                 <div class="slider-content">
                                     <div class="event-date">
@@ -173,7 +164,7 @@
                             </a>
                         </div>
                         <div class="slider-element">
-                            <a href="/detail">
+                            <a href="/events">
                                 <img src="/img/banda-placeholder2.jpg" alt="">
                                 <div class="slider-content">
                                     <div class="event-date">
@@ -185,7 +176,7 @@
                             </a>
                         </div>
                         <div class="slider-element">
-                            <a href="/detail">
+                            <a href="/events">
                                 <img src="/img/banda-placeholder3.jpg" alt="">
                                 <div class="slider-content">
                                     <div class="event-date">
@@ -199,7 +190,7 @@
                     </div>
                     <div class="slider-group" id="slide-3">
                         <div class="slider-element">
-                            <a href="/detail">
+                            <a href="/events">
                                 <img src="/img/banda-placeholder.jpg" alt="">
                                 <div class="slider-content">
                                     <div class="event-date">
@@ -211,7 +202,7 @@
                             </a>
                         </div>
                         <div class="slider-element">
-                            <a href="/detail">
+                            <a href="/events">
                                 <img src="/img/banda-placeholder2.jpg" alt="">
                                 <div class="slider-content">
                                     <div class="event-date">
@@ -223,7 +214,7 @@
                             </a>
                         </div>
                         <div class="slider-element">
-                            <a href="/detail">
+                            <a href="/events">
                                 <img src="/img/banda-placeholder3.jpg" alt="">
                                 <div class="slider-content">
                                     <div class="event-date">
@@ -245,9 +236,9 @@
                 <h3>Titulo</h3>
                 <div class="footer-links">
                     <ul>
-                        <li><a href="#">Link 1</a></li>
-                        <li><a href="#">Link 2</a></li>
-                        <li><a href="#">Link 3</a></li>
+                        <li><a href="">Link 1</a></li>
+                        <li><a href="">Link 2</a></li>
+                        <li><a href="">Link 3</a></li>
                     </ul>
                 </div>
             </div>
@@ -255,9 +246,9 @@
                 <h3>Titulo</h3>
                 <div class="footer-links">
                     <ul>
-                        <li><a href="#">Link 1</a></li>
-                        <li><a href="#">Link 2</a></li>
-                        <li><a href="#">Link 3</a></li>
+                        <li><a href="">Link 1</a></li>
+                        <li><a href="">Link 2</a></li>
+                        <li><a href="">Link 3</a></li>
                     </ul>
                 </div>
             </div>
@@ -265,9 +256,9 @@
                 <h3>Titulo</h3>
                 <div class="footer-links">
                     <ul>
-                        <li><a href="#">Link 1</a></li>
-                        <li><a href="#">Link 2</a></li>
-                        <li><a href="#">Link 3</a></li>
+                        <li><a href="">Link 1</a></li>
+                        <li><a href="">Link 2</a></li>
+                        <li><a href="">Link 3</a></li>
                     </ul>
                 </div>
             </div>

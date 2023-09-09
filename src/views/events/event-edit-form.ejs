@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit an event</title>
+    <% const categories=['concert','sports-event','misc'] %>
+        <%- include('./partials/head') %>
+            <link rel="stylesheet" href="/css/create.css">
+            <script src="../js/imgPreview.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/navbar') %>
+            <div class="fondo-inicio">
+    </header>
+    <div class="create-form-container">
+        <form class="create-form" action="/events/<%= currentEvent.id %>?_method=PUT" method="POST"
+            enctype="multipart/form-data">
+            <div class="control-formulario">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" value="<%= currentEvent.name %>">
+            </div>
+            <div class="control-formulario">
+                <label for="name">Precio</label>
+                <input type="number" name="price" value="<%= currentEvent.price %>">
+            </div>
+            <div class="control-formulario">
+                <label for="name">Stock</label>
+                <input type="number" name="stock" value="<%= currentEvent.stock %>">
+            </div>
+            <div class="control-formulario">
+                <label for="name">Fecha</label>
+                <input type="date" format="dd/mm/yyyy" name="date" value="<%= currentEvent.date %>">
+            </div>
+            <div class="control-formulario">
+                <label for="time">Horario</label>
+                <input type="time" name="time" value="<%= currentEvent.time %>">
+            </div>
+            <div class="control-formulario">
+                <label for="category">Categoría</label>
+                <select name="category">
+                    <% if(currentEvent.category==='concert' ) {%>
+                        <option value="concert" selected>Concert</option>
+                        <% } else {%>
+                            <option value="concert">Concert</option>
+                            <% } %>
+                                <% if(currentEvent.category==='sports-event' ) {%>
+                                    <option value="sports-event" selected>Sports Event</option>
+                                    <% } else {%>
+                                        <option value="sports-event">Sports Event</option>
+                                        <% } %>
+                                            <% if(currentEvent.category==='misc' ) {%>
+                                                <option value="misc" selected>Misc</option>
+                                                <% } else {%>
+                                                    <option value="misc">Misc</option>
+                                                    <% } %>
+                </select>
+            </div>
+            <div class="control-formulario">
+                <label for="event-image">Imágen</label>
+                <div class="img-select">
+                    <img class="img-profile" src="/img/events/<%= locals.currentEvent.image %>" id="imgProd" alt="">
+                    <label for="event-image" class="event-image-label">Select file</label>
+                    <input class="input-file" type="file" style="display:none;" name="event-image" id="event-image"
+                        onchange="loadFile(event)" value="<%= locals.currentEvent.image %>">
+                </div>
+            </div>
+            <div class="control-formulario">
+                <label for="description">Descripción</label>
+                <textarea name="description" cols="30" rows="10"><%= currentEvent.description %></textarea>
+                <button class="boton-formulario" type="submit">Enviar</button>
+                <input class="boton-formulario" type="reset">
+        </form>
+        <form action="/events/<%= currentEvent.id %>?_method=DELETE" method="POST">
+            <button class="boton-formulario boton-delete" type="submit"
+                onclick="return confirm('Confirm, please.');">Borrar</button>
+        </form>
+    </div>
+</body>
+
+</html>

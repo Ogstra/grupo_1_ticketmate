@@ -1,0 +1,26 @@
+[
+  {
+    "id": "8c9346ee-4fe4-4e36-a536-0073ad5fa068",
+    "username": "dasdsa",
+    "email": "dsadsadsa@asdasda",
+    "name": "dsadas",
+    "image": "antcom-1692234746642.png",
+    "password": "dasdasd"
+  },
+  {
+    "id": "cae2be9f-6d6c-481c-87a2-fab8fb8064cc",
+    "username": "default",
+    "email": "email@gmail.com",
+    "name": "default",
+    "image": "default-profile-picture.jpg",
+    "password": "123"
+  },
+  {
+    "id": "e56152cb-3327-4f45-ba97-e441a7321a78",
+    "username": "bcryptTEST",
+    "email": "bcryptTEST@gmail.com",
+    "name": "bcryptTEST",
+    "image": "IMG_0104-1692235210374.png",
+    "password": "$2b$10$gNPgtX2h9TWMmcLcD7.i0Ou61BYfqLoyNmfv7p7yfTPT9gxnM2U4C"
+  }
+]
