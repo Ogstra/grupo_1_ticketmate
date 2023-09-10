@@ -1,4 +1,4 @@
-module.exports = (DataTypes, sequelize) => {
+module.exports = (sequelize, DataTypes) => {
 
     const alias = 'User';
 
@@ -7,6 +7,10 @@ module.exports = (DataTypes, sequelize) => {
             type: DataTypes.BIGINT(20).UNSIGNED,
             primaryKey: true,
             autoIncrement: true,
+            allowNull: false
+        },
+        username: {
+            type: DataTypes.STRING(50),
             allowNull: false
         },
         first_name: {
