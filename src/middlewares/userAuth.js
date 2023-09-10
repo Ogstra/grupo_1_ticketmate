@@ -1,25 +1,27 @@
 const db = require("../database/models");
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 
-module.exports = function userAuth(req, res, next) {
-    const username = req.username;
-    const password = bcrypt.hashSync(req.body.password, 10);
-    const rememberMe = req.body['mant-ses-ini']; // 'on'/undefined
-    const auth = req.body;
-    const userDb = async () => {
-      try {
-        const user = await db.User.findOne({ where: { username: username} })
-        console.log(user);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+module.exports = async function userAuth(req, res, next) {
+  const username = req.body.username;
+  const rememberMe = req.body["mant-ses-ini"]; // 'on'/undefined
+  let comparePasswords = false // password autentication flag
 
+  try {
+    const userDb = await db.User.findOne({
+      where: { username: username },
+      raw: true,
+    });
+    console.log(userDb);
+     
+    if (userDb) {comparePasswords = bcrypt.compareSync(req.body.password, userDb.password)};
 
-    if (auth) {
+    if (comparePasswords === true) {
       next();
     } else {
-      res.status(401);
-      res.send('Access forbidden');
+      res.redirect("./login")
     }
-}
+
+  } catch (error) {
+    console.log(error);
+  }
+};
