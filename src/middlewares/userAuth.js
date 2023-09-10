@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 module.exports = async function userAuth(req, res, next) {
   const username = req.body.username;
   const rememberMe = req.body["mant-ses-ini"]; // 'on'/undefined
-  let comparePasswords = false // password autentication flag
+  let comparePasswords = false // password authentication flag
 
   try {
     const userDb = await db.User.findOne({

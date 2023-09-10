@@ -3,11 +3,11 @@ module.exports = (sequelize, DataTypes) => {
     const alias = 'User';
 
     const cols = {
-        id: {
-            type: DataTypes.BIGINT(20).UNSIGNED,
+        uuid: {
+            type: DataTypes.UUIDV4,
             primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
+            allowNull: false,
+            defaultValue: DataTypes.UUIDV4
         },
         username: {
             type: DataTypes.STRING(50),
@@ -43,7 +43,9 @@ module.exports = (sequelize, DataTypes) => {
 
     const config = {
         tableName: 'users',
-        timestamps: false
+        timestamps: true,
+        createdAt: "created_at",
+        updatedAt: "updated_at"
     };
 
     const User = sequelize.define(alias, cols, config);
