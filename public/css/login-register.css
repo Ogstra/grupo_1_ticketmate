@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+:root {
+    --error: #cc0000;
+}
+
 * {
     line-height: 1;
 }
@@ -14,6 +18,10 @@ nav {
     font-size: 25px;
     font-weight: bold;
     color: #000000;
+}
+
+.error{
+    color: var(--error);
 }
 
 .fondo-inicio {

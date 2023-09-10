@@ -11,9 +11,8 @@ module.exports = async function userAuth(req, res, next) {
       where: { username: username },
       raw: true,
     });
-    console.log(userDb);
-     
-    if (userDb) {comparePasswords = bcrypt.compareSync(req.body.password, userDb.password)};
+
+    if (userDb) { comparePasswords = bcrypt.compareSync(req.body.password, userDb.password) };
 
     if (comparePasswords === true) {
       next();
@@ -22,6 +21,6 @@ module.exports = async function userAuth(req, res, next) {
     }
 
   } catch (error) {
-    console.log(error);
+    res.send(error)
   }
 };

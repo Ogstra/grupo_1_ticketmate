@@ -28,20 +28,25 @@
         <div class="login-form">
             <form action="/" method="POST" class="create-form" enctype="multipart/form-data">
                 <div class="control-formulario">
+                    <p class="error"><%= locals.errors.DBError %></p>
                     <label><b>Nombre de usuario:</b></label>
-                    <input type="text" name="username" class="control" minlength="5" required autofocus>
+                    <p class="error"><%= locals.errors.usernameError %></p>
+                    <input type="text" name="username" class="control"  autofocus value="<%= locals.errors.oldusername %>">
                 </div class="control-formulario">
                 <div class="control-formulario">
                     <label><b>Email:</b></label>
-                    <input type="email" name="email" class="control" required>
+                    <p class="error"><%= locals.errors.emailError %></p>
+                    <input type="email" name="email" class="control"  value="<%= locals.errors.oldemail %>">
                 </div class="control-formulario">
                 <div class="control-formulario">
                     <label><b>Nombre:</b></label>
-                    <input type="text" name="firstName" class="control" minlength="5" required>
+                    <p class="error"><%= locals.errors.firstNameError %></p>
+                    <input type="text" name="firstName" class="control"  value="<%= locals.errors.oldfirstName %>">
                 </div class="control-formulario">
                 <div class="control-formulario">
                     <label><b>Apellido:</b></label>
-                    <input type="text" name="lastName" class="control" minlength="5" required>
+                    <p class="error"><%= locals.errors.lastNameError %></p>
+                    <input type="text" name="lastName" class="control"  value="<%= locals.errors.oldlastName %>">
                 </div class="control-formulario">
                 <div class="control-formulario control-formulario-image">
                     <label for="event-image"><b>Foto de perfil</b></label>
@@ -53,11 +58,13 @@
                 </div>
                     <div class="control-formulario">
                         <label for="password"><b>Contraseña:</b></label>
-                        <input type="password" id="password" name="password" class="control" required>
+                        <p class="error"><%= locals.errors.passwordError %></p>
+                        <input type="password" id="password" name="password" class="control" >
                     </div>
                     <div class="control-formulario">
                         <label for="passwordConfirm"><b>Repetir contraseña:</b></label>
-                        <input type="password" id="passwordConfirm" name="passwordConfirm" class="control" required>
+                        <p class="error"><%= locals.errors.passwordConfirmError %></p>
+                        <input type="password" id="passwordConfirm" name="passwordConfirm" class="control" >
                     </div>
                     <button type="submit" class="boton-formulario">Ingresar</button>
                     <p class="sign-up-button">Already have an account? <a href="/login">Log in</a></p>

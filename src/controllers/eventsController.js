@@ -25,7 +25,6 @@ const controller = {
 	// Create - Form to create
 	create: (req, res) => {
 		const errors = req.query;
-		console.table(req.query);
 		res.render('event-creation-form', { errors: errors }); //hacer llegar de alguna manera los datos del error anterior
 	},
 
@@ -35,11 +34,11 @@ const controller = {
 		let eventImage;
 
 		if (result.errors.length > 0) {
-			const errorArray = result.errors.map(error => '&' + error.path + 'Error' + '=' + error.msg);
+			const errorArray = result.errors.map(error => '&' + error.path + 'Error=' + error.msg);
 			const errorString = errorArray.join('');
-			const oldDataArray = Object.entries(req.body).map(bodydata => '&' + 'old' + bodydata[0] + '=' + bodydata[1]);
+			const oldDataArray = Object.entries(req.body).map(bodydata => '&old' + bodydata[0] + '=' + bodydata[1]);
 			const oldDataString = oldDataArray.join('');
-			res.redirect('/events/create' + '?' + errorString + oldDataString);
+			res.redirect('/events/create?' + errorString + oldDataString);
 			return;
 		}
 
@@ -74,7 +73,6 @@ const controller = {
 	// Metodo de edicion de eventos
 	update: (req, res) => {
 		let events = eventsModel.findAll();
-		console.log(events[req.params.id])
 		let eventID = events.findIndex(event => event.id == req.params.id);
 
 		//agregar validaciones y manejo de errores

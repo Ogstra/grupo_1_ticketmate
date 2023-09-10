@@ -3,7 +3,8 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const userAuth = require('../middlewares/userAuth')
+const userAuth = require('../middlewares/userAuth');
+const { check } = require('express-validator');
 
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
@@ -20,6 +21,26 @@ let multerDiskStorage = multer.diskStorage({
     }
 });
 
+const validateForm = [
+    check('username')
+        .notEmpty().withMessage('Debes completar este campo'),
+
+    check('email')
+        .isEmail().withMessage('Debes ingresar un email válido.'),
+
+    check('firstName')
+        .notEmpty().withMessage('Debes completar este campo'),
+
+    check('lastName')
+        .notEmpty().withMessage('Debes completar este campo'),
+
+    check('password')
+        .notEmpty().withMessage('Debes completar este campo'),
+
+    check('passwordConfirm')
+        .custom((value, { req }) => value === req.body.password).withMessage('Las contraseñas deben coincidir')
+]
+
 let fileUpload = multer({ storage: multerDiskStorage });
 
 router.get('/login', usersController.loginForm);
@@ -28,6 +49,6 @@ router.post('/login', userAuth, usersController.login);
 
 router.get('/register', usersController.registerForm);
 
-router.post('/', fileUpload.single('profile-picture'), usersController.register);
+router.post('/', fileUpload.single('profile-picture'), validateForm, usersController.register);
 
 module.exports = router;
