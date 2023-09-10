@@ -12,6 +12,7 @@ const controller = {
 		res.render('login');
 	},
 	login: (req, res) => {
+		console.log(req.body);	// Datos del formulario	
 		res.redirect('/');
 	},
 	registerForm: (req, res) => {
