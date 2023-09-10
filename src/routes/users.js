@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
+const userAuth = require('../middlewares/userAuth')
 
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
@@ -23,7 +24,7 @@ let fileUpload = multer({ storage: multerDiskStorage });
 
 router.get('/login', usersController.loginForm);
 
-router.post('/login', usersController.login);
+router.post('/login', userAuth, usersController.login);
 
 router.get('/register', usersController.registerForm);
 
