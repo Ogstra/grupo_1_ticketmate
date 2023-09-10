@@ -38,6 +38,11 @@ app.use('/', usersRouter);
 
 app.use('/cart', mainRouter);
 
+// Error 404
+app.get('*', function(req, res){
+    res.render('404');
+  });
+
 app.listen(3000, () => {
     console.log("http://localhost:3000")
 })
