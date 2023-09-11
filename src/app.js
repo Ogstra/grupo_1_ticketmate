@@ -8,13 +8,7 @@ const eventsRouter = require('./routes/events.js');
 const usersRouter = require('./routes/users.js');
 const methodOverride =  require('method-override');
 
-app.use(session({
-    secret: 'fr1563',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-  }));
-app.use(cookieParser());
+
 
 app.use(express.static('../public'));
 app.set('view engine', 'ejs');
@@ -29,6 +23,13 @@ app.set('views', [
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(cookieParser());
+app.use(session({
+  secret: 'fr1563',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
 
 app.use('/events', eventsRouter);
 

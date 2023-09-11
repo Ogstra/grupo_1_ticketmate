@@ -4,6 +4,7 @@ const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const bcrypt = require('bcrypt');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require('../database/models');
+const { Op } = require("sequelize");
 
 
 // ******** Modelos viejos ******** 
@@ -38,7 +39,7 @@ const controller = {
 
 		try {
 			let userInDB = await db.User.findOne({
-				where: { email: req.body.email },
+				where: {[Op.or]: [{email: req.body.email}, {username: req.body.username}]},
 				raw:true
 			});
 			console.log(userInDB)
