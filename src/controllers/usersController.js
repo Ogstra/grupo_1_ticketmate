@@ -18,10 +18,9 @@ const controller = {
 	},
 	login: async (req, res) => {
 		const username = req.body.username;
-		let rememberMe = req.body["mant-ses-ini"]; // 'on'/undefined
 		let comparePasswords = false // password authentication flag
 	  
-		if (rememberMe === 'on') {
+		if (req.body["mant-ses-ini"] === 'on') {
 		  req.session.cookie.maxAge = 604800000 /* 7 days */
 		} 
 	  
@@ -32,7 +31,7 @@ const controller = {
 		  });
 	  
 		  if (userDb) { comparePasswords = bcrypt.compareSync(req.body.password, userDb.password) };
-	  
+
 		  if (comparePasswords === true) {
 			  req.session.userLogged = userDb
 			  
