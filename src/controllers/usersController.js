@@ -14,21 +14,36 @@ let isLoggedIn = false
 
 const controller = {
 	loginForm: (req, res) => {
-
-/* 		console.log(req.session);
-		console.log("req.session.cookie.sessionId: " + req.session.cookie.sessionId);
-		console.log(req.cookies.userKey); */
-		
-		if (req.cookies.userKey === req.session.cookie.sessionId) {
-			console.log("session valida");
-/* 			console.log(req.session.cookie.isLoggedIn); */
-			return isLoggedIn = true
-		}
-
-		res.render('login', {isLoggedIn});
+		res.render('login');
 	},
-	login: (req, res) => {
-		res.redirect('/');
+	login: async (req, res) => {
+		const username = req.body.username;
+		let rememberMe = req.body["mant-ses-ini"]; // 'on'/undefined
+		let comparePasswords = false // password authentication flag
+	  
+		if (rememberMe === 'on') {
+		  req.session.cookie.maxAge = 604800000 /* 7 days */
+		} 
+	  
+		try {
+		  const userDb = await db.User.findOne({
+			where: {[Op.or]: [{email: username}, {username: username}]},
+			raw: true,
+		  });
+	  
+		  if (userDb) { comparePasswords = bcrypt.compareSync(req.body.password, userDb.password) };
+	  
+		  if (comparePasswords === true) {
+			  req.session.userLogged = userDb
+			  
+			res.redirect('/');
+		  } else {
+			res.redirect("./login")
+		  }
+	  
+		} catch (error) {
+		  res.send(error)
+		}
 	},
 	registerForm: (req, res) => {
 		const errors = req.query;

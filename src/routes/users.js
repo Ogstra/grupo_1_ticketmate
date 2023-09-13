@@ -43,12 +43,12 @@ const validateForm = [
 
 let fileUpload = multer({ storage: multerDiskStorage });
 
-router.get('/login', usersController.loginForm);
+router.get('/login', userAuth, usersController.loginForm);
 
 router.post('/login', userAuth, usersController.login);
 
-router.get('/register', usersController.registerForm);
+router.get('/register', userAuth, usersController.registerForm);
 
-router.post('/', fileUpload.single('profile-picture'), validateForm, usersController.register);
+router.post('/', userAuth, fileUpload.single('profile-picture'), validateForm, usersController.register);
 
 module.exports = router;

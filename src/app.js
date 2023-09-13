@@ -27,11 +27,7 @@ app.use(session({
   secret: 'fr1563',
   resave: false,
   saveUninitialized: true,
-  cookie: {
-    maxAge: (60 * 1000 * 60),
-    sessionId: uuidv4(),
-    secure: true
-    },
+  cookie: {maxAge: null /* session */}
 }));
 
 app.use('/events', eventsRouter);

@@ -2,7 +2,6 @@ const mainController = {
     getIndex: function (req, res) {
         res.render('index.ejs');
     },
-
     getLogin: function (req, res) {
         res.render('login.ejs')
     },
