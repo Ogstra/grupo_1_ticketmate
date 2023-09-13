@@ -7,8 +7,7 @@ const mainRouter = require('./routes/mainRoutes.js');
 const eventsRouter = require('./routes/events.js');
 const usersRouter = require('./routes/users.js');
 const methodOverride =  require('method-override');
-
-
+const { v4: uuidv4 } = require('uuid');
 
 app.use(express.static('../public'));
 app.set('view engine', 'ejs');
@@ -28,7 +27,11 @@ app.use(session({
   secret: 'fr1563',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true }
+  cookie: {
+    maxAge: (60 * 1000 * 60),
+    sessionId: uuidv4(),
+    secure: true
+    },
 }));
 
 app.use('/events', eventsRouter);

@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const bcrypt = require('bcrypt');
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require('../database/models');
 const { Op } = require("sequelize");
 
@@ -11,11 +10,22 @@ const { Op } = require("sequelize");
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const usersModel = require('../models/usersModels');
 const { validationResult } = require('express-validator');
-
+let isLoggedIn = false
 
 const controller = {
 	loginForm: (req, res) => {
-		res.render('login');
+
+/* 		console.log(req.session);
+		console.log("req.session.cookie.sessionId: " + req.session.cookie.sessionId);
+		console.log(req.cookies.userKey); */
+		
+		if (req.cookies.userKey === req.session.cookie.sessionId) {
+			console.log("session valida");
+/* 			console.log(req.session.cookie.isLoggedIn); */
+			return isLoggedIn = true
+		}
+
+		res.render('login', {isLoggedIn});
 	},
 	login: (req, res) => {
 		res.redirect('/');
