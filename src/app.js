@@ -7,7 +7,6 @@ const mainRouter = require('./routes/mainRoutes.js');
 const eventsRouter = require('./routes/events.js');
 const usersRouter = require('./routes/users.js');
 const methodOverride =  require('method-override');
-const { v4: uuidv4 } = require('uuid');
 
 app.use(express.static('../public'));
 app.set('view engine', 'ejs');
@@ -17,17 +16,17 @@ app.set('views', [
     path.join(__dirname,'./views/events'),    
 ]);
 
-
+const secretKey = 'BX50dHm/5UXyeS57Zi3WZjOq0TCPBUQ2';
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
-app.use(cookieParser());
+app.use(cookieParser(secretKey));
 app.use(session({
-  secret: 'fr1563',
+  secret: secretKey,
   resave: false,
   saveUninitialized: true,
-  cookie: {maxAge: null /* session */}
+  cookie: {maxAge: null /* session */},
 }));
 
 app.use('/events', eventsRouter);
