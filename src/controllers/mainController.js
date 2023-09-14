@@ -1,5 +1,8 @@
 const mainController = {
     getIndex: function (req, res) {
+        console.log(req.session);
+        console.log("-----------------------");
+        console.log(req.cookies.auth);
         res.render('index.ejs');
     },
     getLogin: function (req, res) {

@@ -3,8 +3,9 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const userAuth = require('../middlewares/userAuth');
 const { check } = require('express-validator');
+const userAuth = require('../middlewares/userAuth');
+const adminCheck = require('../middlewares/adminCheck');
 
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
