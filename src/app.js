@@ -7,6 +7,7 @@ const mainRouter = require('./routes/mainRoutes.js');
 const eventsRouter = require('./routes/events.js');
 const usersRouter = require('./routes/users.js');
 const methodOverride =  require('method-override');
+const copyJWTCookie = require('./middlewares/copyJWTCookie');
 
 app.use(express.static('../public'));
 app.set('view engine', 'ejs');
@@ -28,6 +29,9 @@ app.use(session({
   saveUninitialized: true,
   cookie: {maxAge: null /* session */},
 }));
+
+// Global Middlewares
+app.use('*', copyJWTCookie);
 
 app.use('/events', eventsRouter);
 
