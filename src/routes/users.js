@@ -4,7 +4,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const { check } = require('express-validator');
-const loginNeeded = require('../middlewares/loginNeeded');
+const notLogged = require('../middlewares/notLogged');
 const adminCheck = require('../middlewares/adminCheck');
 
 // ************ Controller Require ************
@@ -44,12 +44,12 @@ const validateForm = [
 
 let fileUpload = multer({ storage: multerDiskStorage });
 
-router.get('/login', loginNeeded, usersController.loginForm);
+router.get('/login', notLogged, usersController.loginForm);
 
-router.post('/login', loginNeeded, usersController.login);
+router.post('/login', notLogged, usersController.login);
 
-router.get('/register', loginNeeded, usersController.registerForm);
+router.get('/register', notLogged, usersController.registerForm);
 
-router.post('/', loginNeeded, fileUpload.single('profile-picture'), validateForm, usersController.register);
+router.post('/', notLogged, fileUpload.single('profile-picture'), validateForm, usersController.register);
 
 module.exports = router;
