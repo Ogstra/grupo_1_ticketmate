@@ -47,17 +47,17 @@ let fileUpload = multer({ storage: multerDiskStorage });
 router.get('/', eventsController.index);
 
 /*** CREATE ONE PRODUCT ***/
-router.get('/create', notLogged, adminCheck, eventsController.create);
-router.post('/', notLogged, adminCheck, fileUpload.single('event-image'), validateForm, eventsController.store);
+router.get('/create', adminCheck, eventsController.create);
+router.post('/', adminCheck, fileUpload.single('event-image'), validateForm, eventsController.store);
 
 /*** GET ONE PRODUCT ***/
 router.get('/:id', eventsController.detail);
 
 /*** EDIT ONE PRODUCT ***/
-router.get('/:id/edit', notLogged, adminCheck, eventsController.edit);
-router.put('/:id', notLogged, adminCheck, fileUpload.single('event-image'), validateForm, eventsController.update);
+router.get('/:id/edit', adminCheck, eventsController.edit);
+router.put('/:id', adminCheck, fileUpload.single('event-image'), validateForm, eventsController.update);
 
 /*** DELETE ONE PRODUCT***/
-router.delete('/:id', notLogged, adminCheck, eventsController.destroy);
+router.delete('/:id', adminCheck, eventsController.destroy);
 
 module.exports = router;

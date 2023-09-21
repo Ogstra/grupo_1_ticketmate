@@ -1,4 +1,4 @@
-module.exports = async function loginNeeded(req, res, next) {
+module.exports = async function notLogged(req, res, next) {
   if (req.session.userLogged) {
     return res.redirect("/");
   }
