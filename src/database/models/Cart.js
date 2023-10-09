@@ -1,0 +1,46 @@
+module.exports = (sequelize, DataType) => {
+  const alias = "Cart";
+
+  const cols = {
+    id: {
+      type: DataType.INTEGER(11),
+      primaryKey: true,
+      autoIncrement: true,
+    },
+
+    user_id: {
+      type: DataType.STRING(36),
+      allowNull: true,
+      references: {
+        model: "users",
+        key: "uuid",
+      },
+
+      onDelete: "RESTRICT",
+      onUpdate: "RESTRICT",
+    },
+
+    created_at: {
+      type: DataType.DATE,
+      allowNull: true,
+    },
+  };
+
+  const config = {
+    tableName: "carts",
+    timestamps: true,
+    createdAt: "created_at",
+    updatedAt: "updated_at",
+  };
+
+  const Cart = sequelize.define(alias, cols, config);
+  Cart.associate = (models) => {
+    Cart.hasMany(models.User, {
+      //nombre del modelo
+      as: "userRelation", //este es el nombre de la relacion
+      foreing_key: "user_id",
+    });
+  };
+
+  return Cart;
+};
