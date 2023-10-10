@@ -44,8 +44,7 @@ module.exports = (sequelize, DataType) => {
 
   const Date = sequelize.define(alias, cols, config);
   Date.associate = (models) => {
-    Date.hasMany(models.Event, {
-      //nombre del modelo
+    Date.hasMany(models.Event, {//nombre del modelo      
       as: "DateEventRelation", //este es el nombre de la relacion
       foreing_key: "event_id",
     });

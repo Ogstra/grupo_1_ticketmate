@@ -9,7 +9,7 @@ module.exports= (sequelize, DataType) => {
         },
 
         file:{
-            type: DataType.STRIMG,
+            type: DataType.STRING,
             allowNull: true
         }        
     };
@@ -22,6 +22,13 @@ module.exports= (sequelize, DataType) => {
     };
 
     const Image = sequelize.define(alias, cols, config); 
+    Image.associate = (models) => {
+        Image.belongsTo(models.Event, { //nombre del modelo      
+          as: "imageRelation", //este es el nombre de la relacion
+          foreing_key: "image_id",
+        });
+      };
+    
 
     return Image
 }

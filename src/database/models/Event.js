@@ -66,21 +66,30 @@ module.exports = (sequelize, DataType) => {
 
   const Event = sequelize.define(alias, cols, config);
   Event.associate = (models) => {
-    Event.hasMany(models.Image, {
-      //nombre del modelo
+    Event.hasMany(models.Image, { //nombre del modelo      
       as: "imageRelation", //este es el nombre de la relacion
       foreing_key: "image_id",
     }),
-      Event.hasMany(models.Category, {
-        //nombre del modelo
+
+      Event.hasMany(models.Category, { //nombre del modelo        
         as: "categoryRelation", //este es el nombre de la relacion
         foreing_key: "category_id",
       }),
-      Event.hasMany(models.Venue, {
-        //nombre del modelo
+
+      Event.hasMany(models.Venue, { //nombre del modelo        
         as: "venueRelation", //este es el nombre de la relacion
         foreing_key: "venue_id",
-      });
+      }),
+      
+      Event.belongsTo(models.Cart_Event, {//nombre del modelo      
+        as: "eventRelation", //este es el nombre de la relacion
+        foreing_key: "event_id", 
+    }),
+    
+      Event.belongsTo(models.Date, {//nombre del modelo      
+        as: "DateEventRelation", //este es el nombre de la relacion
+        foreing_key: "event_id", 
+    });
   };
 
   return Event;

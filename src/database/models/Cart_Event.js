@@ -13,7 +13,7 @@ module.exports = (sequelize, DataType) => {
       allowNull: false,
       references: {
         model: "events", //nombre de la tabla
-        key: "id", // llave foranea
+        key: "id", // key al que hace referencia
       },
       onDelete: "RESTRICT",
       onUpdate: "RESTRICT",
@@ -28,8 +28,8 @@ module.exports = (sequelize, DataType) => {
       type: DataType.INTEGER(11),
       allowNull: false,
       references: {
-        model: "carts",
-        key: "id",
+        model: "carts", //nombre de la tabla
+        key: "id", // key al que hace referencia
       },
       onDelete: "RESTRICT",
       onUpdate: "RESTRICT",
@@ -50,17 +50,16 @@ module.exports = (sequelize, DataType) => {
 
   const Cart_Event = sequelize.define(alias, cols, config);
   Cart_Event.associate = (models) => {
-    Cart_Event.hasMany(models.Cart, {
-      //nombre del modelo
-      as: "cartRelation", //este es el nombre de la relacion
-      foreing_key: "cart_id",
-    }),
-      Cart_Event.hasMany(models.Event, {
-        //nombre del modelo
-        as: "eventRelation", //este es el nombre de la relacion
-        foreing_key: "event_id",
-      });
-  };
+        Cart_Event.hasMany(models.Cart, { //nombre del modelo  
+        as: "cartRelation", //este es el nombre de la relacion
+        foreing_key: "cart_id", 
+        }),
+
+        Cart_Event.hasMany(models.Event, { //nombre del modelo      
+          as: "eventRelation", //este es el nombre de la relacion
+          foreing_key: "event_id", 
+        });
+    };
 
   return Cart_Event;
 };

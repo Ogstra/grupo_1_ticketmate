@@ -49,6 +49,12 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const User = sequelize.define(alias, cols, config);
+    User.associate = (models) => {
+        User.belongsTo(models.Cart, {//nombre del modelo      
+          as: "userRelation", //este es el nombre de la relacion
+          foreing_key: "user_id",
+        })
+      };
 
     return User;
 }
