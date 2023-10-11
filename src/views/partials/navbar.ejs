@@ -13,7 +13,11 @@
                 <li><a class="nav-link" href="#tickets">Tickets</a></li>
                 <li><a class="nav-link" href="/events">Eventos</a></li>
                 <!-- <li>Carrito</li> -->
-                <% if (locals.userLogged) { %>
+                <% if (locals.userLogged) { %> 
+                    <li id="username">
+                        <div class="nav-separator"></div>
+                        <%= locals.userLogged.username %>
+                    </li>
                     <li><a class="nav-link" href="/logout">Log out</a></li>
                 <% }else{ %> 
                     <li><a class="nav-link" href="/login">Log in</a></li>
