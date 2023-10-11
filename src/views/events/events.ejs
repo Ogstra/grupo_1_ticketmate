@@ -16,12 +16,17 @@
             <!-- SearchNav-->
     </header>
     <main>
-            <div class="event-container">
-                <div class="img-a-container">  
-                    <a class="img-create" href="/events/create"><img src="/img/add-event.png%>" style="border:none; box-shadow: none"></a>
-                </div>
-            </div>  
             
+             <% if (locals.userLogged) { %>
+                <% if (locals.userLogged.admin === 1) { %>
+                    <div class="event-container">
+                        <div class="img-a-container">  
+                            <a class="img-create" href="/events/create"><img src="/img/add-event.png%>" style="border:none; box-shadow: none"></a>
+                        </div>
+                    </div>  
+                <% } %>
+             <% } %>
+
             <% events.forEach(element => { %>
                 <div class="event-container">
                     <div class="img-a-container">

@@ -12,7 +12,8 @@ const controller = {
 	// Root - Show all events
 	index: (req, res) => {
 		const events = eventsModel.findAll();
-		res.render(path.resolve(__dirname, "../views/events/events.ejs"), { events: events })
+		const userLogged = req.session.userLogged
+		res.render(path.resolve(__dirname, "../views/events/events.ejs"), { events: events, userLogged: userLogged })
 	},
 
 	// Detail - Detail from one event
@@ -76,7 +77,7 @@ const controller = {
 		let eventID = events.findIndex(event => event.id == req.params.id);
 
 		//agregar validaciones y manejo de errores
-		
+
 		let updatedEvent = {
 			id: Number(req.params.id), /* Sin el Number() el id se guarda como string */
 			name: req.body.name,
