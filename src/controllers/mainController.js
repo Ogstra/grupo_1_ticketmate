@@ -3,7 +3,8 @@ const mainController = {
         console.log(req.session);
         console.log("-----------------------");
         console.log(req.cookies.auth);
-        res.render('index.ejs');
+        const userLogged = req.session.userLogged;
+        res.render('index.ejs', {userLogged});
     },
     getLogin: function (req, res) {
         res.render('login.ejs')

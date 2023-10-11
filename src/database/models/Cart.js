@@ -35,7 +35,7 @@ module.exports = (sequelize, DataType) => {
 
   const Cart = sequelize.define(alias, cols, config);
     Cart.associate = (models) => {
-        Cart.hasMany(models.User, {//nombre del modelo    
+        Cart.belongsTo(models.User, {//nombre del modelo    
         as: "userRelation", //este es el nombre de la relacion
         foreing_key: "user_id",
     }),

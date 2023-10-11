@@ -62,6 +62,13 @@ const controller = {
 			res.send(error);
 		}
 	},
+
+	logout: (req, res) => {
+		res.clearCookie("auth");
+		req.session.destroy();
+		res.redirect('/');
+	},
+
 	registerForm: (req, res) => {
 		const errors = req.query;
 		res.render("register", { errors: errors });
