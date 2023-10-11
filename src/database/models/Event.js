@@ -55,6 +55,17 @@ module.exports = (sequelize, DataType) => {
       onDelete: "RESTRICT",
       onUpdate: "RESTRICT",
     },
+
+    date: {
+      type: DataType.DATE(255),
+      allowNull: false,
+    },
+    
+    stock: {
+      type: DataType.INTEGER(255),
+      allowNull: false,
+      defaultValue: 0
+    }
   };
 
   const config = {
