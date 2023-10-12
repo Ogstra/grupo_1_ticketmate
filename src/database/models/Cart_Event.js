@@ -14,9 +14,7 @@ module.exports = (sequelize, DataType) => {
       references: {
         model: "events", //nombre de la tabla
         key: "id", // key al que hace referencia
-      },
-      onDelete: "RESTRICT",
-      onUpdate: "RESTRICT",
+      }
     },
 
     quantity: {
@@ -30,9 +28,7 @@ module.exports = (sequelize, DataType) => {
       references: {
         model: "carts", //nombre de la tabla
         key: "id", // key al que hace referencia
-      },
-      onDelete: "RESTRICT",
-      onUpdate: "RESTRICT",
+      }
     },
 
     created_at: {
@@ -42,14 +38,14 @@ module.exports = (sequelize, DataType) => {
   };
 
   const config = {
-    tableName: "cart-events",
+    tableName: "cart_events",
     timestamps: true,
     createdAt: "created_at",
     updatedAt: "updated_at",
   };
 
   const Cart_Event = sequelize.define(alias, cols, config);
-  Cart_Event.associate = (models) => {
+/*   Cart_Event.associate = (models) => {
         Cart_Event.hasMany(models.Cart, { //nombre del modelo  
         as: "cartRelation", //este es el nombre de la relacion
         foreing_key: "cart_id", 
@@ -59,7 +55,7 @@ module.exports = (sequelize, DataType) => {
           as: "eventRelation", //este es el nombre de la relacion
           foreing_key: "event_id", 
         });
-    };
+    }; */
 
   return Cart_Event;
 };

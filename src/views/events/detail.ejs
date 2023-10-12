@@ -18,18 +18,22 @@
         <!-- SearchNav-->
     <section id="pantalla-dividida">
     <div class="izquierda">
-        <div class="profile-picture">
-            <img src="/img/events/<%=event.image%>" alt="">
-            <div class="edit-delete-event">
-                <a href="/events/<%= event.id %>/edit">Editar</a>
-                <form class="delete-event" action="/events/<%= event.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
-                    <input type="submit" name="delete" value="Eliminar" onclick="return confirm('Confirm, please.');">
-                </form>
-            </div>   
+        <div class="picture-name-category-stock">
+            <div class="profile-picture">
+                <img src="/img/events/<%=event.image%>" alt="">
+                <div class="edit-delete-event">
+                    <a href="/events/<%= event.id %>/edit">Editar</a>
+                    <form class="delete-event" action="/events/<%= event.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+                        <input type="submit" name="delete" value="Eliminar" onclick="return confirm('Confirm, please.');">
+                    </form>
+                </div>   
+            </div>
+        <div class="name-category-stock">
+            <p class="event-name"><%= event.name %></p>
+            <p class="event-category"><%= event.category.name; %></p>
+            <p class="profile-subtitle">Entradas restantes: <%= event.stock %></p>
         </div>
- 
-        <p class="profile-name"><%= event.name %></p>
-        <p class="profile-subtitle">Entradas restantes: <%= event.stock %></p>
+    </div>
         <p class="fechas">Fechas</p>
         <hr>
         <div class="collapsible-wrapper">
@@ -37,7 +41,12 @@
                 <input type="checkbox" name="events-collapsible" id="event-1">
                 <div class="collapsible-header">
                     <label for="event-1" class="collapsible-label"><!-- IMPORTANTE: el "for" del label y el "id" del input checkbox deben coincidir en cada elemento -->
-                        <span class="event-date"><%= event.date %></span>
+                        <span class="event-date"><%= (new Date(event.date)).toLocaleDateString("es-AR", { 
+                            year: "numeric", 
+                            month: "numeric",
+                            day: "numeric",
+                            hour: "numeric",
+                            minute: "numeric" }) %></span>
                         <span class="event-name"><%= event.name %></span>
                         <span class="precio">Desde $<%= event.price %></span>
                         <i class="icono fa-solid fa-caret-down" style="color: #ffffff;"></i>
@@ -57,7 +66,12 @@
                 <input type="checkbox" name="events-collapsible" id="event-2">
                 <div class="collapsible-header">
                     <label for="event-2" class="collapsible-label"><!-- IMPORTANTE: el "for" del label y el "id" del input checkbox deben coincidir en cada elemento -->
-                        <span class="event-date"><%= event.date %></span>
+                        <span class="event-date"><%= (new Date(event.date)).toLocaleDateString("es-AR", { 
+                            year: "numeric", 
+                            month: "numeric",
+                            day: "numeric",
+                            hour: "numeric",
+                            minute: "numeric" }) %></span>
                         <span class="event-name"><%= event.name %></span>
                         <span class="precio">Desde $<%= event.price %></span>
                         <i class="icono fa-solid fa-caret-down" style="color: #ffffff;"></i>
@@ -77,7 +91,12 @@
                 <input type="checkbox" name="events-collapsible" id="event-3">
                 <div class="collapsible-header">
                     <label for="event-3" class="collapsible-label"><!-- IMPORTANTE: el "for" del label y el "id" del input checkbox deben coincidir en cada elemento -->
-                        <span class="event-date"><%= event.date %></span>
+                        <span class="event-date"><%= (new Date(event.date)).toLocaleDateString("es-AR", { 
+                            year: "numeric", 
+                            month: "numeric",
+                            day: "numeric",
+                            hour: "numeric",
+                            minute: "numeric" }) %></span>
                         <span class="event-name"><%= event.name %></span>
                         <span class="precio">Desde $<%= event.price %></span>
                         <i class="icono fa-solid fa-caret-down" style="color: #ffffff;"></i>

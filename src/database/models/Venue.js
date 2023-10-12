@@ -23,10 +23,10 @@ module.exports= (sequelize, DataType) => {
 
     const Venue = sequelize.define(alias, cols, config); 
     Venue.associate = (models) => {
-        Venue.belongsTo(models.Event, { //nombre del modelo        
+/*         Venue.belongsTo(models.Event, { //nombre del modelo        
             as: "venueRelation", //este es el nombre de la relacion
             foreing_key: "venue_id",
-          });
+          }); */
       };
     return Venue
 }

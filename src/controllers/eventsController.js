@@ -3,6 +3,7 @@ const path = require('path');
 const eventsFilePath = path.join(__dirname, '../data/eventsDataBase.json');
 const events = JSON.parse(fs.readFileSync(eventsFilePath, 'utf-8'));
 const eventsModel = require('../models/eventsModels');
+const db = require("../database/models");
 const { validationResult } = require('express-validator');
 const { log } = require('console');
 
@@ -17,20 +18,22 @@ const controller = {
 	},
 
 	// Detail - Detail from one event
-	detail: (req, res) => {
+	detail: async (req, res) => {
 		const eventId = req.params.id;
-		const selectedevent = eventsModel.findbyID(eventId);
-		res.render('detail', { event: selectedevent });
+		const selectedEvent = await db.Event.findByPk(eventId, {include: ["category"]});
+		res.render('detail', { event: selectedEvent });
 	},
 
 	// Create - Form to create
-	create: (req, res) => {
+	create: async (req, res) => {
 		const errors = req.query;
-		res.render('event-creation-form', { errors: errors }); //hacer llegar de alguna manera los datos del error anterior
+		const categories = await db.Category.findAll({raw: true});
+		res.render('event-creation-form', { errors: errors,
+		categories }); //hacer llegar de alguna manera los datos del error anterior
 	},
 
 	// Create -  Method to store
-	store: (req, res) => {
+	store: async (req, res) => {
 		let result = validationResult(req);
 		let eventImage;
 
@@ -48,19 +51,19 @@ const controller = {
 		} else {
 			eventImage = req.file.filename;
 		}
-
+		console.log(req.body);
 		const newEvent = {
 			name: req.body.name,
 			price: req.body.price,
 			stock: req.body.stock,
 			date: req.body.date,
-			category: req.body.category,
+			category_id: req.body.category,
 			image: eventImage,
 			time: req.body.time,
 			description: req.body.description
 		};
 
-		const createdEvent = eventsModel.createEvent(newEvent);
+		const createdEvent = await db.Event.create(newEvent);
 		res.redirect("/events/" + createdEvent.id);
 	},
 

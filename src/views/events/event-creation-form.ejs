@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create an Event</title>
-    <% const categories=['concert','sports-event','misc'] %>
         <%- include('./partials/head') %>
             <link rel="stylesheet" href="/css/create.css">
             <script src="../js/imgPreview.js" type="text/javascript"></script>
@@ -48,6 +47,10 @@
                     <input type="number" name="price" value="<%= locals.errors.oldprice %>">
                 </div>
                 <div class="control-formulario">
+                    <label for="stock">Precio</label>
+                    <input type="number" name="stock" value="<%= /* locals.errors. */ %>">
+                </div>
+                <div class="control-formulario">
                     <label for="stock">Stock</label>
                     <input type="number" name="stock" value="<%= locals.errors.oldstock %>">
                 </div>
@@ -64,10 +67,10 @@
                     <select name="category">
 
                         <% for (category of categories) { %>
-                            <option value="<%= category %>" <% if( locals.errors.oldcategory==category) { %>
+                            <option value="<%= category.id %>" <% if( locals.errors.oldcategory==category) { %>
                                 selected
                                 <% } %>>
-                                    <%= category.replace('-',' ').split(' ').map(word=>word[0].toUpperCase()+word.substring(1)).join(' ') %> 
+                                <%= category.name %>
                             </option>
                         <% } %>
 
@@ -78,7 +81,7 @@
                     <div class="img-select">
                     <img class="img-profile" id="imgProd" src="/img/events/placeholder.jpg">
                     <label for="event-image" class="event-image-label">Select file</label>
-                    <input type="file" class="input-file" style="display:none;" id="event-image" name="event-image" onchange="loadFile(event)">
+                    <input type="file" class="input-file" style="display:none;" id="event-image" name="image" onchange="loadFile(event)">
                     </div>
                     </div>
                     <div class="control-formulario">

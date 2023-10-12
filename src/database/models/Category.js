@@ -16,16 +16,14 @@ module.exports = (sequelize, DataType) => {
 
     const config = {
         tableName: 'categories',
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at'
+        timestamps: false
     };
 
     const Category = sequelize.define(alias, cols, config);
     Category.associate = (models) => {
-        Category.belongsTo(models.Event, { //nombre del modelo        
-            as: "categoryRelation", //este es el nombre de la relacion
-            foreing_key: "category_id",
+        Category.hasMany(models.Event, { //nombre del modelo        
+            as: "event", //este es el nombre de la relacion
+            foreignKey: "category_id",
         });
     };
 

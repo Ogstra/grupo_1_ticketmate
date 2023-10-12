@@ -14,10 +14,7 @@ module.exports = (sequelize, DataType) => {
       references: {
         model: "users",
         key: "uuid",
-      },
-
-      onDelete: "RESTRICT",
-      onUpdate: "RESTRICT",
+      }
     },
 
     created_at: {
