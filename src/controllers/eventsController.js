@@ -83,7 +83,6 @@ const controller = {
 
 	// Metodo de edicion de eventos
 	update: async (req, res) => {
-		let events = eventsModel.findAll();
 		let eventID = req.params.id
 		let eventImage
 
@@ -114,7 +113,7 @@ const controller = {
 
 		try {
 			await db.Event.update(updatedEvent, {where:{id:eventID}})
-			res.redirect('/events/' + updatedEvent.id);
+			res.redirect('/events/' + eventID);
 		} catch (error) {
 			console.log(error)
 		}
