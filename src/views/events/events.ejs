@@ -42,10 +42,15 @@
                         <p>Fecha: <span class="event-date"><% let eventDate = (new Date(element.date)).toLocaleDateString("es-AR", { 
                             year: "numeric", 
                             month: "numeric",
-                            day: "numeric" }) 
-                            %>
+                            day: "numeric" })%>
+
                             <%= eventDate %>
-                            <%= (new Date(element.time)).toLocaleTimeString("es-AR", {hour: '2-digit', minute:'2-digit'}) %>
+
+                            <% let time = element.time.split(':');
+                            time.pop(); %>
+
+                            <%=time.join(':')%>
+                            
                             </span></p>
                         <p>Categoría: <%= element.category.name %></p>
                         <p>Descripción: <%= element.description %></p>

@@ -44,9 +44,11 @@
                         <span class="event-date"><%= (new Date(event.date)).toLocaleDateString("es-AR", { 
                             year: "numeric", 
                             month: "numeric",
-                            day: "numeric",
-                            hour: "numeric",
-                            minute: "numeric" }) %></span>
+                            day: "numeric"}) %>
+                            <% let time = event.time.split(':')
+                                time.pop();%>
+                                <%= time.join(':') %>    
+                        </span>
                         <span class="event-name"><%= event.name %></span>
                         <span class="precio">Desde $<%= event.price %></span>
                         <i class="icono fa-solid fa-caret-down" style="color: #ffffff;"></i>
@@ -69,9 +71,9 @@
                         <span class="event-date"><%= (new Date(event.date)).toLocaleDateString("es-AR", { 
                             year: "numeric", 
                             month: "numeric",
-                            day: "numeric",
-                            hour: "numeric",
-                            minute: "numeric" }) %></span>
+                            day: "numeric"}) %>
+                            <%= time.join(':') %>   
+                        </span>
                         <span class="event-name"><%= event.name %></span>
                         <span class="precio">Desde $<%= event.price %></span>
                         <i class="icono fa-solid fa-caret-down" style="color: #ffffff;"></i>
@@ -94,9 +96,9 @@
                         <span class="event-date"><%= (new Date(event.date)).toLocaleDateString("es-AR", { 
                             year: "numeric", 
                             month: "numeric",
-                            day: "numeric",
-                            hour: "numeric",
-                            minute: "numeric" }) %></span>
+                            day: "numeric"}) %>
+                            <%= time.join(':') %> 
+                        </span>
                         <span class="event-name"><%= event.name %></span>
                         <span class="precio">Desde $<%= event.price %></span>
                         <i class="icono fa-solid fa-caret-down" style="color: #ffffff;"></i>

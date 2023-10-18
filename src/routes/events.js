@@ -7,6 +7,7 @@ const { check } = require('express-validator');
 const notLogged = require('../middlewares/notLogged');
 const adminCheck = require('../middlewares/adminCheck');
 
+
 // ************ Controller Require ************
 const eventsController = require('../controllers/eventsController');
 

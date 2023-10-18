@@ -5,7 +5,7 @@ const events = JSON.parse(fs.readFileSync(eventsFilePath, 'utf-8'));
 const eventsModel = require('../models/eventsModels');
 const db = require("../database/models");
 const { validationResult } = require('express-validator');
-const { log } = require('console');
+const moment = require('moment');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -14,7 +14,7 @@ const controller = {
 	index: async (req, res) => {
 		const events = await db.Event.findAll({include: ["category"]});
 		const userLogged = req.session.userLogged
-		res.render("events.ejs", { events , userLogged: userLogged } )
+		res.render("events.ejs", { moment:moment ,events , userLogged: userLogged } )
 	},
 
 	// Detail - Detail from one event
