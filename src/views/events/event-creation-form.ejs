@@ -46,10 +46,7 @@
                     <label for="price">Precio</label>
                     <input type="number" name="price" value="<%= locals.errors.oldprice %>">
                 </div>
-                <div class="control-formulario">
-                    <label for="stock">Precio</label>
-                    <input type="number" name="stock" value="<%= /* locals.errors. */ %>">
-                </div>
+                
                 <div class="control-formulario">
                     <label for="stock">Stock</label>
                     <input type="number" name="stock" value="<%= locals.errors.oldstock %>">
@@ -81,7 +78,7 @@
                     <div class="img-select">
                     <img class="img-profile" id="imgProd" src="/img/events/placeholder.jpg">
                     <label for="event-image" class="event-image-label">Select file</label>
-                    <input type="file" class="input-file" style="display:none;" id="event-image" name="image" onchange="loadFile(event)">
+                    <input type="file" class="input-file" style="display:none;" id="event-image" name="event-image" onchange="loadFile(event)">
                     </div>
                     </div>
                     <div class="control-formulario">

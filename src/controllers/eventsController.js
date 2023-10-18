@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const eventsFilePath = path.join(__dirname, '../data/eventsDataBase.json');
 const events = JSON.parse(fs.readFileSync(eventsFilePath, 'utf-8'));
-const eventsModel = require('../models/eventsModels');
+const eventsModel = require('../models/eventsModels'); //model viejo
 const db = require("../database/models");
 const { validationResult } = require('express-validator');
 const moment = require('moment');
@@ -12,24 +12,26 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 	// Root - Show all events
 	index: async (req, res) => {
-		const events = await db.Event.findAll({include: ["category"]});
+		const events = await db.Event.findAll({ include: ["category"] });
 		const userLogged = req.session.userLogged
-		res.render("events.ejs", { moment:moment ,events , userLogged: userLogged } )
+		res.render("events.ejs", { moment: moment, events, userLogged: userLogged })
 	},
 
 	// Detail - Detail from one event
 	detail: async (req, res) => {
 		const eventId = req.params.id;
-		const selectedEvent = await db.Event.findByPk(eventId, {include: ["category"]});
+		const selectedEvent = await db.Event.findByPk(eventId, { include: ["category"] });
 		res.render('detail', { event: selectedEvent });
 	},
 
 	// Create - Form to create
 	create: async (req, res) => {
 		const errors = req.query;
-		const categories = await db.Category.findAll({raw: true});
-		res.render('event-creation-form', { errors: errors,
-		categories }); //hacer llegar de alguna manera los datos del error anterior
+		const categories = await db.Category.findAll({ raw: true });
+		res.render('event-creation-form', {
+			errors: errors,
+			categories
+		}); //hacer llegar de alguna manera los datos del error anterior
 	},
 
 	// Create -  Method to store
@@ -51,7 +53,7 @@ const controller = {
 		} else {
 			eventImage = req.file.filename;
 		}
-		console.log(req.body);
+		
 		const newEvent = {
 			name: req.body.name,
 			price: req.body.price,
@@ -68,39 +70,59 @@ const controller = {
 	},
 
 	// Muestra el formulario de edicion
-	edit: (req, res) => {
-		let currentEvent = eventsModel.findbyID(req.params.id);
-		currentEvent.date = eventsModel.handleDate(currentEvent.date);
-		res.render('event-edit-form', { currentEvent: currentEvent });
+	edit: async (req, res) => {
+		try {
+			const eventId = req.params.id;
+			const categories = await db.Category.findAll({ raw: true });
+			const currentEvent = await db.Event.findByPk(eventId, { include: ["category"] });
+			res.render('event-edit-form', { currentEvent: currentEvent, categories: categories });
+		} catch (error) {
+			console.log(error)
+		}
 	},
 
 	// Metodo de edicion de eventos
-	update: (req, res) => {
+	update: async (req, res) => {
 		let events = eventsModel.findAll();
-		let eventID = events.findIndex(event => event.id == req.params.id);
+		let eventID = req.params.id
+		let eventImage
 
-		//agregar validaciones y manejo de errores
+		if(!req.file){
+			try {
+				eventImage = (await db.Event.findByPk(eventID)).image
+				console.log("AYODAME LOCO",eventImage)
+			} catch (error) {
+				console.log(error);
+			}
+		}else{
+			eventImage = req.file.filename
+			console.log("AYODAME LOCO2",eventImage)
+		}
 
 		let updatedEvent = {
-			id: Number(req.params.id), /* Sin el Number() el id se guarda como string */
 			name: req.body.name,
 			price: req.body.price,
 			stock: req.body.stock,
-			date: eventsModel.handleDate(req.body.date),
-			category: req.body.category,
-			image: req.file ? req.file.filename : events[eventID].image,
+			date: req.body.date,
 			time: req.body.time,
+			category: req.body.category,
+			image: eventImage,
 			description: req.body.description
 		};
 
-		eventsModel.editEvent(updatedEvent);
+		console.log(updatedEvent)
 
-		res.redirect('/events/' + updatedEvent.id);
+		try {
+			await db.Event.update(updatedEvent, {where:{id:eventID}})
+			res.redirect('/events/' + updatedEvent.id);
+		} catch (error) {
+			console.log(error)
+		}
 	},
 
 	// Delete - Delete one event from DB
 	destroy: async (req, res) => {
-		const selectedEvent = await db.Event.destroy({where: { id: req.params.id }});
+		const selectedEvent = await db.Event.destroy({ where: { id: req.params.id } });
 		res.redirect('/');
 	}
 };
