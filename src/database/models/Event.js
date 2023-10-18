@@ -49,6 +49,11 @@ module.exports = (sequelize, DataType) => {
       type: DataType.DATE(255),
       allowNull: false,
     },
+
+    time: {
+      type: DataType.DATE(255),
+      allowNull: true,
+    },
     
     stock: {
       type: DataType.INTEGER(255),

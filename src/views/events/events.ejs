@@ -37,11 +37,18 @@
                     </div>
                     <article>
                         <h2><%= element.name %></h2>
-                        <p>$<%= element.price %></p>
-                        <p><%= element.stock %></p>
-                        <p><%= element.date %></p>
-                        <p><%= element.category %></p>
-                        <p><%= element.description %></p>
+                        <p>Precio: $<%= element.price %></p>
+                        <p>Stock: <%= element.stock %></p>
+                        <p>Fecha: <span class="event-date"><% let eventDate = (new Date(element.date)).toLocaleDateString("es-AR", { 
+                            year: "numeric", 
+                            month: "numeric",
+                            day: "numeric" }) 
+                            %>
+                            <%= eventDate %>
+                            <%= (new Date(element.time)).toLocaleTimeString("es-AR", {hour: '2-digit', minute:'2-digit'}) %>
+                            </span></p>
+                        <p>Categoría: <%= element.category.name %></p>
+                        <p>Descripción: <%= element.description %></p>
                     </article>
                 </div>         
             <% }); %>

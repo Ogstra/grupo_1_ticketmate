@@ -11,10 +11,10 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 	// Root - Show all events
-	index: (req, res) => {
-		const events = eventsModel.findAll();
+	index: async (req, res) => {
+		const events = await db.Event.findAll({include: ["category"]});
 		const userLogged = req.session.userLogged
-		res.render(path.resolve(__dirname, "../views/events/events.ejs"), { events: events, userLogged: userLogged })
+		res.render("events.ejs", { events , userLogged: userLogged } )
 	},
 
 	// Detail - Detail from one event
@@ -99,10 +99,8 @@ const controller = {
 	},
 
 	// Delete - Delete one event from DB
-	destroy: (req, res) => {
-		let events = eventsModel.findAll();
-		events = events.filter(event => event.id != req.params.id);
-		eventsModel.deleteEvent(events);
+	destroy: async (req, res) => {
+		const selectedEvent = await db.Event.destroy({where: { id: req.params.id }});
 		res.redirect('/');
 	}
 };

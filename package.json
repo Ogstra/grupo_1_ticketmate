@@ -19,6 +19,7 @@
     "genid": "^0.1.0",
     "jsonwebtoken": "^9.0.2",
     "method-override": "^3.0.0",
+    "moment": "^2.29.4",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.6.1",
     "normalize": "^0.3.1",
