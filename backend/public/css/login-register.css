@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --error: #cc0000;
+}
+
+* {
+    line-height: 1;
+}
+
+nav {
+    background: #ebebeb !important;
+}
+
+#texto-nav {
+    padding-left: 5px;
+    font-family: Roboto;
+    font-size: 25px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.error{
+    color: var(--error);
+}
+
+.fondo-inicio {
+    display: none;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    background-color: var(--GrisClaro);
+    backdrop-filter: blur(14px);
+    box-shadow: 0px 0px 5px 0px #0000008c;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+input[type="password"]{
+    font-family:Verdana,sans-serif;
+}
+
+.control-formulario-password,
+.control-formulario {
+    position: relative;
+}
+
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 150px;
+    padding-bottom: 100px;
+}
+
+
+.control-formulario {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 84vw;
+    max-width: 360px;
+}
+
+.mantener-sesion-iniciada {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 84vw;
+    max-width: 360px;
+    font-size: 12px;
+    padding: 0px 5px 0px 15px ;
+    text-indent: -15px;
+}
+
+#mant-ses-ini {
+    padding: 0;
+    margin-right: 2px;
+    vertical-align: bottom;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-form label {
+    margin: 5px 0px;
+}
+
+.control-formulario>input,
+.boton-formulario,
+.control-formulario>div>input {
+    border-radius: 10px;
+    height: 50px;
+    text-indent: 12px;
+    border: 1px solid rgba(200, 200, 200);
+    box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
+    transition: color 0.3s ease 0s;
+    width: 100%;
+    max-width: 360px;
+}
+
+.boton-formulario:hover {
+    color: #4399e0;
+}
+
+.control-formulario>input:focus,
+.control-formulario>.control-formulario-password>input:focus {
+    outline: none;
+    box-shadow: 0.5px 0.5px 3px 1.5px rgba(0,0,0,0.25);
+    transition: 100ms;
+}
+
+.boton-formulario {
+    width: 84vw;
+    background: black;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.sign-up-button {
+    font-size: 14px;
+    color: rgb(68, 68, 68);
+    margin: 0;
+    margin-top: 14px;
+}
+
+.img-select {
+    display: flex;
+    align-items: center;
+    flex-direction: column
+}
+
+.img-profile {
+    max-width: 125px!important;
+}
+
+.event-image-label {
+    color: white;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
+}
+
+.showPassword-eye {
+    position: absolute;
+    top: 17px;
+    right: 15px;
+    color: var(--GrisOscuro);
+    cursor: pointer;
+}
+
+.control-formulario img {
+    height: auto;
+    object-fit: cover;
+    margin: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+    max-width: 400px;
+    min-height: 75px;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
+}
