@@ -132,5 +132,15 @@ const controller = {
 			res.send("Algo salio mal 2");
 		}
 	},
+
+	userList: async (req,res)=> {
+		try {
+			const users = await db.User.findAll();
+			const userLogged = req.session.userLogged;
+			res.render('userList', {users, userLogged});
+		} catch (error) {
+			console.log(error);
+		}
+	}
 };
 module.exports = controller;

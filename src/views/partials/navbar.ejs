@@ -9,6 +9,11 @@
     </form>
         <div id="nav-links-icons">
             <ul class="nav-bar">
+                <% if(locals.userLogged){ %>
+                    <% if(userLogged.admin === 1){ %>
+                        <li><a class="nav-link" href="/users">Usuarios</a></li>
+                    <% } %>
+                <% } %>
                 <li><a class="nav-link" href="#contact">Contacto</a></li>
                 <li><a class="nav-link" href="#tickets">Tickets</a></li>
                 <li><a class="nav-link" href="/events">Eventos</a></li>
