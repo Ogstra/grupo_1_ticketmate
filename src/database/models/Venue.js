@@ -16,7 +16,7 @@ module.exports= (sequelize, DataType) => {
 
     const config = {
         tableName: 'venues',
-        timestamps: true,
+        timestamps: false,
         createdAt: "created_at",
         updatedAt: "updated_at",       
     };

@@ -123,7 +123,8 @@ const controller = {
 	destroy: async (req, res) => {
 		const selectedEvent = await db.Event.destroy({ where: { id: req.params.id } });
 		res.redirect('/');
-	}
+	},
+
 };
 
 module.exports = controller;

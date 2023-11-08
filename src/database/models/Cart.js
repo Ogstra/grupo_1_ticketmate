@@ -1,49 +1,47 @@
-module.exports = (sequelize, DataType) => {
-  const alias = "Cart";
+module.exports = (sequelize, DataTypes) => {
+    const alias = 'Cart';
 
-  const cols = {
-    id: {
-      type: DataType.INTEGER(11),
-      primaryKey: true,
-      autoIncrement: true,
-    },
+    const cols = {
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'users',
+                key: 'uuid'
+            }
+        },
+        event_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'events',
+                key: 'id'
+            }
+        },
+        quantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        }
+    }
 
-    user_id: {
-      type: DataType.STRING(36),
-      allowNull: true,
-      references: {
-        model: "users",
-        key: "uuid",
-      }
-    },
+    const config = {
+        tableName: 'cart',
+        timestamps: false
+    }
 
-    created_at: {
-      type: DataType.DATE,
-      allowNull: true,
-    },
-  };
+    const Cart = sequelize.define(alias, cols, config);
 
-  const config = {
-    tableName: "carts",
-    timestamps: true,
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  };
-
-  const Cart = sequelize.define(alias, cols, config);
     Cart.associate = (models) => {
-        Cart.belongsTo(models.User, {//nombre del modelo    
-        as: "userRelation", //este es el nombre de la relacion
-        foreing_key: "user_id",
-    }),
-    
-    Cart.associate = (models) => {
-        Cart.belongsTo(models.Cart_Event, {
-        as: "cartRelation",
-        foreing_key: "cart_id",
-    });
-    };
-  };
+        Cart.belongsTo(models.User, { //nombre del modelo        
+          as: "user", //este es el nombre de la relacion
+          foreignKey: "user_id",
+        })
 
-  return Cart;
-};
+        Cart.belongsTo(models.Event, { //nombre del modelo        
+          as: "events", //este es el nombre de la relacion
+          foreignKey: "event_id",
+        })
+    }
+
+    return Cart;
+}

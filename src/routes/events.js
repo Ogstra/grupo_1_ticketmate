@@ -61,4 +61,5 @@ router.put('/:id', adminCheck, fileUpload.single('event-image'), validateForm, e
 /*** DELETE ONE PRODUCT***/
 router.delete('/:id', adminCheck, eventsController.destroy);
 
+
 module.exports = router;

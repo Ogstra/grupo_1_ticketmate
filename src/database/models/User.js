@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.UUIDV4,
             primaryKey: true,
             allowNull: false,
-            defaultValue: DataTypes.UUIDV4
+            defaultValue: DataTypes.UUIDV4,
         },
         username: {
             type: DataTypes.STRING(50),
@@ -49,12 +49,14 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const User = sequelize.define(alias, cols, config);
-    User.associate = (models) => {
-        User.hasMany(models.Cart, {//nombre del modelo      
-            as: "userRelation", //este es el nombre de la relacion
-            foreing_key: "user_id",
-        })
-    };
 
+    User.associate = (models) => {
+        User.belongsToMany(models.Event, {
+            as: 'cartItems', // Nombre de la relación
+            foreignKey: 'user_id', // Columna que hace referencia al PK de este modelo
+            through: 'Cart',// Relación a travez de modelo Cart
+            timestamps: false
+        });
+}
     return User;
 }

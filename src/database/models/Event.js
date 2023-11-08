@@ -80,18 +80,20 @@ module.exports = (sequelize, DataType) => {
       Event.belongsTo(models.Category, { //nombre del modelo        
         as: "category", //este es el nombre de la relacion
         foreignKey: "category_id",
-      })
+      }),
+      Event.belongsToMany(models.User, {
+        as: 'user', // Nombre de la relación
+        foreignKey: 'event_id', // Columna que hace referencia al PK de este modelo
+        through: 'Cart',// Relación a travez de modelo Cart
+        timestamps: false
+    }),
 
-/*       Event.belongsTo(models.Venue, { //nombre del modelo        
-        as: "venueRelation", //este es el nombre de la relacion
-        foreignKey: "venue_id"
-      }), */
+      Event.belongsTo(models.Venue, { //nombre del modelo        
+        as: "venue", //este es el nombre de la relacion
+        foreignKey: "venue_id",
+        timestamps: false
+      })
       
-/*       Event.belongsTo(models.Cart, {//nombre del modelo      
-        as: "eventRelation", //este es el nombre de la relacion
-        foreignKey: "event_id", 
-        through: "cart_events"
-    }) */
   };
 
   return Event;

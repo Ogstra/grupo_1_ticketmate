@@ -132,5 +132,15 @@ const controller = {
 			res.send("Algo salio mal 2");
 		}
 	},
+
+	profile: async (req, res) => {
+		try {
+			const userLogged = req.session.userLogged
+			const user = await db.User.findByPk(req.params.uuid);
+			res.render("profile", {user, userLogged});
+		} catch (error) {
+			console.log(error);
+		}
+	}
 };
 module.exports = controller;

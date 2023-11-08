@@ -52,6 +52,8 @@ router.get('/logout',usersController.logout);
 
 router.get('/register', notLogged, usersController.registerForm);
 
+router.get('/profile/:uuid',usersController.profile);
+
 router.post('/', notLogged, fileUpload.single('profile-picture'), validateForm, usersController.register);
 
 module.exports = router;
