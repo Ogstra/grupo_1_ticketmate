@@ -26,6 +26,7 @@ const mainController = {
     },
 
 	getCart: async (req, res) => {
+        const userLogged = req.session.userLogged;
 		try {
 			/* const User = await db.User.findByPk("3283a87e-9b7d-4579-9ea9-e3971d16f709", {
                 nest: true,
@@ -40,8 +41,8 @@ const mainController = {
                         model: db.Venue
                     }
                 }, "user"],
-                nest: true
-        });
+                nest: true,
+                where: { user_id: userLogged.uuid }});
 			res.render('cart.ejs', { cart: Cart });	
             //res.json(Cart)
             //console.log(Cart);
