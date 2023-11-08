@@ -1,12 +1,21 @@
 const db = require("../database/models");
 
 const mainController = {
-    getIndex: function (req, res) {
+    getIndex: async (req, res) => {
         console.log(req.session);
         console.log("-----------------------");
         console.log(req.cookies.auth);
         const userLogged = req.session.userLogged;
-        res.render('index.ejs', {userLogged});
+        try {
+            const events = await db.Event.findAll({
+                limit: 9,
+                raw: true,
+                order: [["date", "ASC"]]
+            });       
+            res.render('index.ejs', {userLogged, events});
+        } catch (error) {
+            console.log(error);      
+        }
     },
     getLogin: function (req, res) {
         res.render('login.ejs')
@@ -16,7 +25,7 @@ const mainController = {
         res.render('register.ejs')
     },
 
-	getCarts: async (req, res) => {
+	getCart: async (req, res) => {
 		try {
 			/* const User = await db.User.findByPk("3283a87e-9b7d-4579-9ea9-e3971d16f709", {
                 nest: true,

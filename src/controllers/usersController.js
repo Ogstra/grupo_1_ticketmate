@@ -145,7 +145,12 @@ const controller = {
 
 	userList: async (req, res) => {
 		try {
-			const users = await db.User.findAll();
+			const users = await db.User.findAll({
+				order: [
+					["admin", "DESC"],
+					["created_at", "DESC"]
+				]
+		});
 			const userLogged = req.session.userLogged;
 			res.render('userList', { users, userLogged });
 		} catch (error) {

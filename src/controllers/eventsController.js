@@ -12,7 +12,11 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 	// Root - Show all events
 	index: async (req, res) => {
-		const events = await db.Event.findAll({ include: ["category"] });
+		const events = await db.Event.findAll({
+			include: ["category"],
+			order: [["date", "ASC"]]
+			},
+	 );
 		const userLogged = req.session.userLogged
 		res.render("events.ejs", { moment: moment, events, userLogged: userLogged })
 	},

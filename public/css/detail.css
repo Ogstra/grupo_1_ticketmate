@@ -62,6 +62,7 @@ main {
     height: 150px;
     object-fit: cover;
     border-radius: 10px;
+    aspect-ratio: 1/1;
   }
 
 .picture-name-category-stock {
