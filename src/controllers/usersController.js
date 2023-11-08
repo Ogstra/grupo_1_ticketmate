@@ -133,11 +133,19 @@ const controller = {
 		}
 	},
 
+<<<<<<< HEAD
 	profile: async (req, res) => {
 		try {
 			const userLogged = req.session.userLogged
 			const user = await db.User.findByPk(req.params.uuid);
 			res.render("profile", {user, userLogged});
+=======
+	userList: async (req,res)=> {
+		try {
+			const users = await db.User.findAll();
+			const userLogged = req.session.userLogged;
+			res.render('userList', {users, userLogged});
+>>>>>>> 57ffc3dcbf14f37f1bf295fcd05babdafcb9eca4
 		} catch (error) {
 			console.log(error);
 		}

@@ -48,12 +48,14 @@ router.get('/login', notLogged, usersController.loginForm);
 
 router.post('/login', notLogged, usersController.login);
 
-router.get('/logout',usersController.logout);
+router.get('/logout', usersController.logout);
 
 router.get('/register', notLogged, usersController.registerForm);
 
 router.get('/profile/:uuid',usersController.profile);
 
 router.post('/', notLogged, fileUpload.single('profile-picture'), validateForm, usersController.register);
+
+router.get('/users',adminCheck, usersController.userList);
 
 module.exports = router;

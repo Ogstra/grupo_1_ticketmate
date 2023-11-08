@@ -44,12 +44,12 @@
                             month: "numeric",
                             day: "numeric" })%>
 
-                            <%= eventDate %>
+                            <%= eventDate %> -
 
                             <% let time = element.time.split(':');
                             time.pop(); %>
 
-                            <%=time.join(':')%>
+                            <%=time.join(':')%> hs
                             
                             </span></p>
                         <p>Categoría: <%= element.category.name %></p>
