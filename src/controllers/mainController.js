@@ -42,9 +42,9 @@ const mainController = {
                 }, "user"],
                 nest: true
         });
-/* 			res.render('carts.ejs', { cart: Cart });	 */
-            res.json(Cart)
-            console.log(Cart);
+			res.render('cart.ejs', { cart: Cart });	
+            //res.json(Cart)
+            //console.log(Cart);
 		} catch (error) {	
             console.log(error);
 		}

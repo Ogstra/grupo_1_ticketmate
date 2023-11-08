@@ -52,6 +52,12 @@ main {
     align-items: center
 }
 
+.nav-bar {
+    width: auto;
+    padding-inline-start: 0px;
+    text-wrap: nowrap;
+}
+
 .nav-bar li {
     display: inline-block;
     padding: 0px 2px;
@@ -96,6 +102,7 @@ main {
 
 #logo {
     width: 150px; /*  Menos de 140px se ve con bordes pixelados en 1080p */
+    margin-right: 10px;
 }
 
 nav a>div>i,
@@ -689,6 +696,7 @@ footer a {
 
     #nav-links-icons {
         display: flex;
+        margin: 0 0 0 5px;
     }
 
     .container-cart-user{

@@ -97,7 +97,6 @@ const controller = {
 				},
 				raw: true,
 			});
-			console.log(userInDB);
 			if (userInDB) {
 				res.redirect(
 					"/register" +

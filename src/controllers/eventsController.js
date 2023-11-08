@@ -24,8 +24,9 @@ const controller = {
 	// Detail - Detail from one event
 	detail: async (req, res) => {
 		const eventId = req.params.id;
+		const userLogged = req.session.userLogged
 		const selectedEvent = await db.Event.findByPk(eventId, { include: ["category"] });
-		res.render('detail', { event: selectedEvent });
+		res.render('detail', { userLogged, event: selectedEvent });
 	},
 
 	// Create - Form to create

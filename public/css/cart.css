@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@300&display=swap');
 
+* {
+    text-decoration: none;
+}
+
 /* Search NavBar */
 .search-nav {
     position: unset;
@@ -17,8 +21,14 @@
 }
 /* Search NavBar */
 
+.cart-container {
+    display: flex;
+    justify-content: center;
+}
+
 .container-cart {
     padding-top: 100px;
+    width: 600px;
 }
 
 .main-navbar{
@@ -40,10 +50,39 @@
 }
 
 .boleto{
-    display:block;    
+    display: flex;
     padding: 10px;
     border-bottom: solid 1px var(--GrisMedio);
     font-size: 14px;
+    align-items: center;
+}
+
+.producto-informacion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.boleto p,
+.boleto h3,
+.boleto h2 {
+    margin: 0;
+    color: black;
+}
+
+.event-image {
+    margin: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+    width: 100px;
+    min-height: 75px;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
+    aspect-ratio: 1/1;
+    object-fit: cover;
 }
 
 .total{
@@ -52,11 +91,17 @@
     align-items: center;
     margin-left: 20px;
     margin-right: 20px;
+    height: 100px;
     background-color: var(--GrisMedio);
     padding: 10px;
     border-radius: 0 0 10px 10px;
     font-size: 14px;
     border: 1.8px solid var(--GrisOscuro);
+}
+
+.total p {
+    font-size: 16px;
+    margin: 7px 0;
 }
 
 .boton-pagar{
