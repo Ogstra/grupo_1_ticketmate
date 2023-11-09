@@ -1,4 +1,5 @@
 const db = require("../database/models");
+const { Op } = require("sequelize");
 
 const mainController = {
     getIndex: async (req, res) => {
@@ -27,6 +28,12 @@ const mainController = {
 
 	getCart: async (req, res) => {
         const userLogged = req.session.userLogged;
+        if (userLogged) {
+          var userID = userLogged.uuid;
+        } else {
+          var userID = req.session.id;
+        }
+
 		try {
 			/* const User = await db.User.findByPk("3283a87e-9b7d-4579-9ea9-e3971d16f709", {
                 nest: true,
@@ -42,7 +49,7 @@ const mainController = {
                     }
                 }, "user"],
                 nest: true,
-                where: { user_id: userLogged.uuid }});
+                where: { user_id: userID }});
 			res.render('cart.ejs', { cart: Cart });	
             //res.json(Cart)
             //console.log(Cart);
