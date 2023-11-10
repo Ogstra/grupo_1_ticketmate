@@ -8,6 +8,10 @@ const eventsRouter = require('./routes/events.js');
 const usersRouter = require('./routes/users.js');
 const methodOverride =  require('method-override');
 const copyJWTCookie = require('./middlewares/copyJWTCookie');
+const cors = require('cors');
+
+// APIS
+const apiUsers = require('./routes/api/apiUsers.js');
 
 app.use(express.static('../public'));
 app.set('view engine', 'ejs');
@@ -29,6 +33,7 @@ app.use(session({
   saveUninitialized: true,
   cookie: {maxAge: null /* session */},
 }));
+app.use(cors());
 
 // Global Middlewares
 app.use('*', copyJWTCookie);
@@ -40,6 +45,10 @@ app.use('/', mainRouter);
 app.use('/', usersRouter);
 
 app.use('/cart', mainRouter);
+
+// APIS
+app.use('/api', apiUsers);
+
 
 // Error 404
 app.get('*', function(req, res){
