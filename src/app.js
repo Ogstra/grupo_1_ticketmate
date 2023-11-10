@@ -12,6 +12,9 @@ const cors = require('cors');
 
 // APIS
 const apiUsers = require('./routes/api/apiUsers.js');
+const apiEvents = require('./routes/api/apiEvents.js');
+const apiCart = require('./routes/api/apiCart.js');
+
 
 app.use(express.static('../public'));
 app.set('view engine', 'ejs');
@@ -46,8 +49,13 @@ app.use('/', usersRouter);
 
 app.use('/cart', mainRouter);
 
+
 // APIS
 app.use('/api', apiUsers);
+
+app.use('/api/events', apiEvents);
+
+app.use('/api', apiCart);
 
 
 // Error 404

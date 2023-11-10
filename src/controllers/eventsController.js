@@ -25,7 +25,7 @@ const controller = {
 	detail: async (req, res) => {
 		const eventId = req.params.id;
 		const userLogged = req.session.userLogged
-		const selectedEvent = await db.Event.findByPk(eventId, { include: ["category"] });
+		const selectedEvent = await db.Event.findByPk(eventId, { include: ["category", "venue"] });
 		res.render('detail', { userLogged, event: selectedEvent });
 	},
 
@@ -126,8 +126,12 @@ const controller = {
 
 	// Delete - Delete one event from DB
 	destroy: async (req, res) => {
-		const selectedEvent = await db.Event.destroy({ where: { id: req.params.id } });
-		res.redirect('/');
+		try {
+			const selectedEvent = await db.Event.destroy({ where: { id: req.params.id } });
+			res.redirect('/');	
+		} catch (error) {
+			console.log(error);
+		}
 	},
 
 };

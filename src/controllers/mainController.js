@@ -63,11 +63,11 @@ const mainController = {
         try {
             await db.Cart.destroy({
                 where: {id: req.params.cartElementId}
-            })
+            });
         } catch (error) {
             console.log(error);
         }
-        res.redirect('/cart')
+        res.redirect('/cart');
     },
 
     addOneCart: async (req,res) => {
