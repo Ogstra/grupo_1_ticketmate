@@ -9,4 +9,8 @@ router.get('/', mainController.getIndex);
 
 router.get('/cart', mainController.getCart);
 
+router.delete('/cart/:cartElementId',mainController.deleteOneCart);
+
+router.post('/cart/:id',mainController.addOneCart);
+
 module.exports = router;

@@ -51,12 +51,64 @@ const mainController = {
                 nest: true,
                 where: { user_id: userID }});
 			res.render('cart.ejs', { cart: Cart });	
-            //res.json(Cart)
+           /*  res.json(Cart) */
             //console.log(Cart);
 		} catch (error) {	
             console.log(error);
 		}
 	},
+
+    deleteOneCart: async (req, res) => {
+        
+        try {
+            await db.Cart.destroy({
+                where: {id: req.params.cartElementId}
+            })
+        } catch (error) {
+            console.log(error);
+        }
+        res.redirect('/cart')
+    },
+
+    addOneCart: async (req,res) => {
+
+        const userLogged = req.session.userLogged
+
+        if (userLogged) {
+            var userID = userLogged.uuid;
+          } else {
+            var userID = req.session.id;
+          }
+
+          
+        const eventInCart = await db.Cart.findOne({
+            where: {
+                event_id: req.params.id,
+                user_id: userID
+            }
+        })
+        
+        const selectedEvent = {
+            user_id: userID ,
+            event_id: req.params.id,
+            quantity: req.body.quantity,
+        }
+
+        if(eventInCart){
+            const newQuantity = eventInCart.quantity + Number(req.body.quantity)
+            await db.Cart.update({quantity: newQuantity},{
+                where: {
+                    event_id: req.params.id,
+                    user_id: userID
+                }
+            });
+        }else{
+            await db.Cart.create(selectedEvent);
+        }
+         
+        res.redirect('/cart');
+
+    }
 }
 
 module.exports = mainController;

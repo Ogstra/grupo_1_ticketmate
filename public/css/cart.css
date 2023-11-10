@@ -51,10 +51,16 @@
 
 .boleto{
     display: flex;
-    padding: 10px;
-    border-bottom: solid 1px var(--GrisMedio);
     font-size: 14px;
     align-items: center;
+}
+
+.boleto-wrapper{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px var(--GrisMedio);
 }
 
 .producto-informacion {

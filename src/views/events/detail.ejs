@@ -60,7 +60,10 @@
                     <p><%= event.description %></p>                                          
                     </div>
                     <div class="boton">
-                        <button>Comprar</button>
+                        <form action="/cart/<%= event.id %>" method="post">
+                            <input type="number" value="1" name="quantity">
+                            <input type="submit" value="agregar al carrito">
+                        </form>
                     </div>
                 </div>
             </div>
