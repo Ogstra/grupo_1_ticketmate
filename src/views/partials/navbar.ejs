@@ -9,11 +9,23 @@
     </form>
         <div id="nav-links-icons">
             <ul class="nav-bar">
+                <% if(locals.userLogged){ %>
+                    <% if(userLogged.admin === 1){ %>
+                        <li><a class="nav-link" href="/users">Usuarios</a></li>
+                    <% } %>
+                <% } %>
                 <li><a class="nav-link" href="#contact">Contacto</a></li>
-                <li><a class="nav-link" href="#tickets">Tickets</a></li>
                 <li><a class="nav-link" href="/events">Eventos</a></li>
                 <!-- <li>Carrito</li> -->
-                <li><a class="nav-link" href="/login">Log in</a></li>
+                <% if (locals.userLogged) { %> 
+                    <li id="username">
+                        <div class="nav-separator"></div>
+                        <a class="nav-link" href="/user/<%=locals.userLogged.uuid%>"><%= locals.userLogged.username %></a>
+                    </li>
+                    <li><a class="nav-link" href="/logout">Log out</a></li>
+                <% }else{ %> 
+                    <li><a class="nav-link" href="/login">Log in</a></li>
+                <% } %>
             </ul>
             <div class="container-cart-user">
                 <a class="boton-cart" href="/cart">

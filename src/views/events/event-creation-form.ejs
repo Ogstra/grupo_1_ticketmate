@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create an Event</title>
-    <% const categories=['concert','sports-event','misc'] %>
         <%- include('./partials/head') %>
             <link rel="stylesheet" href="/css/create.css">
-            <script src="../js/imgPreview.js" type="text/javascript"></script>
+            <script src="/js/imgPreview.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -47,6 +46,7 @@
                     <label for="price">Precio</label>
                     <input type="number" name="price" value="<%= locals.errors.oldprice %>">
                 </div>
+                
                 <div class="control-formulario">
                     <label for="stock">Stock</label>
                     <input type="number" name="stock" value="<%= locals.errors.oldstock %>">
@@ -64,10 +64,10 @@
                     <select name="category">
 
                         <% for (category of categories) { %>
-                            <option value="<%= category %>" <% if( locals.errors.oldcategory==category) { %>
+                            <option value="<%= category.id %>" <% if( locals.errors.oldcategory==category) { %>
                                 selected
                                 <% } %>>
-                                    <%= category.replace('-',' ').split(' ').map(word=>word[0].toUpperCase()+word.substring(1)).join(' ') %> 
+                                <%= category.name %>
                             </option>
                         <% } %>
 

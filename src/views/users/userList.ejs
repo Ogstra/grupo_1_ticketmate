@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/events.css">
+</head>
+<body>
+    <header>
+        <%- include('./partials/navbar') %>
+        <div class="fondo-inicio"> 
+            <!-- SearchNav-->
+            <%- include('./partials/searchButtonNav') %>
+            <!-- SearchNav-->
+    </header>
+    <main>
+            <% users.forEach(element => { %>
+                <div class="event-container">
+                    <div class="img-a-container">
+                        <img src="/img/profile-pictures/<%=element.image%>">
+                        <a href="/user/<%= element.uuid %>">
+                            <button>Ver detalle</button>
+                        </a>
+                    </div>
+                    <article>
+                        <h2><%= element.username %></h2>
+                        <p>Nombre: <%= element.first_name %></p>
+                        <p>Apellido: <%= element.last_name %></p>
+                        <p>Email: <%= element.email %></p>
+                        <p>Admin: <%= element.admin %></p>
+                    </article>
+                </div>         
+            <% }); %>
+    </main>    
+</body>
+</html>

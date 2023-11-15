@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+<body>
+    <header>
+        <%- include('./partials/navbar') %>
+    </header>
+    <main>
+        <!-- SearchNav-->
+        <%- include('./partials/searchButtonNav') %>
+        <!-- SearchNav-->
+        <div class="cart-container">
+            <div class="container-cart">
+                <div class="main-navbar">
+                    <h3 class="left-navbar">Resumen de compra</h3>
+                    <div class="right-navbar">
+                        <a href="#">Cancelar compra</a>
+                    </div>
+                </div>
+                <section class="contenedor">
+                    <% cart.forEach(cartElement => { %>
+                        <article class="boleto-wrapper" >
+                            <div class="boleto">
+                                <a href="/events/<%=cartElement.events.id%>"><img class="event-image" src="/img/events/<%=cartElement.events.image%>"></a>
+                                <div class="producto-informacion">
+                                    <a href="/events/<%=cartElement.events.id%>"><h3 class="nombre-evento"><%= cartElement.events.name %></h3></a>
+                                    <p class="fecha">Fecha: <%= cartElement.events.date %></p>
+                                    <p class="precio">Precio: $<%= cartElement.events.price %></p>
+                                    <p class="quantity">Entradas: <%= cartElement.quantity %></p>
+                                </div>
+                            </div>
+                            <form class="delete-event" action="/cart/<%= cartElement.id%>?_method=DELETE" method="POST">
+                                <input type="submit" name="delete" value="Eliminar">
+                            </form>
+                            
+                        </article>
+                    <% }) %>
+
+                </section>
+
+                <section class="total">
+                    <div>
+                        <p>Total:</p>
+                        <p>
+                            <% let eventNumber = 0 %>
+                            <% cart.forEach(cartElement => { %>
+                                <% eventNumber = eventNumber + (cartElement.quantity)%>
+                            <% }) %>
+                            <%= eventNumber++%> Tickets
+                        </p>
+                        <p>
+                            <% let total = 0 %>
+                            <% cart.forEach(cartElement => { %>
+                                <% total = total + (cartElement.events.price * cartElement.quantity) %>
+                            <% }) %>
+                            $<%= total %>
+                        </p>
+                    </div>
+                    <div class="pagar">
+                        <input class="boton-pagar" type="submit" value="Pagar">
+                    </div>
+                </section>
+            </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 100%;
+    margin: auto;
+}
+
+.search-nav {
+    position: unset;
+    transform: translate(0%, 0%);
+    width: 35%;
+}
+
+.search-nav>input {
+    height: 35px;
+    min-width: 0;
+}
+
+.search-nav>button {
+    height: 35px;
+}
+
+.fondo-inicio {
+    background-position: center top !important;
+    background-size: cover !important;
+    height: 70px !important;
+
+}
+
+.profile-picture {
+    border-radius: 0;
+    overflow: hidden;
+    padding-right: 30px;
+}
+
+.profile-picture>img {
+    max-width: 40vw;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    aspect-ratio: 1/1;
+}
+
+.img-description {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.user-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px 0px;
+    gap: 5px;
+    height: 150px;
+}
+
+.user-real-name {
+    text-align: center;
+    color: #000000;
+    font-size: 18px;
+    overflow: hidden;
+}
+
+.username {
+    text-align: center;
+    color: #000000;
+    font-weight: 600;
+    font-size: 24px;
+    overflow: hidden;
+}
+
+.user-settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    background-color: var(--GrisClaro);
+    backdrop-filter: blur(14px);
+    box-shadow: 0px 0px 5px 0px #0000008c;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0px 20px;
+    gap: 5px;
+}
+
+.user-settings-item {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+@media (min-width:769px){
+
+}

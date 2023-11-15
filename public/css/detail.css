@@ -27,6 +27,9 @@ main {
 }
 
 .edit-delete-event {
+    position: absolute;
+    top: 90px;
+    right: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -49,51 +52,69 @@ main {
     font-weight: 600;
 }
 
-  .profile-picture {
-    width: 150px;
-    height: 150px;
+.profile-picture {
     border-radius: 0;
     overflow: hidden;
-    position: absolute;
-    top: 120px;
-    left: 50px;
     padding-right: 30px;
 }
-  
+
   .profile-picture img {
-    height: 100%;
-    width: 100%;
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
+    aspect-ratio: 1/1;
   }
 
-  .profile-name {
+.picture-name-category-stock {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.name-category-stock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 150px;
+    padding: 10px 0px
+}
+
+.name-category-stock > p {
+    padding: 5px 0px;
+}
+
+  .event-name {
     text-align: center;
     color: #000000;
     font-weight: 600;
-    font-size: 20px;
-    margin-top: -90px;
-    /* margin-right: 300px; */
+    font-size: 24px;
     overflow: hidden;
-    position: absolute;
-    margin-left: 48px;
-    
 }
 
-.profile-subtitle {
+/* .profile-subtitle {
     text-align: center;
     color: #6e6e6e;
     font-size: 18px;
     margin-top: -65px;
-    /* margin-right: 300px; */
     overflow: hidden;
     position: absolute;
     margin-left: 48px;
-}
+} */
+
+/* .event-category {
+    text-align: center;
+    color: #6e6e6e;
+    font-size: 18px;
+    margin-top: -65px;
+    overflow: hidden;
+    margin-left: 48px;
+} */
 
 .fechas{
     margin-left: 28px;
-    margin-top: 300px;
     font-size: 16px;
 }
 
@@ -121,7 +142,7 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 10px;
-
+    padding: 0px 10px;
 }
 
 .collapsible-content>*,
@@ -137,13 +158,11 @@ hr {
     position: relative;
     color: var(--GrisClaro);
     font-weight: 600;
-    justify-content: center; 
-    align-items: center; 
-    
+    justify-content: space-between;
+    align-items: center;
 }
 
 .event-name {
-    flex-grow: 1 !important; 
     text-align: center !important;
 }
 
@@ -239,13 +258,12 @@ input[type="checkbox"] {
        
     }
 
-    .profile-name{
+/*     .profile-name{
         text-align: center;
         color: #000000;
         font-weight: 600;
         font-size: 40px;
         margin-top: 50px;
-    /* margin-right: 300px; */
         overflow: hidden;
         position: absolute;
         margin-left: 180px;
@@ -256,30 +274,15 @@ input[type="checkbox"] {
         color: #6e6e6e;
         font-size: 30px;
         margin-top: 100px;
-        /* margin-right: 300px; */
         overflow: hidden;
         position: absolute;
         margin-left: 180px;
     }
-
-    .profile-picture {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 10px;
-        width: 150px;
-        height: 150px;
-        border-radius: 0;
-        overflow: visible;
-        position: absolute !important;
-        top: 120px;
-        left: 50px;
-        
-    }
+ */
 
     .fechas{
         margin-left: 20px;
-        margin-top: 300px;
+        margin-top: 50px;
         font-size: 16px;
     }
 
@@ -333,6 +336,10 @@ input[type="checkbox"] {
         margin-right: 25px;
         min-width: 650px;
       }
+      
+      .picture-name-category-stock {
+        padding: 40px 20px;
+    }
       
       .derecha {
         flex: 1; /* Esto hará que el div ocupe todo el espacio disponible en el contenedor */

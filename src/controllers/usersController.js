@@ -62,6 +62,13 @@ const controller = {
 			res.send(error);
 		}
 	},
+
+	logout: (req, res) => {
+		res.clearCookie("auth");
+		req.session.destroy();
+		res.redirect('/');
+	},
+
 	registerForm: (req, res) => {
 		const errors = req.query;
 		res.render("register", { errors: errors });
@@ -90,7 +97,6 @@ const controller = {
 				},
 				raw: true,
 			});
-			console.log(userInDB);
 			if (userInDB) {
 				res.redirect(
 					"/register" +
@@ -125,5 +131,30 @@ const controller = {
 			res.send("Algo salio mal 2");
 		}
 	},
+
+	profile: async (req, res) => {
+		try {
+			const userLogged = req.session.userLogged
+			const user = await db.User.findByPk(req.params.uuid);
+			res.render("profile", { user, userLogged });
+		} catch (error) {
+			console.log(error);
+		}
+	},
+
+	userList: async (req, res) => {
+		try {
+			const users = await db.User.findAll({
+				order: [
+					["admin", "DESC"],
+					["created_at", "DESC"]
+				]
+		});
+			const userLogged = req.session.userLogged;
+			res.render('userList', { users, userLogged });
+		} catch (error) {
+			console.log(error);
+		}
+	}
 };
 module.exports = controller;

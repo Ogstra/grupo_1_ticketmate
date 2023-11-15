@@ -4,8 +4,9 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const { check } = require('express-validator');
-const userAuth = require('../middlewares/userAuth');
+const notLogged = require('../middlewares/notLogged');
 const adminCheck = require('../middlewares/adminCheck');
+
 
 // ************ Controller Require ************
 const eventsController = require('../controllers/eventsController');
@@ -47,17 +48,18 @@ let fileUpload = multer({ storage: multerDiskStorage });
 router.get('/', eventsController.index);
 
 /*** CREATE ONE PRODUCT ***/
-router.get('/create', userAuth, adminCheck, eventsController.create);
-router.post('/', userAuth, adminCheck, fileUpload.single('event-image'), validateForm, eventsController.store);
+router.get('/create', adminCheck, eventsController.create);
+router.post('/', adminCheck, fileUpload.single('event-image'), validateForm, eventsController.store);
 
 /*** GET ONE PRODUCT ***/
 router.get('/:id', eventsController.detail);
 
 /*** EDIT ONE PRODUCT ***/
-router.get('/:id/edit', userAuth, adminCheck, eventsController.edit);
-router.put('/:id', userAuth, adminCheck, fileUpload.single('event-image'), validateForm, eventsController.update);
+router.get('/:id/edit', adminCheck, eventsController.edit);
+router.put('/:id', adminCheck, fileUpload.single('event-image'), validateForm, eventsController.update);
 
 /*** DELETE ONE PRODUCT***/
-router.delete('/:id', userAuth, adminCheck, eventsController.destroy);
+router.delete('/:id', adminCheck, eventsController.destroy);
+
 
 module.exports = router;

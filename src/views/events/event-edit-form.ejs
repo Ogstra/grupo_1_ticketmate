@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit an event</title>
-    <% const categories=['concert','sports-event','misc'] %>
         <%- include('./partials/head') %>
             <link rel="stylesheet" href="/css/create.css">
-            <script src="../js/imgPreview.js" type="text/javascript"></script>
+            <script src="/js/imgPreview.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -42,21 +41,11 @@
             <div class="control-formulario">
                 <label for="category">Categoría</label>
                 <select name="category">
-                    <% if(currentEvent.category==='concert' ) {%>
-                        <option value="concert" selected>Concert</option>
-                        <% } else {%>
-                            <option value="concert">Concert</option>
-                            <% } %>
-                                <% if(currentEvent.category==='sports-event' ) {%>
-                                    <option value="sports-event" selected>Sports Event</option>
-                                    <% } else {%>
-                                        <option value="sports-event">Sports Event</option>
-                                        <% } %>
-                                            <% if(currentEvent.category==='misc' ) {%>
-                                                <option value="misc" selected>Misc</option>
-                                                <% } else {%>
-                                                    <option value="misc">Misc</option>
-                                                    <% } %>
+                    <% for (const category of categories) {%>
+                        <option value="<%= category.id %>" <% if(currentEvent.category.name === category.name){%> selected <%} %>>
+                            <%= category.name %>
+                        </option>
+                   <% } %>
                 </select>
             </div>
             <div class="control-formulario">

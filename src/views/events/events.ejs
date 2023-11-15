@@ -16,27 +16,44 @@
             <!-- SearchNav-->
     </header>
     <main>
-            <div class="event-container">
-                <div class="img-a-container">  
-                    <a class="img-create" href="/events/create"><img src="/img/add-event.png%>" style="border:none; box-shadow: none"></a>
-                </div>
-            </div>  
             
+             <% if (locals.userLogged) { %>
+                <% if (locals.userLogged.admin === 1) { %>
+                    <div class="event-container">
+                        <div class="img-a-container">  
+                            <a class="img-create" href="/events/create"><img src="/img/add-event.png%>" style="border:none; box-shadow: none"></a>
+                        </div>
+                    </div>  
+                <% } %>
+             <% } %>
+
             <% events.forEach(element => { %>
                 <div class="event-container">
                     <div class="img-a-container">
-                        <img src="/img/events/<%=element.image%>" width="100px">
+                        <img src="/img/events/<%=element.image%>">
                         <a href="/events/<%= element.id %>">
                             <button>Ver detalle</button>
                         </a>
                     </div>
                     <article>
                         <h2><%= element.name %></h2>
-                        <p>$<%= element.price %></p>
-                        <p><%= element.stock %></p>
-                        <p><%= element.date %></p>
-                        <p><%= element.category %></p>
-                        <p><%= element.description %></p>
+                        <p>Precio: $<%= element.price %></p>
+                        <p>Stock: <%= element.stock %></p>
+                        <p>Fecha: <span class="event-date"><% let eventDate = (new Date(element.date)).toLocaleDateString("es-AR", { 
+                            year: "numeric", 
+                            month: "numeric",
+                            day: "numeric" })%>
+
+                            <%= eventDate %> -
+
+                            <% let time = element.time.split(':');
+                            time.pop(); %>
+
+                            <%=time.join(':')%> hs
+                            
+                            </span></p>
+                        <p>Categoría: <%= element.category.name %></p>
+                        <p>Descripción: <%= element.description %></p>
                     </article>
                 </div>         
             <% }); %>

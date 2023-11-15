@@ -1,0 +1,38 @@
+const fs = require('fs');
+const path = require('path');
+const db = require("../../database/models");
+const { validationResult } = require('express-validator');
+const moment = require('moment');
+
+const controller = {
+    // Root - Show all events
+    getEvents: async (req, res) => {
+        const events = await db.Event.findAll({
+            include: ["category"],
+            order: [["date", "ASC"]],
+        });
+        res.json(events);
+    },
+
+    // Detail - Detail from one event
+    getDetail: async (req, res) => {
+        const eventId = req.params.id;
+        const selectedEvent = await db.Event.findByPk(eventId, {
+            include: ["category", "venue"],
+        });
+        res.json(selectedEvent);
+    },
+
+    // Delete - Delete one event from DB
+    destroy: async (req, res) => {
+        try {   
+            const selectedEvent = await db.Event.destroy({ where: { id: req.params.id } });
+            res.json("Evento eliminado")
+        } catch (error) {
+            console.log(error);
+            res.json(error);
+        }
+    },
+};
+
+module.exports = controller;
