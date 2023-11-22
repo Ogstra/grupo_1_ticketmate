@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { BsFillBellFill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill } from 'react-icons/bs'
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
 
@@ -49,7 +49,80 @@ function Home() {
           amt: 2100,
         },
       ];
-      
+
+      const [events, setEvents] = useState([]);
+      const [categories, setCategories] = useState([]);
+      const [users, setUsers] = useState([]);
+      const [venues, setVenues] = useState([]);
+      const [isError, setIsError] = useState(false);
+
+      useEffect(() => {
+        fetch("http://localhost:3000/api/events")
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw "Error getting events";
+            }
+          })
+          .then((data) => {
+            setEvents(data);
+          })
+          .catch((error) => {
+            setIsError(true);
+          });
+      }, []);
+
+      useEffect(() => {
+        fetch("http://localhost:3000/api/events/categories")
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw "Error getting categories";
+            }
+          })
+          .then((data) => {
+            setCategories(data);
+          })
+          .catch((error) => {
+            setIsError(true);
+          });
+      }, []);
+
+      useEffect(() => {
+        fetch("http://localhost:3000/api/users")
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw "Error getting users";
+            }
+          })
+          .then((data) => {
+            setUsers(data);
+          })
+          .catch((error) => {
+            setIsError(true);
+          });
+      }, []);
+
+      useEffect(() => {
+        fetch("http://localhost:3000/api/events/venues")
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw "Error getting venues";
+            }
+          })
+          .then((data) => {
+            setVenues(data);
+          })
+          .catch((error) => {
+            setIsError(true);
+          });
+      }, []);
 
   return (
     <main className='main-container'>
@@ -63,7 +136,7 @@ function Home() {
                     <h3>EVENTS</h3>
                     <BsFillArchiveFill className='card_icon'/>
                 </div>
-                <h1>300</h1>
+                <h1>{events.length}</h1>
             </div>
 
             <div className='card'>
@@ -71,7 +144,7 @@ function Home() {
                     <h3>CATEGORIES</h3>
                     <BsFillGrid3X3GapFill className='card_icon'/>
                 </div>
-                <h1>12</h1>
+                <h1>{categories.length}</h1>
             </div>
 
             <div className='card'>
@@ -79,15 +152,15 @@ function Home() {
                     <h3>USERS</h3>
                     <BsPeopleFill className='card_icon'/>
                 </div>
-                <h1>33</h1>
+                <h1>{users.length}</h1>
             </div>
 
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>ALERTS</h3>
+                    <h3>VENUES</h3>
                     <BsFillBellFill className='card_icon'/>
                 </div>
-                <h1>42</h1>
+                <h1>{venues.length}</h1>
             </div>
         </div>
 

@@ -47,6 +47,10 @@ let fileUpload = multer({ storage: multerDiskStorage });
 /*** GET ALL events ***/
 router.get('/', apiEventsController.getEvents);
 
+router.get('/categories', apiEventsController.getCategories);
+
+router.get('/venues', apiEventsController.getVenues);
+
 /*** CREATE ONE PRODUCT ***/
 //router.get('/create', adminCheck, apiEventsController.create);
 //router.post('/', adminCheck, fileUpload.single('event-image'), validateForm, apiEventsController.store);
@@ -59,7 +63,7 @@ router.get('/:id', apiEventsController.getDetail);
 //router.put('/:id', adminCheck, fileUpload.single('event-image'), validateForm, apiEventsController.update);
 
 /*** DELETE ONE PRODUCT***/
-router.delete('/:id', adminCheck, apiEventsController.destroy);
+router.delete('/:id', apiEventsController.destroy);
 
 
 module.exports = router;

@@ -14,6 +14,16 @@ const controller = {
         res.json(events);
     },
 
+    getCategories: async (req, res) => {
+        const categories = await db.Category.findAll();
+        res.json(categories);
+    },
+
+    getVenues: async (req, res) => {
+        const venues = await db.Venue.findAll();
+        res.json(venues);
+    },
+
     // Detail - Detail from one event
     getDetail: async (req, res) => {
         const eventId = req.params.id;

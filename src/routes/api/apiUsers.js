@@ -51,13 +51,13 @@ let fileUpload = multer({ storage: multerDiskStorage });
 
 //router.get('/register', notLogged, apiUsersController.registerForm);
 
-router.get('/user/:uuid', adminCheck, apiUsersController.profile);
+router.get('/user/:uuid', apiUsersController.profile);
 
 //router.post('/', notLogged, fileUpload.single('profile-picture'), validateForm, apiUsersController.register);
 
 
-router.get('/users',adminCheck, apiUsersController.userList);
+router.get('/users', apiUsersController.userList);
 
-router.get('/adminusers',adminCheck, apiUsersController.adminUsers);
+router.get('/adminusers', apiUsersController.adminUsers);
 
 module.exports = router;
