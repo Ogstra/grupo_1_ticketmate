@@ -21,63 +21,57 @@
     height: 35px;
 }
 
-.create-event-button {
-    width: 150px;
-    border: 1px solid rgb(200, 200, 200);
-    margin: 5px 20px;
-}
 
-.event-container {
-    margin: 25px 20px;
+/* ---------------------------------------- */
+
+.events-wrapper {
+    margin: 25px 0;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px 20px;
 }
 
-.event-container img {
+.event-card-img-container {
+    aspect-ratio: 16/9;
+}
+
+.event-card-img-container img {
+    border-radius: 12px;
     object-fit: cover;
+    width: 100%;
+    height: 100%;    
 }
 
-.img-a-container a,
-.create-event-button a {
-    display: flex;
-    text-decoration: none;
+.event-card {
+    max-width: calc(100% - 20px);
+    aspect-ratio: 8/7;
+    flex: 0 0 calc(100% - 35px);
+    padding: 0px;
+    border: 1px solid black;
+    border-radius: 12px;
 }
 
-.img-a-container>img{
-    aspect-ratio: 1/1;
+/* Responsive Styling */
+@media screen and (min-width: 480px) {
+    .event-card {
+        max-width: calc(50% - 20px);
+        flex: 0 0 calc(50% - 30px);
+    }
 }
 
-.img-a-container {
-    margin-top: 0px;
-    display: flex;
-    flex-direction: column;
-}
+@media screen and (min-width: 768px) {
+    .events-wrapper {
+        max-width: 1200px;
+        margin: 25px auto;
+    }
 
-.img-create img{
-    filter: drop-shadow(2px 2px 3px #00000059);
-}
-
-.event-container img,
-.event-container button {
-    margin: 5px 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border-radius: 5px;
-    width: 150px;
-    min-height: 75px;
-    border: 1px solid rgb(200, 200, 200);
-    box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
-}
-
-.event-container>article p,
-.event-container>article h2{
-    margin: 0;
-    margin-bottom: 14px;
+    .event-card {
+        max-width: calc(33% - 20px);
+        flex: 0 0 calc(45% - 20px);
+    }
 }
 
 
-.event-container button {
-    min-height: 30px;
-    background-color: lightblue;
-}
+
+/* ---------------------------------------- */

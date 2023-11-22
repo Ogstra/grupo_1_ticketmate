@@ -26,10 +26,105 @@
                 <button type="reset"><i class="fa-sharp fa-regular fa-circle-xmark"></i></button>
             </form>
         </div>
-        
+        <!-- ----------------------------SWIPER---------------------------- -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <!-- ----------------------------SWIPER---------------------------- -->
     </header>
     <main>
-        <section class="product-container">
+        <!-- ----------------------------SWIPER---------------------------- -->
+        <style>
+            html,
+            body {
+              position: relative;
+              height: 100%;
+            }
+        
+            body {
+              background: #eee;
+              font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+              font-size: 14px;
+              color: #000;
+              margin: 0;
+              padding: 0;
+            }
+        
+            .swiper {
+                margin: 25px auto;
+                width: calc(100vw - 50px);
+            }
+        
+            .swiper-slide {
+              text-align: center;
+              font-size: 18px;
+              background: #fff;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 15px;
+            }
+        
+            .swiper-slide img {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+        
+            .swiper-pagination {
+                position: unset;
+                padding-bottom: 15px;
+                text-align: end;
+            }
+
+            .swiper-pagination-bullet {
+              width: 20px;
+              height: 20px;
+              text-align: center;
+              line-height: 20px;
+              font-size: 12px;
+              color: #000;
+              opacity: 1;
+              background: rgba(0, 0, 0, 0.2);
+            }
+        
+            .swiper-pagination-bullet-active {
+              color: #fff;
+              background: #007aff;
+            }
+          </style>
+        <div class="swiper-container">
+            <div class="swiper mySwiper">
+                <div class="swiper-pagination"></div>
+                <div class="swiper-wrapper">
+                    <% for( let i = 0; i <= 8; i++ ) { %>
+                        <div class="swiper-slide scroller-element">
+                            <a href="/events/<%= events[i].id %>">
+                                <img src="/img/events/<%= events[i].image %>" alt="">
+                                <div class="scroller-content">
+                                    <div class="content-left">
+                                        <span class="date-day">
+                                            <% let eventDay = (new Date(events[i].date)).toLocaleDateString("es-AR", { day: "numeric" })%>
+                                            <%= eventDay %>
+                                        </span>
+                                        <span class="date-month">
+                                            <% let eventMonth = (new Date(events[i].date)).toLocaleDateString("es-AR", { month: "short" })%>
+                                            <%= eventMonth %>
+                                        </span>
+                                    </div>
+                                    <div class="content-right">
+                                        <p class="event-name"><%= events[i].name %></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <% } %>  
+                </div>
+
+            </div>
+        </div>
+        <!-- ----------------------------SWIPER---------------------------- -->
+
+<!--         <section class="product-container">
 
             <div class="product-container-header">
                 <h2>Próximos Eventos</h2>
@@ -43,9 +138,9 @@
                 </div>
             </div>
 
-            <hr class="divider">
+            <hr class="divider"> -->
 
-            <div class="scroller-wrapper snap-scroll">
+<!--             <div class="scroller-wrapper snap-scroll">
                 <% for( let i = 0; i <= 8; i++ ) { %>
                     <div class="scroller-element">
                         <a href="/events/<%= events[i].id %>">
@@ -146,7 +241,7 @@
                         <% } %>  
                     </div>
                 </div>
-            </div>
+            </div> -->
         </section>
     </main>
     <footer>
@@ -184,5 +279,20 @@
         </div>
     </footer>
 </body>
-
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>    
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 3,
+                spaceBetween: 15,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '">' + (index + 1) + "</span>";
+                    },
+                },
+            });
+        </script>
 </html>
