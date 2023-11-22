@@ -31,10 +31,12 @@ const controller = {
 
 	// Create - Form to create
 	create: async (req, res) => {
+		const userLogged = req.session.userLogged;
 		const errors = req.query;
 		const categories = await db.Category.findAll({ raw: true });
 		res.render('event-creation-form', {
-			errors: errors,
+			userLogged,
+			errors,
 			categories
 		}); //hacer llegar de alguna manera los datos del error anterior
 	},

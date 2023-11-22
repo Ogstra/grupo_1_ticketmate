@@ -21,43 +21,31 @@
     <main>
         <div class="create-form-container">
             <form class="create-form" action="/events/" method="POST" enctype="multipart/form-data">
-                <div class="errores">
-                    <p>
-                        <%= locals.errors.nameError %>
-                    </p>
-                    <p>
-                        <%= locals.errors.priceError %>
-                    </p>
-                    <p>
-                        <%= locals.errors.stockError %>
-                    </p>
-                    <p>
-                        <%= locals.errors.dateError %>
-                    </p>
-                    <p>
-                        <%= locals.errors.timeError %>
-                    </p>
+                <div class="control-formulario">
+                    <label for="name">Nombre *</label>
+                    <span class="failed-validation" id="name-error"></span>
+                    <input type="text" name="name" id="name" value="<%= locals.errors.oldname %>">
                 </div>
                 <div class="control-formulario">
-                    <label for="name">Nombre</label>
-                    <input type="text" name="name" value="<%= locals.errors.oldname %>">
-                </div>
-                <div class="control-formulario">
-                    <label for="price">Precio</label>
-                    <input type="number" name="price" value="<%= locals.errors.oldprice %>">
+                    <label for="price">Precio *</label>
+                    <span class="failed-validation" id="price-error"></span>
+                    <input type="number" name="price" id="price" value="<%= locals.errors.oldprice %>">
                 </div>
                 
                 <div class="control-formulario">
-                    <label for="stock">Stock</label>
-                    <input type="number" name="stock" value="<%= locals.errors.oldstock %>">
+                    <label for="stock">Stock *</label>
+                    <span class="failed-validation" id="stock-error"></span>
+                    <input type="number" name="stock" id="stock" value="<%= locals.errors.oldstock %>">
                 </div>
                 <div class="control-formulario">
-                    <label for="date">Fecha</label>
-                    <input type="date" format="dd/mm/yyyy" name="date" value="<%= locals.errors.olddate %>">
+                    <label for="date">Fecha *</label>
+                    <span class="failed-validation" id="date-error"></span>
+                    <input type="date" format="dd/mm/yyyy" id="date" name="date" value="<%= locals.errors.olddate %>">
                 </div>
                 <div class="control-formulario">
-                    <label for="time">Horario</label>
-                    <input type="time" name="time" value="<%= locals.errors.oldtime %>">
+                    <label for="time">Horario *</label>
+                    <span class="failed-validation" id="time-error"></span>
+                    <input type="time" name="time" id="time" value="<%= locals.errors.oldtime %>">
                 </div>
                 <div class="control-formulario">
                     <label for="category">Categoría</label>
@@ -74,16 +62,17 @@
                     </select>
                     </div>
                     <div class="control-formulario">
-                    <label for="event-image">Imágen</label>
-                    <div class="img-select">
-                    <img class="img-profile" id="imgProd" src="/img/events/placeholder.jpg">
-                    <label for="event-image" class="event-image-label">Select file</label>
-                    <input type="file" class="input-file" style="display:none;" id="event-image" name="event-image" onchange="loadFile(event)">
-                    </div>
+                        <label for="event-image">Imágen</label>
+                        <div class="img-select">
+                            <img class="img-profile" id="imgProd" src="/img/events/placeholder.jpg">
+                            <label for="event-image" class="event-image-label">Select file</label>
+                            <input type="file" class="input-file" style="display:none;" id="event-image" name="event-image"
+                                onchange="loadFile(event)">
+                        </div>
                     </div>
                     <div class="control-formulario">
-                    <label for="description">Descripción</label>
-                    <textarea name="description" cols="30" rows="10"><%= locals.errors.olddescription %></textarea>
+                        <label for="description">Descripción</label>
+                        <textarea name="description" cols="30" rows="10"><%= locals.errors.olddescription %></textarea>
                     </div>
                     <button type="submit" class="boton-formulario">Publicar</button>
                     <button type="reset" class="boton-formulario">Borrar</button>
@@ -91,4 +80,60 @@
             </div>
         </main> 
     </body>
+
+    <script>
+        window.addEventListener('load', function() {
+            const form = document.querySelector('.create-form')
+            const nameField = document.querySelector('#name')
+            const priceField = document.querySelector('#price')
+            const stockField = document.querySelector('#stock')
+            const dateField = document.querySelector('#date')
+            const timeField = document.querySelector('#time')            
+            
+            form.addEventListener('submit', function(event){
+                let errors = {}
+
+                document.querySelectorAll('.failed-validation').forEach(element=>element.innerHTML = '')
+                document.querySelectorAll('input').forEach(element=>element.classList.remove('error-border'))
+
+                if(nameField.value == ''){
+                    errors.name = 'El nombre es obligatorio'
+                    document.querySelector('#name').classList.add('error-border')
+                }else if(nameField.value.length < 3){
+                    errors.name = 'El nombre debe tener al menos 3 caracteres'
+                    document.querySelector('#name').classList.add('error-border')
+                }
+
+                if(priceField.value == ''){
+                    errors.price = 'El precio es obligatorio'
+                    document.querySelector('#price').classList.add('error-border')
+                }
+
+                if(stockField.value== ''){
+                    errors.stock = 'El nro de Stock es obligatorio'
+                    document.querySelector('#stock').classList.add('error-border')
+                }
+
+                if(dateField.value== ''){
+                    errors.date = 'La fecha es obligatoria'
+                    document.querySelector('#date').classList.add('error-border')
+                }
+
+                if(timeField.value== ''){
+                    errors.time = 'El horario es obligatorio'
+                    document.querySelector('#time').classList.add('error-border')
+                }
+
+                if(Object.keys(errors).length>0){
+                    event.preventDefault();
+                    errors.name ? document.querySelector('#name-error').innerHTML = errors.name : null
+                    errors.price ? document.querySelector('#price-error').innerHTML = errors.price : null
+                    errors.stock ? document.querySelector('#stock-error').innerHTML = errors.stock : null
+                    errors.date ? document.querySelector('#date-error').innerHTML = errors.date : null
+                    errors.time ? document.querySelector('#time-error').innerHTML = errors.time : null
+                }
+            })
+        })
+    </script>
+
 </html>
