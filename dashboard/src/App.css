@@ -2,8 +2,6 @@
 body{
   margin:0;
   padding: 0;
-  background-color: #1d2634;
-  color: #9e9ea4;
   font-family: 'Roboto', 'sans-serif';  
 }
 
@@ -63,7 +61,7 @@ body{
 #sidebar {
   grid-area: sidebar;
   height: 100%;
-  background-color: #263043;
+  background-color: #101827;
   overflow-y: auto;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -146,6 +144,10 @@ border-radius: 5px;
 
 .card:first-child {
   background-color: #2932ff;
+}
+
+.css-1f0i56i-MuiTableRow-root:last-child td, .css-1f0i56i-MuiTableRow-root:last-child th {
+  border: none!important
 }
 
 .card:nth-child(2) {

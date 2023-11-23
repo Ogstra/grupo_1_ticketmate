@@ -13,13 +13,13 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
 
         <ul className='sidebar-list'>
             <li className='sidebar-list-item'>
-                <a href="#prueba">
+                <a href="/">
                     <BsGrid1X2Fill className='icon'/> Dashboard
                 </a>
             </li>
 
             <li className='sidebar-list-item'>
-                <a href="#prueba">
+                <a href="/events">
                     <BsFillArchiveFill className='icon'/> Events
                 </a>
             </li>
