@@ -22,7 +22,10 @@
                 <img src="/img/profile-pictures/<%=user.image%>" alt="">
             </div>
             <div class="user-description">
-                <p class="username"><%= user.username %></p>
+                <div>
+                    <p class="username"><%= user.username %></p>
+                    <button> Cambiar </button>
+                </div>
                 <p class="user-real-name"><%= user.first_name + " " + user.last_name %></p>
             </div>
         </div>
