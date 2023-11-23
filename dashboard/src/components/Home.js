@@ -56,12 +56,12 @@ function Home() {
       const [venues, setVenues] = useState([]);
       const [isError, setIsError] = useState(false);
 
-      useEffect(() => {
+      useEffect(() => {    
         fetch("http://localhost:3000/api/events")
           .then((response) => {
-            if (response.ok) {
+            if (response.ok) {                       
               return response.json();
-            } else {
+            } else {              
               throw "Error getting events";
             }
           })
@@ -90,12 +90,12 @@ function Home() {
           });
       }, []);
 
-      useEffect(() => {
+      useEffect(() => {    
         fetch("http://localhost:3000/api/users")
           .then((response) => {
-            if (response.ok) {
+            if (response.ok) {                       
               return response.json();
-            } else {
+            } else {              
               throw "Error getting users";
             }
           })
@@ -123,7 +123,8 @@ function Home() {
             setIsError(true);
           });
       }, []);
-
+      
+      
   return (
     <main className='main-container'>
         <div className='main-title'>
