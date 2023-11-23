@@ -21,6 +21,13 @@
     <main>
         <div class="create-form-container">
             <form class="create-form" action="/events/" method="POST" enctype="multipart/form-data">
+                <div class="errores">
+                    <p><%= locals.errors.nameError %></p>
+                    <p><%= locals.errors.priceError %></p>
+                    <p><%= locals.errors.stockError %></p>
+                    <p><%= locals.errors.dateError %></p>
+                    <p><%= locals.errors.timeError %></p>
+                </div>
                 <div class="control-formulario">
                     <label for="name">Nombre *</label>
                     <span class="failed-validation" id="name-error"></span>

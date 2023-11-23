@@ -15,7 +15,7 @@
 
     <head>
         <nav>
-            <div id="texto-nav">Register</div>
+            <div id="texto-nav">Registro</div>
             <a class="boton-home" href="/">
                 <div id="logo-x"><i class="fa-solid fa-xmark"></i></div>
             </a>
@@ -27,47 +27,69 @@
     <main>
         <div class="login-form">
             <form action="/" method="POST" class="create-form" enctype="multipart/form-data">
+
+                <div class="errores">
+                    <p><%= locals.errors.DBError %></p>
+                    <p><%= locals.errors.usernameError %></p>
+                    <p><%= locals.errors.emailError %></p>
+                    <p><%= locals.errors.firstNameError %></p>
+                    <p><%= locals.errors.lastNameError %></p>
+                    <p><%= locals.errors.passwordError %></p>
+                    <p><%= locals.errors.passwordConfirmError %></p>
+                </div>
+
                 <div class="control-formulario">
-                    <p class="error"><%= locals.errors.DBError %></p>
                     <label><b>Nombre de usuario:</b></label>
-                    <p class="error"><%= locals.errors.usernameError %></p>
-                    <input type="text" name="username" class="control"  autofocus value="<%= locals.errors.oldusername %>">
-                </div class="control-formulario">
+                    <span class="failed-validation" id="userName-error"></span>
+                    <input type="text" name="username" id="userName" class="control" autofocus
+                        value="<%= locals.errors.oldusername %>">
+                </div>
+
                 <div class="control-formulario">
                     <label><b>Email:</b></label>
-                    <p class="error"><%= locals.errors.emailError %></p>
-                    <input type="email" name="email" class="control"  value="<%= locals.errors.oldemail %>">
-                </div class="control-formulario">
+                    <span class="failed-validation" id="email-error"></span>
+                    <input type="text" name="email" id="email" class="control" value="<%= locals.errors.oldemail %>">
+                </div>
+
                 <div class="control-formulario">
                     <label><b>Nombre:</b></label>
-                    <p class="error"><%= locals.errors.firstNameError %></p>
-                    <input type="text" name="firstName" class="control"  value="<%= locals.errors.oldfirstName %>">
-                </div class="control-formulario">
+                    <span class="failed-validation" id="firstName-error"></span>
+                    <input type="text" name="firstName" id="firstName" class="control"
+                        value="<%= locals.errors.oldfirstName %>">
+                </div>
+
                 <div class="control-formulario">
                     <label><b>Apellido:</b></label>
-                    <p class="error"><%= locals.errors.lastNameError %></p>
-                    <input type="text" name="lastName" class="control"  value="<%= locals.errors.oldlastName %>">
-                </div class="control-formulario">
+                    <span class="failed-validation" id="lastName-error"></span>
+                    <input type="text" name="lastName" id="lastName" class="control"
+                        value="<%= locals.errors.oldlastName %>">
+                </div>
+
                 <div class="control-formulario control-formulario-image">
                     <label for="event-image"><b>Foto de perfil</b></label>
                     <div class="img-select">
                         <img class="img-profile" id="imgProd" src="/img/profile-pictures/default-profile-picture.jpg">
                         <label for="profile-picture" class="event-image-label">Select file</label>
-                        <input type="file" class="input-file" name="profile-picture" style="display:none;" id="profile-picture" onchange="loadFile(event)">
+                        <input type="file" class="input-file" name="profile-picture" style="display:none;"
+                            id="profile-picture" onchange="loadFile(event)" accept="image/*, .jpg, .jpeg, .png, .gif">
                     </div>
                 </div>
-                    <div class="control-formulario">
-                        <label for="password"><b>Contraseña:</b></label>
-                        <p class="error"><%= locals.errors.passwordError %></p>
-                        <input type="password" id="password" name="password" class="control" >
-                    </div>
-                    <div class="control-formulario">
-                        <label for="passwordConfirm"><b>Repetir contraseña:</b></label>
-                        <p class="error"><%= locals.errors.passwordConfirmError %></p>
-                        <input type="password" id="passwordConfirm" name="passwordConfirm" class="control" >
-                    </div>
-                    <button type="submit" class="boton-formulario">Ingresar</button>
-                    <p class="sign-up-button">Already have an account? <a href="/login">Log in</a></p>
+
+                <div class="control-formulario">
+                    <label for="password"><b>Contraseña:</b></label>
+                    <span class="failed-validation" id="password-error"></span>
+                    <input type="password" id="password" name="password" class="control">
+                </div>
+
+                <div class="control-formulario">
+                    <label for="passwordConfirm"><b>Repetir contraseña:</b></label>
+                    <span class="failed-validation" id="passwordConfirm-error"></span>
+                    <input type="password" id="passwordConfirm" name="passwordConfirm" class="control">
+                </div>
+                
+                <button type="submit" class="boton-formulario">Ingresar</button>
+                <p class="sign-up-button">Ya tienes una cuenta? <a href="/login">Log in</a></p>
+
             </form>
         </div>
     </main>
@@ -75,5 +97,75 @@
 
     </footer>
 </body>
+
+<script>
+    window.addEventListener('load', function () {
+        const form = document.querySelector('.create-form')
+        const usernameField = document.querySelector('#userName')
+        const emailField = document.querySelector('#email')
+        const firstNameField = document.querySelector('#firstName')
+        const lastNameField = document.querySelector('#lastName')
+        const passwordField = document.querySelector('#password')
+        const passwordConfirmField = document.querySelector('#passwordConfirm')
+
+        form.addEventListener('submit', function (event) {
+            let errors = {}
+
+            document.querySelectorAll('.failed-validation').forEach(element => element.innerHTML = '')
+            document.querySelectorAll('input').forEach(element => element.classList.remove('error-border'))
+
+            if (usernameField.value == '') {
+                errors.userName = 'Ingrese un nombre de usuario'
+                document.querySelector('#userName').classList.add('error-border')
+            } else if (usernameField.value.length < 3) {
+                errors.userName = 'El usuario es muy corto'
+                document.querySelector('#userName').classList.add('error-border')
+            }
+
+            if (emailField.value == '') {
+                errors.email = 'El mail es obligatorio'
+                document.querySelector('#email').classList.add('error-border')
+            }else if (!email.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)){
+                errors.email = 'El mail debe ser valido'
+                document.querySelector('#email').classList.add('error-border')
+            }
+
+            if (firstNameField.value == '') {
+                errors.firstName = 'El nombre es obligatorio'
+                document.querySelector('#firstName').classList.add('error-border')
+            }
+
+            if (lastNameField.value == '') {
+                errors.lastName = 'El apellido es obligatorio'
+                document.querySelector('#lastName').classList.add('error-border')
+            }
+
+            if (passwordField.value == '') {
+                errors.password = 'La contraseña es obligatoria'
+                document.querySelector('#password').classList.add('error-border')
+            } else if (passwordField.value.length < 6){
+                errors.password = 'La contraseña es muy corta'
+                document.querySelector('#password').classList.add('error-border')
+            }
+
+            if(passwordConfirmField.value != passwordField.value){
+                errors.passwordConfirm = 'Las contraseñas deben coincidir'
+                document.querySelector('#passwordConfirm').classList.add('error-border')
+            }
+
+            console.log(errors);
+
+            if (Object.keys(errors).length > 0) {
+                event.preventDefault();
+                errors.userName ? document.querySelector('#userName-error').innerHTML = errors.userName : null
+                errors.email ? document.querySelector('#email-error').innerHTML = errors.email : null
+                errors.firstName ? document.querySelector('#firstName-error').innerHTML = errors.firstName : null
+                errors.lastName ? document.querySelector('#lastName-error').innerHTML = errors.lastName : null
+                errors.password ? document.querySelector('#password-error').innerHTML = errors.password : null
+                errors.passwordConfirm ? document.querySelector('#passwordConfirm-error').innerHTML = errors.passwordConfirm : null
+            }
+        })
+    })
+</script>
 
 </html>

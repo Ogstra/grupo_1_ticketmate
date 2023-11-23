@@ -20,7 +20,7 @@ nav {
     color: #000000;
 }
 
-.error{
+.errores>p{
     color: var(--error);
 }
 
@@ -175,4 +175,16 @@ input[type="password"]{
     min-height: 75px;
     border: 1px solid rgb(200, 200, 200);
     box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1);
+}
+
+.failed-validation{
+    color: red;
+    position: absolute;
+    right: 0px;
+    font-size: 14px;
+    top: 7px;
+}
+
+.error-border{
+    border-color: red !important;
 }

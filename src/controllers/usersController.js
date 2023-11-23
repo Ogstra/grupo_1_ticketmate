@@ -15,11 +15,13 @@ const { validationResult } = require("express-validator");
 
 const controller = {
 	loginForm: (req, res) => {
-		res.render("login");
+		const errors = req.query
+		res.render("login", {errors});
 	},
 	login: async (req, res) => {
 		const username = req.body.username;
 		let comparePasswords = false; // password authentication flag
+		const DBError = '?&DBError=Usuario o contraseña incorrectos'
 
 		try {
 			const userDb = await db.User.findOne({
@@ -53,10 +55,11 @@ const controller = {
 						maxAge: 365 * 24 * 3600 * 1000 // 1 year
 					});
 				}
+
 				res.redirect("/");
 
 			} else {
-				res.redirect("./login");
+				res.redirect("./login"+DBError);
 			}
 		} catch (error) {
 			res.send(error);

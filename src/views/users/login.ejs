@@ -24,23 +24,34 @@
     <main>
         <div class="login-form">
             <form action="/login" method="POST" class="create-form">
+
+                <div class="errores">
+                    <p><%= locals.errors.DBError %></p>
+                </div>
+
                 <div class="control-formulario">
                     <label><b>Nombre de usuario:</b></label>
-                    <input type="text" name="username" class="control" minlength="5" required autofocus>
-                </div class="control-formulario">
+                    <span class="failed-validation" id="userName-error"></span>
+                    <input type="text" name="username" class="control" id="userName">
+                </div>
+
                 <div class="control-formulario">
                     <label for="password"><b>Contraseña:</b></label>
+                    <span class="failed-validation" id="password-error"></span>
                     <div class="control-formulario-password">
-                        <input type="password" id="password" name="password" class="control" required>
+                        <input type="password" id="password" name="password" class="control" >
                         <a class="showPassword-eye" type="checkbox" onclick="showPassword()"><i class="fa-regular fa-eye"></i></a>
                     </div>
                 </div>
+
                 <div class="mantener-sesion-iniciada">
                     <label class="mant-ses-ini-label" for="mant-ses-ini" style="cursor: pointer;"><input type="checkbox" id="mant-ses-ini" name="mant-ses-ini">Mantener sesión iniciada</label>
                     <a class="forgot-password" href="/forgot-password">Forgot password?</a>
                 </div>
+
                 <button type="submit" class="boton-formulario">Ingresar</button>
                 <p class="sign-up-button">Need a TicketMate account? <a href="/register">Sign up</a></p>
+
             </form>
         </div>
     </main>
@@ -48,4 +59,40 @@
 
     </footer>
 </body>
+
+<script>
+        window.addEventListener('load', function () {
+            const form = document.querySelector('.create-form')
+            const usernameField = document.querySelector('#userName')
+            const passwordField = document.querySelector('#password')
+    
+            form.addEventListener('submit', function (event) {
+                let errors = {}
+
+                document.querySelectorAll('.failed-validation').forEach(element => element.innerHTML = '')
+                document.querySelectorAll('input').forEach(element => element.classList.remove('error-border'))
+
+                if (usernameField.value == '') {
+                    errors.userName = 'Ingrese un usuario'
+                    document.querySelector('#userName').classList.add('error-border')
+                } else if (usernameField.value.length < 3) {
+                    errors.userName = 'El usuario es muy corto'
+                    document.querySelector('#userName').classList.add('error-border')
+                }
+
+                if (passwordField.value == '') {
+                    errors.password = 'La contraseña es obligatoria'
+                    document.querySelector('#password').classList.add('error-border')
+                }
+
+                console.log(errors);
+
+                if (Object.keys(errors).length > 0) {
+                    event.preventDefault();
+                    errors.userName ? document.querySelector('#userName-error').innerHTML = errors.userName : null
+                    errors.password ? document.querySelector('#password-error').innerHTML = errors.password : null
+                }
+            })
+        })
+</script>
 </html>
