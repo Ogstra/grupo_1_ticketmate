@@ -11,6 +11,11 @@
         const boton = document.querySelectorAll('.slider-button');
         boton.onclick = (e) => e.preventDefault();
     </script>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -29,6 +34,37 @@
         
     </header>
     <main>
+        
+
+
+            <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="product-container-header">
+            <h2>Próximos Eventos</h2>
+            <div class="slider-nav-container">
+                <span>Páginas </span>
+                <div class="slider-nav">
+                    <div class="swiper-button-prevv"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-nextt"><i class="fa-solid fa-chevron-right"></i></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 4</div>
+          <div class="swiper-slide">Slide 5</div>
+          <div class="swiper-slide">Slide 6</div>
+          <div class="swiper-slide">Slide 7</div>
+          <div class="swiper-slide">Slide 8</div>
+          <div class="swiper-slide">Slide 9</div>
+        </div>
+      </div>
+
+
         <section class="product-container">
 
             <div class="product-container-header">
@@ -184,5 +220,119 @@
         </div>
     </footer>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<style>
+    html,
+    body {
+        position: relative;
+        height: 100%;
+    }
+
+    body {
+        background: #eee;
+        font-family:
+            Helvetica Neue,
+            Helvetica,
+            Arial,
+            sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .swiper {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        height: 370px;
+        max-width: calc(100vw - 25px);
+    }
+
+    .swiper-slide {
+        box-shadow: 0 0 9px 1px hsla(0, 0%, 0%, 0.15);
+        border-radius: 16px;
+        max-height: 300px !important;
+        height: 100%;
+        max-width: 450px;
+        text-align: center;
+        font-size: 18px;
+        background: #a5a5a5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 16/9;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .swiper-pagination {
+        position: unset;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .swiper-button-next{
+        border-right: 1px solid grey;
+    }
+    .swiper-button-prev{
+        border-right: 1px solid grey;
+    }
+    .swiper-button-nextt, .swiper-button-prevv{
+        position: relative;
+        color: #000 !important;
+        fill: black !important;
+        stroke: black !important;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .swiper-button-nextt i,
+    .swiper-button-prevv i {
+        font-size: 22px;
+    }
+    
+    .swiper-wrapper {
+        height: auto;
+    }
+
+    .swiper-pagination-current,
+    .swiper-pagination-total{
+        padding-right: 0!important;
+    }
+</style>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1.1,
+        spaceBetween: 15,
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+        },
+        navigation: {
+          nextEl: ".swiper-button-nextt",
+          prevEl: ".swiper-button-prevv",
+        },
+        breakpoints: {
+          960: {
+            slidesPerView: 4,
+            spaceBetween: 15,
+          },
+          548: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+          }
+        },
+      });
+    </script>
 
 </html>
