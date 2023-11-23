@@ -94,6 +94,14 @@ main {
     overflow: hidden;
 }
 
+.event-name-white{
+    text-align: center;
+    color: var(--GrisClaro);
+    font-weight: 600;
+    font-size: 24px;
+    overflow: hidden;
+}
+
 /* .profile-subtitle {
     text-align: center;
     color: #6e6e6e;
