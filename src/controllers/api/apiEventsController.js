@@ -3,6 +3,7 @@ const path = require('path');
 const db = require("../../database/models");
 const { validationResult } = require('express-validator');
 const moment = require('moment');
+const {Op} = require('sequelize');
 
 const controller = {
     // Root - Show all events
@@ -43,6 +44,18 @@ const controller = {
             res.json(error);
         }
     },
+
+    getEventByName: async (req,res) => {
+        try {
+            const result = await db.Event.findAll(
+                {where: {name: {[Op.like]: '%'+req.params.search+'%'} } }
+            )
+            res.json(result)
+        } catch (error) {
+            console.log(error);
+            res.json(error)
+        }
+    }
 };
 
 module.exports = controller;

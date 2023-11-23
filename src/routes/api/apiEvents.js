@@ -47,6 +47,8 @@ let fileUpload = multer({ storage: multerDiskStorage });
 /*** GET ALL events ***/
 router.get('/', apiEventsController.getEvents);
 
+router.get('/search/:search', apiEventsController.getEventByName);
+
 router.get('/categories', apiEventsController.getCategories);
 
 router.get('/venues', apiEventsController.getVenues);
@@ -64,6 +66,7 @@ router.get('/:id', apiEventsController.getDetail);
 
 /*** DELETE ONE PRODUCT***/
 router.delete('/:id', apiEventsController.destroy);
+
 
 
 module.exports = router;

@@ -20,10 +20,11 @@
         <style> .search-nav {display: none;}</style>
 
         <div class="fondo-inicio">
-            <form action="/search" method="get" class="search-bar">
+            <form action="" method="get" class="search-bar" id="form-search" >
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <input type="text" placeholder="Que estas buscando?...">
+                <input type="text" id="main-search" placeholder="Que estas buscando?...">
                 <button type="reset"><i class="fa-sharp fa-regular fa-circle-xmark"></i></button>
+                <ul id="main-search-result"></ul>
             </form>
         </div>
         
@@ -184,5 +185,7 @@
         </div>
     </footer>
 </body>
+
+    <script src="/js/search.js"></script>
 
 </html>
