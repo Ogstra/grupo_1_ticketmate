@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { Component, useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Home from './Home'
+import Home from './components/Home';
+import Sidebar from './components/Sidebar';
+import Header from './components/Header';
+import EventsList from './components/EventsList';
 
 function App() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
@@ -11,13 +13,17 @@ function App() {
   }
 
     return (
-    <div className='grid-container'>
-      <Header OpenSidebar={OpenSidebar}/>
-      <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
-      <Home />
-
-    </div>
-  );
+  <div className='grid-container'>
+        <Header OpenSidebar={OpenSidebar}/>
+        <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+        <Switch>
+          <Route path="/" exact={true} component={Home} />
+          <Route path="/events" exact={true} component={EventsList} />
+        </Switch>
+      </div>
+    )
+  
 }
+
 
 export default App;
