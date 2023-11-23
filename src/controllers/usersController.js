@@ -17,6 +17,8 @@ const controller = {
 	loginForm: (req, res) => {
 		const errors = req.query
 		res.render("login", {errors});
+		
+		console.log(req.cookies.myCart);	
 	},
 	login: async (req, res) => {
 		const username = req.body.username;
@@ -47,6 +49,17 @@ const controller = {
 					admin: userDb.admin
 				}
 
+				try {
+					await db.Cart.update({user_id: userDb.uuid},{
+						where: {
+							user_id: req.session.id
+						}
+					});
+					res.clearCookie("myCart");
+				} catch (error) {
+					
+				}
+
 				if (req.body["mant-ses-ini"] === "on") {
 					let token = jwt.sign({ ...req.session.userLogged }, secretKey, { expiresIn: '365d' });
 					res.cookie("auth", { token }, {
@@ -55,7 +68,7 @@ const controller = {
 						maxAge: 365 * 24 * 3600 * 1000 // 1 year
 					});
 				}
-
+				
 				res.redirect("/");
 
 			} else {
