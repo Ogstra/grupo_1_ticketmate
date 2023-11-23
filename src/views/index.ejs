@@ -39,7 +39,6 @@
 
 
             <!-- Swiper -->
-    <% console.log(events); %>
     <div class="swiper mySwiper">
         <div class="product-container-header">
             <h2>Próximos Eventos</h2>
@@ -81,7 +80,49 @@
             <% }) %>
         </div>
       </div>
-
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="product-container-header">
+                    <h2>Eventos varios</h2>
+                    <div class="slider-nav-container">
+                        <span>Páginas </span>
+                        <div class="slider-nav">
+                            <div class="swiper-button-prevv"><i class="fa-solid fa-chevron-left"></i></div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-nextt"><i class="fa-solid fa-chevron-right"></i></div>
+                        </div>
+                    </div>
+        
+                </div>
+                <hr class="divider">
+                <div class="swiper-wrapper">
+                <% eventsOther.forEach(event => { %>
+         
+        
+                    <div class="swiper-slide">
+                        <a href="/events/<%= event.id %>">
+                            <img src="/img/events/<%= event.image %>" alt="">
+                            <div class="slider-content">
+                                <div>
+                                    <div class="content-left">
+                                        <span class="date-day">
+                                            <% let eventDay = (new Date(event.date)).toLocaleDateString("es-AR", { day: "numeric" })%>
+                                            <%= eventDay %>
+                                        </span>
+                                        <span class="date-month">
+                                            <% let eventMonth = (new Date(event.date)).toLocaleDateString("es-AR", { month: "short" })%>
+                                            <%= eventMonth %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <span class="event-name"><%= event.name %></span>
+                            </div>
+                        </a>
+                    </div>
+                    <% }) %>
+                </div>
+              </div>
+        
     </main>
     <footer>
         <div class="footer-cont">

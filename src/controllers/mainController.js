@@ -13,7 +13,13 @@ const mainController = {
                 raw: true,
                 order: [["date", "ASC"]]
             });       
-            res.render('index.ejs', {userLogged, events});
+            const eventsOther = await db.Event.findAll({
+                limit: 18,
+                raw: true,
+                order: [["date", "desc"]],
+                where: {category_id: 4}
+            });      
+            res.render('index.ejs', {userLogged, events, eventsOther});
         } catch (error) {
             console.log(error);      
         }
