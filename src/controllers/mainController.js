@@ -9,7 +9,7 @@ const mainController = {
         const userLogged = req.session.userLogged;
         try {
             const events = await db.Event.findAll({
-                limit: 9,
+                limit: 18,
                 raw: true,
                 order: [["date", "ASC"]]
             });       
