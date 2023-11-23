@@ -10,6 +10,7 @@ const controller = {
     getEvents: async (req, res) => {
         const events = await db.Event.findAll({
             include: ["category"],
+            nested: true,
             order: [["date", "ASC"]],
         });
         res.json(events);

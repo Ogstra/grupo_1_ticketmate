@@ -459,14 +459,19 @@ nav a>div,
     display: none;
 }
 
-.slider-nav-container span {
-    align-self: flex-end;
-    padding-right: 1rem;
+.slider-nav-container span{
+   align-self: flex-end;
+   margin: auto;
+   padding-right: 1rem;
 }
 
 .slider-nav {
-    display: flex;
-    max-width: min-content;
+    padding: 7px;
+    margin-right: 5px;
+	display: flex;
+    align-items: center;
+    width: 100px;
+    height: 40px;
     border-radius: 8px;
     box-shadow: 0 0 9px 1px hsla(0, 0%, 0%, 0.15);
 
@@ -672,6 +677,7 @@ nav a>div,
     background-color: #121212;
     color: white;
 }
+
 
 footer ul {
     list-style-type: none;

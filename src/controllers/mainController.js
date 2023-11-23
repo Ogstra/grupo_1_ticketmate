@@ -78,6 +78,16 @@ const mainController = {
             var userID = userLogged.uuid;
           } else {
             var userID = req.session.id;
+            const selectedEventGuest = {
+                user_id: userID ,
+                event_id: req.params.id,
+                quantity: req.body.quantity,
+            }
+            res.cookie("myCart", { selectedEventGuest }, {
+                httpOnly: true,
+                sameSite: true,
+                maxAge: 365 * 24 * 3600 * 1000 // 1 year
+            });
           }
 
           
