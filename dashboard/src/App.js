@@ -9,6 +9,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Users from "./components/Users";
 import Categories from "./components/Categories";
+import NearestEvent from "./components/NearestEvent";
+import Venues from "./components/Venues";
 
 function App() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
@@ -51,6 +53,8 @@ function App() {
         <Route path="/events" exact={true} component={EventsList} />
         <Route path="/users" exact={true} component={Users} />
         <Route path="/categories" exact={true} component={Categories} />
+        <Route path="/nearestEvent" exact={true} component={NearestEvent} />
+        <Route path="/venues" exact={true} component={Venues} />
       </Switch>
     </div>
     </ThemeProvider>

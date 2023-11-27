@@ -37,14 +37,14 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
             </li>
 
             <li className='sidebar-list-item'>
-                <a href="#prueba">
-                    <BsListCheck className='icon'/> Inventory
+                <a href="/nearestEvent">
+                    <BsListCheck className='icon'/> Nearest Events
                 </a>
             </li>
 
             <li className='sidebar-list-item'>
-                <a href="#prueba">
-                    <BsMenuButtonWideFill className='icon'/> Reports
+                <a href="/venues">
+                    <BsMenuButtonWideFill className='icon'/> Venues
                 </a>
             </li>
 

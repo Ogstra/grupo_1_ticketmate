@@ -1,7 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import { BsFillBellFill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill } from 'react-icons/bs'
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
-
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 function Home() {
 
@@ -124,6 +130,30 @@ function Home() {
           });
       }, []);
       
+        const [lastEvent, setLastEvent] = useState([]);
+  
+        useEffect(() => {
+          fetch("http://localhost:3000/api/events")
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              } else {
+                throw "Error getting events";
+              }
+            })
+            .then((data) => {
+              
+          // Ordena los eventos por fecha de forma descendente
+          const sortedEvents = data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+          // Toma el primer evento (el más reciente)
+          const latestEvent = sortedEvents[0];
+          setLastEvent([latestEvent]); // Actualiza el estado con el evento más reciente
+            })
+            .catch((error) => {
+              setIsError(true);
+            });
+        }, []);     
+  
       
   return (
     <main className='main-container'>
@@ -134,7 +164,8 @@ function Home() {
         <div className='main-cards'>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>EVENTS</h3>
+                <a href='/events'>EVENTS</a>
+                    {/*<h3>EVENTS</h3>*/}
                     <BsFillArchiveFill className='card_icon'/>
                 </div>
                 <h1>{events.length}</h1>
@@ -142,7 +173,8 @@ function Home() {
 
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>CATEGORIES</h3>
+                <a href='/categories'>CATEGORIES</a>
+                    {/*<h3>CATEGORIES</h3>*/}
                     <BsFillGrid3X3GapFill className='card_icon'/>
                 </div>
                 <h1>{categories.length}</h1>
@@ -150,7 +182,8 @@ function Home() {
 
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>USERS</h3>
+                <a href='/users'>USERS</a>
+                    {/*<h3>USERS</h3>*/}
                     <BsPeopleFill className='card_icon'/>
                 </div>
                 <h1>{users.length}</h1>
@@ -158,12 +191,72 @@ function Home() {
 
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>VENUES</h3>
+                <a href='/venues'>VENUES</a>
+                    {/*<h3>VENUES</h3>*/}
                     <BsFillBellFill className='card_icon'/>
                 </div>
                 <h1>{venues.length}</h1>
             </div>
         </div>
+
+        <div className='main-title'>
+            <h3>LAST EVENT LOADED</h3>
+        </div>
+
+        <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell align="left">Name</TableCell>
+              <TableCell align="left">Price</TableCell>
+              <TableCell align="left">Category</TableCell>
+              <TableCell align="left">Date</TableCell>
+              <TableCell align="left">Time</TableCell>
+              <TableCell align="left">Stock</TableCell>
+              <TableCell align="left">Description</TableCell>
+               {/*<TableCell align="left">Image</TableCell>*/}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {lastEvent.map((event, index) => (
+              <TableRow
+                key={index}
+                sx={{ "&:last-child td, &:last-child th": { border: 15 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {event.id}
+                </TableCell>
+                <TableCell align="left">{event.name}</TableCell>
+                <TableCell align="left">{event.price}</TableCell>
+                <TableCell align="left">{event.category.name}</TableCell>
+                <TableCell align="left">{event.date}</TableCell>
+                <TableCell align="left">{event.time}</TableCell>
+                <TableCell align="left">{event.stock}</TableCell>
+                <TableCell align="left">{event.description}</TableCell>
+                {/*<TableCell align="left">{event.image}</TableCell>*/}
+                {/*<TableCell align="left">
+                  <img src={event.image} alt={`Event ${event.id}`} /> </TableCell>{/* Mostrar la imagen */}
+                
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
+
+
+      {/*<div className="image-container">
+        {events.map((event, index) => (
+          <img
+            key={index}
+            src={event.image}
+            alt={`Evento ${event.id}`}
+            className="event-image"
+          />
+        ))}
+        </div>*/}
+
 
         <div className='charts'> 
         <ResponsiveContainer width="100%" height="100%">
