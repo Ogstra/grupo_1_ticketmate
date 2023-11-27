@@ -37,6 +37,7 @@ function Users() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
+              <TableCell align="left">Image</TableCell>  
               <TableCell>ID</TableCell>
               <TableCell align="left">First Name</TableCell>
               <TableCell align="left">Last Name</TableCell>
@@ -51,8 +52,9 @@ function Users() {
                 sx={{ "&:last-child td, &:last-child th": { border: 15 } }}
               >
                 <TableCell component="th" scope="row">
-                  {user.uuid}
+                  <img src={`http://localhost:3000/img/profile-pictures/` + user.image} className="user-profile-picture"></img>
                 </TableCell>
+                <TableCell align="left">{user.uuid}</TableCell>      
                 <TableCell align="left">{user.first_name}</TableCell>
                 <TableCell align="left">{user.last_name}</TableCell>
                 <TableCell align="left">{user.username}</TableCell>

@@ -194,6 +194,13 @@ border-radius: 5px;
 }
 /*end main*/
 
+.user-profile-picture {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  width: 50px;
+  border-radius: 10px;
+}
+
 
 @media screen and (max-width: 992px) {
 .grid-container {
